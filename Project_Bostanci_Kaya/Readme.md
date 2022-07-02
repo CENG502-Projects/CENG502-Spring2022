@@ -1,6 +1,5 @@
 # Towards Better Laplacian Representation in Reinforcement Learning with Generalized Graph Drawing
 
-
 This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/ADL/) project for reproducing the paper, "[Towards Better Laplacian Representation in Reinforcement Learning with Generalized Graph Drawing](https://arxiv.org/pdf/2107.05545.pdf)" which was published by Kaixin et al. in [ICML2021](https://icml.cc/Conferences/2021/Schedule?). 
 
 See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502-Spring2021](https://github.com/CENG502-Projects/CENG502-Spring2022)) for a complete list of all paper reproduction projects.
@@ -15,6 +14,8 @@ state embeddings are crucial to find the state-space geometry.
 
 taking the eigenvectors of the Laplacian matrix of the state-transition graph as state
 embeddings
+
+However, directly making eigendecompositon of the graph Laplacian matrix is computationally inefficient especially when the number of states is increased.
 
 
 ## 1.1. Paper summary
@@ -46,7 +47,9 @@ We denote the i-th smallest eigenvalue of L as λi, and the corresponding unit e
 
 The d-dimensional Laplacian representation of a state s is ’(s) = (e1[s]; · · · ; ed[s]), where ei[s] denotes the entry in vector ei that corresponds to state s. 
 
-In particular, e1 is a normalized all-ones vector and has the same value for all s.
+In particular, e1 is a normalized all-ones vector and has the same value for all s. 
+
+GGD [[1]](#1):
 
 $$
 \begin{equation}
@@ -55,16 +58,14 @@ $$
 \text{ s.t. } u_{i}^{T} u_{j}=\delta_{i j}, \forall i, j=1, \cdots, d,
 \end{gathered}
 \end{equation}
-$$
+$$ 
 
 
 # 2. The method and my interpretation
 
 ## 2.1. The original method
 
-@TODO: Explain the original method.
-
-Generalized Graph Drawing (GGD) objective:
+The authors in [[1]](#1) proposes that the generalized graph drawing (GGD) objective can be approximated as follows:
 
 $$
 \begin{equation}
@@ -73,9 +74,13 @@ $$
 \text{ s.t. }  u_{i}^{T} u_{j}=\delta_{i j}, \forall i, j=1, \cdots, d
 \end{gathered}
 \end{equation}
-$$
+$$ 
 
-Coefficients:
+The coefficients $ \{ c_{i}, \cdots, c_{i} \} $ which are strictly decreasing are able to produce unique global minimizer.
+
+The authors suggest that the coefficients can be selected as follows: $ c_{1} = d, c_{1} = d-1, \cdots, c_{d} = 1 $
+
+Coefficients [[1]](#1):
 
 $$
 \begin{equation}
@@ -84,7 +89,7 @@ $$
 \text{ s.t. }  u_{i}^{T} u_{j}=\delta_{i j}, \forall i, j=1, \cdots, d .
 \end{gathered}
 \end{equation}
-$$
+$$ 
 
 Wu's loss formula 
 
@@ -96,7 +101,7 @@ Wang's loss formula
 
 Wu's loss code:
 
-```
+```Python
 def l2_dist(x1, x2):
     return (x1 - x2).pow(2).sum(-1)
 
@@ -129,68 +134,51 @@ def neg_loss(x, c=1.0, reg=0.0):
     else:
         reg_part = 0.0
     return part1 + part2 + part3 + reg * reg_part
-    
 ```
 
-Wang's loss code: interpretation
+Wang's loss code (interpretation): 
 
-```
+```Python
+def pos_loss(x1, x2):
+    d = x1.shape[1]
+    pos_loss = 0
+    for dim in range(d, 0, -1):
+        pos_loss += (x1[:, :dim] - x2[:, :dim]).pow(2).sum(dim=-1).mean()
+    return pos_loss
 
-# def pos_loss(x1, x2):
-    # d = x1.shape[1]
-    # pos_loss = 0
-    # for dim in range(d, 0, -1):
-        # pos_loss += (x1[:, :dim] - x2[:, :dim]).pow(2).sum(dim=-1).mean()
-    # return pos_loss
-
-# def neg_loss(x, c=1.0, reg=0.0):
-    # """
-    # x: n * d.
-    # sample based approximation for
-    # (E[x x^T] - c * I / d)^2
-        # = E[(x^T y)^2] - 2c E[x^T x] / d + c^2 / d
-    # #
-    # An optional regularization of
-    # reg * E[(x^T x - c)^2] / n
-        # = reg * E[(x^T x)^2 - 2c x^T x + c^2] / n
-    # for reg in [0, 1]
-    # """
-    # n = x.shape[0]
-    # d = x.shape[1]
-    # neg_loss = 0
-    # for dim in range(d, 0, -1):
+def neg_loss(x, c=1.0, reg=0.0):
+    n = x.shape[0]
+    d = x.shape[1]
+    neg_loss = 0
+    for dim in range(d, 0, -1):
         # # Loss for negative pairs
-        # inprods = x[:, :dim] @ x[:, :dim].T
-        # norms = th.diagonal(inprods, 0)
-        # part1 = (inprods.pow(2).sum() - norms.pow(2).sum()) / (n * (n - 1))
-        # part2 = -2 * c * norms.mean() / d
-        # part3 = c * c / d
-        # neg_loss += part1 + part2 + part3
-
-    # return neg_loss
-
+        inprods = x[:, :dim] @ x[:, :dim].T
+        norms = th.diagonal(inprods, 0)
+        part1 = (inprods.pow(2).sum() - norms.pow(2).sum()) / (n * (n - 1))
+        part2 = -2 * c * norms.mean() / d
+        part3 = c * c / d
+        neg_loss += part1 + part2 + part3
+    return neg_loss
 ```
 
-Common part:
+Common part to calculate the overall representation loss:
 
-```
-
+```Python
 def _build_loss(self, batch):
-        s1 = batch.s1
-        s2 = batch.s2
-        s_neg = batch.s_neg
-        s1_repr = self._repr_fn(s1)
-        s2_repr = self._repr_fn(s2)
-        s_neg_repr = self._repr_fn(s_neg)
-        loss_positive = pos_loss(s1_repr, s2_repr)
-        loss_negative = neg_loss(s_neg_repr, c=self._c_neg, reg=self._reg_neg)
-        loss = loss_positive + self._w_neg * loss_negative
-        info = self._train_info
-        info['loss_pos'] = loss_positive.item()
-        info['loss_neg'] = loss_negative.item()
-        info['loss_total'] = loss.item()
-        return loss
-        
+     s1 = batch.s1
+     s2 = batch.s2
+     s_neg = batch.s_neg
+     s1_repr = self._repr_fn(s1)
+     s2_repr = self._repr_fn(s2)
+     s_neg_repr = self._repr_fn(s_neg)
+     loss_positive = pos_loss(s1_repr, s2_repr)
+     loss_negative = neg_loss(s_neg_repr, c=self._c_neg, reg=self._reg_neg)
+     loss = loss_positive + self._w_neg * loss_negative
+     info = self._train_info
+     info['loss_pos'] = loss_positive.item()
+     info['loss_neg'] = loss_negative.item()
+     info['loss_total'] = loss.item()
+     return loss
 ```
 
 # 3. Experiments and results
@@ -279,15 +267,24 @@ Our similarity results
 
 # 5. References
 
-@TODO: Provide your references here.
+<a id="1">[1]</a> 
+Wang K. et. al (2021). 
+Towards Better Laplacian Representation in Reinforcement Learning with
+Generalized Graph Drawing ([pdf](https://arxiv.org/pdf/2107.05545.pdf)), ICML2021.
+
+<a id="2">[2]</a> 
+Wu Y. et. al (2019). 
+The Laplacian in RL: Learning Representations with Efficient Approximations ([pdf](https://arxiv.org/pdf/1810.04586.pdf)), ICLR2019.
+
 
 # 6. Acknowledgements
 
-Thanks to Wang for his precious help!
+Thanks to Kaixin Wang for his precious help!
 
 # Contact
 
 Github:
 
-*[Mesut Bostancı](https://github.com/smbostanci)
-*[Semih Kaya](https://github.com/kayyasemih)
+Safa Mesut Bostancı: [Github](https://github.com/smbostanci)
+
+Semih Kaya: [Github](https://github.com/kayyasemih)
