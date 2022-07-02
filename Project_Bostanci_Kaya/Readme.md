@@ -49,7 +49,7 @@ The d-dimensional Laplacian representation of a state s is ’(s) = (e1[s]; · �
 
 In particular, e1 is a normalized all-ones vector and has the same value for all s. 
 
-GGD [[1]](#1):
+Spectral graph drawing objective which is introduced in [[2]](#2):
 
 $$
 \begin{equation}
@@ -76,11 +76,11 @@ $$
 \end{equation}
 $$ 
 
-The coefficients $ \{ c_{i}, \cdots, c_{i} \} $ which are strictly decreasing are able to produce unique global minimizer.
+Newly introduced coefficients $(c_{i}, \cdots, c_{i})$ are able to produce unique global minimizer.
 
-The authors suggest that the coefficients can be selected as follows: $ c_{1} = d, c_{1} = d-1, \cdots, c_{d} = 1 $
+The authors suggest that the coefficients can be selected as decreasing order such that: $c_{1} = d, c_{1} = d-1, \cdots, c_{i} = d-i, \cdots, c_{d} = 1$ where $i=1, 2, \cdots, d$
 
-Coefficients [[1]](#1):
+Thus, new GGD objective can be written as follows [[1]](#1):
 
 $$
 \begin{equation}
@@ -91,9 +91,7 @@ $$
 \end{equation}
 $$ 
 
-Wu's loss formula 
-
-Wang's loss formula
+In this report, the equation above is referred as "Wang's loss".
 
 ## 2.2. Our interpretation 
 
@@ -185,7 +183,17 @@ def _build_loss(self, batch):
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+All experiments are conducted in discrete grid world reinforcement learning environments. These environments are generated with MiniGrid [[3]](#3).
+
+Two discrete environments, *GridRoom* and *GridMaze* are used in the representation learning and expected reward maximization experiments 
+
+Position observations
+
+State size
+
+GridRoom example
+
+GridMaze example
 
 Environments
 
@@ -199,7 +207,7 @@ Wang's loss--> implemented
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+We conducted the experiments on the Google's [Colab](https://colab.research.google.com/](https://colab.research.google.com/ ) platform.
 
 ### Required packages: gym3, minigrid, YAML
 
@@ -276,6 +284,9 @@ Generalized Graph Drawing ([pdf](https://arxiv.org/pdf/2107.05545.pdf)), ICML202
 Wu Y. et. al (2019). 
 The Laplacian in RL: Learning Representations with Efficient Approximations ([pdf](https://arxiv.org/pdf/1810.04586.pdf)), ICLR2019.
 
+<a id="3">[3]</a> 
+Chevalier-Boisvert et. al (2018). 
+TMinimalistic Gridworld Environment for OpenAI Gym ([github]([https://arxiv.org/pdf/1810.04586.pdf](https://github.com/Farama-Foundation/gym-minigrid))).
 
 # 6. Acknowledgements
 
