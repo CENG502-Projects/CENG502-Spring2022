@@ -47,4 +47,5 @@ CIFAR-FS.
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Sena Eşme senaesme@hotmail.com
+Batuhan Vardar batuhanvardar5@gmail.com
