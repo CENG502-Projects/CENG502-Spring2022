@@ -48,11 +48,43 @@ The d-dimensional Laplacian representation of a state s is ’(s) = (e1[s]; · �
 
 In particular, e1 is a normalized all-ones vector and has the same value for all s.
 
+$$
+\begin{equation}
+\begin{gathered}
+\min_{u_{1}, \cdots, u_{d}}  \sum_{i=1}^{d} u_{i}^{T} L u_{i} \\
+\text{ s.t. } u_{i}^{T} u_{j}=\delta_{i j}, \forall i, j=1, \cdots, d,
+\end{gathered}
+\end{equation}
+$$
+
+
 # 2. The method and my interpretation
 
 ## 2.1. The original method
 
 @TODO: Explain the original method.
+
+Generalized Graph Drawing (GGD) objective:
+
+$$
+\begin{equation}
+\begin{gathered}
+\min_{u_{1}, \cdots, u_{d}}  \sum_{i=1}^{d} c_{i} u_{i}^{T} L u_{i} \\
+\text{ s.t. }  u_{i}^{T} u_{j}=\delta_{i j}, \forall i, j=1, \cdots, d
+\end{gathered}
+\end{equation}
+$$
+
+Coefficients:
+
+$$
+\begin{equation}
+\begin{gathered}
+\min_{u_{1}, \cdots, u_{d}}  \sum_{i=1}^{d}(d-i+1) u_{i}^{T} L u_{i} \\
+\text{ s.t. }  u_{i}^{T} u_{j}=\delta_{i j}, \forall i, j=1, \cdots, d .
+\end{gathered}
+\end{equation}
+$$
 
 Wu's loss formula 
 
@@ -62,9 +94,104 @@ Wang's loss formula
 
 @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
 
-Wu's loss code
+Wu's loss code:
+
+```
+def l2_dist(x1, x2):
+    return (x1 - x2).pow(2).sum(-1)
+
+def neg_loss(x, c=1.0, reg=0.0):
+    """
+    x: n * d.
+    sample based approximation for
+    (E[x x^T] - c * I / d)^2
+        = E[(x^T y)^2] - 2c E[x^T x] / d + c^2 / d
+    #
+    An optional regularization of
+    reg * E[(x^T x - c)^2] / n
+        = reg * E[(x^T x)^2 - 2c x^T x + c^2] / n
+    for reg in [0, 1]
+    """
+    n = x.shape[0]
+    d = x.shape[1]
+    inprods = x @ x.T
+    norms = inprods[torch.arange(n), torch.arange(n)]
+    part1 = inprods.pow(2).sum() - norms.pow(2).sum()
+    part1 = part1 / ((n - 1) * n)
+    part2 = - 2 * c * norms.mean() / d
+    part3 = c * c / d
+    # regularization
+    if reg > 0.0:
+        reg_part1 = norms.pow(2).mean()
+        reg_part2 = - 2 * c * norms.mean()
+        reg_part3 = c * c
+        reg_part = (reg_part1 + reg_part2 + reg_part3) / n
+    else:
+        reg_part = 0.0
+    return part1 + part2 + part3 + reg * reg_part
+    
+```
 
 Wang's loss code: interpretation
+
+```
+
+# def pos_loss(x1, x2):
+    # d = x1.shape[1]
+    # pos_loss = 0
+    # for dim in range(d, 0, -1):
+        # pos_loss += (x1[:, :dim] - x2[:, :dim]).pow(2).sum(dim=-1).mean()
+    # return pos_loss
+
+# def neg_loss(x, c=1.0, reg=0.0):
+    # """
+    # x: n * d.
+    # sample based approximation for
+    # (E[x x^T] - c * I / d)^2
+        # = E[(x^T y)^2] - 2c E[x^T x] / d + c^2 / d
+    # #
+    # An optional regularization of
+    # reg * E[(x^T x - c)^2] / n
+        # = reg * E[(x^T x)^2 - 2c x^T x + c^2] / n
+    # for reg in [0, 1]
+    # """
+    # n = x.shape[0]
+    # d = x.shape[1]
+    # neg_loss = 0
+    # for dim in range(d, 0, -1):
+        # # Loss for negative pairs
+        # inprods = x[:, :dim] @ x[:, :dim].T
+        # norms = th.diagonal(inprods, 0)
+        # part1 = (inprods.pow(2).sum() - norms.pow(2).sum()) / (n * (n - 1))
+        # part2 = -2 * c * norms.mean() / d
+        # part3 = c * c / d
+        # neg_loss += part1 + part2 + part3
+
+    # return neg_loss
+
+```
+
+Common part:
+
+```
+
+def _build_loss(self, batch):
+        s1 = batch.s1
+        s2 = batch.s2
+        s_neg = batch.s_neg
+        s1_repr = self._repr_fn(s1)
+        s2_repr = self._repr_fn(s2)
+        s_neg_repr = self._repr_fn(s_neg)
+        loss_positive = pos_loss(s1_repr, s2_repr)
+        loss_negative = neg_loss(s_neg_repr, c=self._c_neg, reg=self._reg_neg)
+        loss = loss_positive + self._w_neg * loss_negative
+        info = self._train_info
+        info['loss_pos'] = loss_positive.item()
+        info['loss_neg'] = loss_negative.item()
+        info['loss_total'] = loss.item()
+        return loss
+        
+```
 
 # 3. Experiments and results
 
