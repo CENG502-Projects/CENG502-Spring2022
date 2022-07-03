@@ -1,4 +1,4 @@
-# Paper title [@TODO: Change]
+# Synthesizing Mesh Deformation Sequences with Bidirectional LSTM
 
 This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/ADL/) project for reproducing a paper without an implementation. See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502-Spring2021](https://github.com/CENG502-Projects/CENG502-Spring2022)) for a complete list of all paper reproduction projects.
 
@@ -40,8 +40,8 @@ This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.
 
 # 5. References
 
-@TODO: Provide your references here.
+[1] Y. -L. Qiao, Y. -K. Lai, H. Fu and L. Gao, "Synthesizing Mesh Deformation Sequences With Bidirectional LSTM," in IEEE Transactions on Visualization and Computer Graphics, vol. 28, no. 4, pp. 1906-1916, 1 April 2022, doi: 10.1109/TVCG.2020.3028961.
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Please feel free to contact me by email, if you need any further information or have any questions (furkankdem [at] gmail.com)
