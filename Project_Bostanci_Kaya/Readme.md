@@ -8,7 +8,10 @@ See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502
 
 In Reinforcement Learning (RL) tasks, there exists an agent-environment interaction mechanism through taking actions and obtaining rewards. Agents interact with an environment and this environment provides numeric reward signals. Main goal of the RL is discovering best actions in order to maximize the cumulative reward.
 
-![Figure 1: Agent-environment interaction](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/agentenvironmentaction.JPG)
+| ![Figure 1: Agent-environment interaction](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/agentenvironmentaction.JPG) | 
+|:--:| 
+| *Figure 1: Agent-environment interaction* |
+
 
 Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
 
