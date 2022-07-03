@@ -28,8 +28,9 @@ $$
 \end{equation}
 $$
 
-be the collection of N x K + T feature vectors in one few shot task, where p is the feature dimension. Given an input F0 = F and the
-associated graph affinity A0 = A, GNN conducts the following
+be the collection of $N \times K + T$ feature vectors in one few shot task, where p is the feature dimension. Given an input 
+$F_0 = F$ and the associated graph affinity 
+$A_0 = A$, GNN conducts the following
 layer-wise propagation in the hidden layers as 
 
 $$
@@ -140,7 +141,9 @@ $$
 
 #### Feed-forward Implementation of MCGN:
 
-• Step1: Given the affinity $A_l-1$ and output features $F_l$ from $(l−1)$-th iteration, we estimate the unary and binary compatibility in the CRF. The estimated compatibility functions define the affinities between two connected random variables in CRF.
+• Step1: Given the affinity $A_l-1$ 
+and output features  $F_l$ 
+from the  $(l−1)$-th iteration, we estimate the unary and binary compatibility in the CRF. The estimated compatibility functions define the affinities between two connected random variables in CRF.
 
 • Step2: The marginal distribution for random
 variables in CRF is inferred by loopy belief propagation, using the compatibility functions obtained from Step 1 and the labels of samples in the support set.
@@ -173,7 +176,7 @@ The total objective function can be a weighted summation of two losses,
 
 $$
 \begin{equation}
-\mathcal{L}=\lambda_{\operatorname{cr} f} \mathcal{L}^{\operatorname{cr} f}+\lambda_{g n n} \mathcal{L}^{g n n}
+\mathcal{L}=\lambda_{\operatorname{crf}} \mathcal{L}^{\operatorname{crf}}+\lambda_{g n n} \mathcal{L}^{g n n}
 \end{equation}
 $$
 
