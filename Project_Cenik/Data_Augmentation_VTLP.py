@@ -13,7 +13,7 @@ targetdirectory=  'C:\\Users\\hjjh\\PycharmProjects\\pythonProject\\CENG502-PROJ
 aug = naa.VtlpAug(40000, zone=(0.2, 0.8), coverage=0.1, fhi=4800, factor=(0.9, 1.1), name='Vtlp_Aug', verbose=0, stateless=True )
 for w in tqdm(wavlist):
     for i in range(7):
-        wav, _=librosa.load(w, 16000)
+        wav, _=librosa.load(w, 40000)
         wavAug=aug.augment(wav)
         wavName=os.path.basename(w)
         librosa.output.write_wav(targetdirectory+wavName+'.'+str(i+1), wavAug ,40000) # Sample frequency 40 kHz
