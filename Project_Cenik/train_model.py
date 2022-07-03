@@ -273,8 +273,10 @@ def train(SEED, area_width, area_height,AUG=True):
         label_acc = [label_correct[0] / label_total[0],
                      label_correct[1] / label_total[1],
                      label_correct[2] / label_total[2],
-                     label_correct[3] / label_total[3]]
-        UA = (label_acc[0] + label_acc[1] + label_acc[2] + label_acc[3]) / 4
+                     label_correct[3] / label_total[3]
+                     label_correct[4] / label_total[4]
+                     label_correct[5] / label_total[5]]
+        UA = (label_acc[0] + label_acc[1] + label_acc[2] + label_acc[3] + label_acc[4] + label_acc[5]) / 6
         if (correct / len(valid_features_dict) > maxWA):
             maxWA = correct / len(valid_features_dict)
         if (UA > maxUA):
