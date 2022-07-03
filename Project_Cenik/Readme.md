@@ -100,8 +100,25 @@ This paper was presented in the International Conference on Acoustics, Speech, &
     <br/>
    - All other details can be found in Model Architecture part.
 ## 3.2. Running the code
+- Readers can NOT directly run my implemetation since it requires the dataset **IEMOCAP** which can be downloaded after submitting
+  - Their request to  https://sail.usc.edu/iemocap/release_form.php
+    - Note that the responses can take 3-4 days or more. 
+ - After downloading the dataset, the following codes can be run in the folder  ```project_Cenik``` in the order of following
+ -  1. Run the ```preprocess_dataset.py``` accordingly change the data folder name as in your local.
+ -  2. Run the ```Data_Augmentation_VTLP.py``` to perform the data augmentation with VTLP as defined parameters. If you want you can change the input parameters easily. I prefer using default parameters.
+ -  3. Run the ```train_model.py``` for training the our overall model convolutional neural network together with multiscale area attention   
 
-@TODO: Explain your code & directory structure and how other people can run it.
+```
+project_Cenik
+│  Data_Augmentation_VTLP.py
+│  readme.md 
+│  get_features.py
+│  model.py
+|  preprocess_dataset.py
+|  train_model.py
+  
+
+```
 
 ## 3.3. Results
 - You can see the results of the paper as well as my implementation together with comparisions with details.
