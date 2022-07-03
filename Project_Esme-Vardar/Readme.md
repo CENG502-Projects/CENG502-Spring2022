@@ -141,7 +141,9 @@ $$
 
 #### Feed-forward Implementation of MCGN:
 
-• Step1: Given the affinity $A_l-1$ and output features $F_l$ from $(l−1)$-th iteration, we estimate the unary and binary compatibility in the CRF. The estimated compatibility functions define the affinities between two connected random variables in CRF.
+• Step1: Given the affinity $A_l-1$ 
+and output features  $F_l$ 
+from the  $(l−1)$-th iteration, we estimate the unary and binary compatibility in the CRF. The estimated compatibility functions define the affinities between two connected random variables in CRF.
 
 • Step2: The marginal distribution for random
 variables in CRF is inferred by loopy belief propagation, using the compatibility functions obtained from Step 1 and the labels of samples in the support set.
