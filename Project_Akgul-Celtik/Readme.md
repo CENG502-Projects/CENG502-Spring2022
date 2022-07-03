@@ -130,7 +130,7 @@ Paper trained the model by using learning rate 0.0001 for 10 epochs, and then re
 Directory structure:
 
 
-    ├── posetrack_data
+    ├── posetrack_data *
     │   ├── annotations
     │   │   ├── test
     │   │   ├── train
@@ -139,14 +139,17 @@ Directory structure:
     │        ├── test
     │        ├── train
     │        └── val
-    ├── gnn_images
-    ├── gnn_joints
-    ├── gnn_models
-    ├── models
-    ├── results
-    ├── posetrack_train.py (WORKING_MAIN.PY)
-    ├── posetrack_test.py (CLASSES.PY)
-    └── poseval
+    ├── poseval *
+    ├── models *
+    ├── gnn_images ~
+    ├── gnn_joints ~
+    ├── gnn_models ~
+    ├── results ~
+    ├── posetrack_train.py
+    ├── posetrack_test.py
+    └── requirements.txt
+
+Folders with * on their right are the folders that should be downloaded, folders with ~ on their right are the folders that should be downloaded
 
 First of all, the modules that are listed in the requirements.txt should be downloaded. Pretrained hrnet_w32_386_288.pth model should be downloaded and placed to the main folder.
 https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
@@ -165,6 +168,7 @@ python posetrack_test.py --is_preprocess \<True\|False\> --mode \{train\/val\/te
 # 4. Conclusion
 
 <!--- @TODO: Discuss the paper in relation to the results in the paper and your results. --->
+The paper proposes a new approach for both human pose estimation and tracking. The model tries to combine GNN and CNN models in order to achieve more consistent results. The GNN part is used to model the temporal dynamics of the human poses while also capturing the missed poses. When combining GNN with the human pose estimation model, it surpasses the performances of state-of-the-art models in PoseTrack 2017 and 2018 datasets
 
 # 5. References
 
