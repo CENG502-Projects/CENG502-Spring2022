@@ -838,7 +838,7 @@ parser.add_argument("-t", "--is_train", default=False, action=argparse.BooleanOp
 parser.add_argument("-m", "--mode", help="select one of the following modes: train/val/test")
 args = parser.parse_args()
 
-if args.is_train:
+if not args.is_train:
     dataset = PoseTrackDataset("dataset/posetrack_data", "dataset/posetrack_data/annotations", args.mode)
     dataset.save_heatmaps_as_npy(args.mode)
     exit()

@@ -17,6 +17,12 @@ import json
 import natsort 
 import argparse
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-p", "--is_preprocess", default=False, action=argparse.BooleanOptionalAction)
+parser.add_argument("-m", "--mode", help="select one of the following modes: train/val/test")
+parser.add_argument("-smp", "--saved_model_path", help="give the path of the fine tuned model")
+args = parser.parse_args()
+
 device = torch.device(0)
 
 width = 384
@@ -596,7 +602,7 @@ class PoseTrackTestDataset(Dataset):
         device = torch.device(0)
         can_generate_only_one_label = False
 
-        gnn_related_models = torch.load("gnn_models/1.pt")
+        gnn_related_models = torch.load("gnn_models/"+args.saved_model_path)
         pred_MLP = gnn_related_models["pred_MLP"].to(device)            
         position_MLP = gnn_related_models["position_MLP"]   
         visual_feature_MLP = gnn_related_models["visual_feature_MLP"]  
@@ -700,10 +706,7 @@ class PoseTrackTestDataset(Dataset):
             with open(os.path.join(json_result_path, folder)+".json", 'w') as outfile:
                 outfile.write(json_result)
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-m", "--mode", help="select one of the following modes: train/val/test")
-args = parser.parse_args()
-
 dataset = PoseTrackTestDataset("dataset/posetrack_data", "dataset/posetrack_data/annotations", args.mode)
-dataset.save_data_as_npy(args.mode)
+if args.is_preprocess:
+    dataset.save_data_as_npy(args.mode)
 dataset.test_loop(os.path.join("detection_preprocessed_inputs", args.mode))
