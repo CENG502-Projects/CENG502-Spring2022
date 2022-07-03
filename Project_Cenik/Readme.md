@@ -28,7 +28,6 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 ![image](https://user-images.githubusercontent.com/53267971/177052946-75265b17-0787-49ff-b830-a1dae08fa20e.png)
  <br/>
 **Figure 1**: The architecture of the CNN with attention used as a classifier in this work
-
    <br/>
    - **Librosa** for logMel spectrogram(Time-frequency information in Mel scale, which human can interpret) features.
    - Two **parallel convolutional layers** to extract textures from
@@ -47,14 +46,12 @@ This paper was presented in the International Conference on Acoustics, Speech, &
   - In the original paper, they use
     - **For Key** : Max, Mean and Sample(adding a perturbation during training)
     - **For Value** : Max, Mean and Sum
-### 2.1.2 Data Augmentation
+### 2.1.3 Data Augmentation
 
 - Data augmentation is done with 
 **Vocal tract length perturbation(VTLP)** the details are **NOT explained** in the paper. 
 
 ## 2.2. Our interpretation 
-
- <br/>
 ### 2.2.1 Model Architecture and Details
  
   - This is exactly same since it is clearly given in the paper. For details, please look at the above section **2.1.1**
@@ -128,7 +125,7 @@ This paper was presented in the International Conference on Acoustics, Speech, &
   
   ![image](https://user-images.githubusercontent.com/53267971/177054691-2da45904-8dbf-498b-bbce-cacaaf8b4ba1.png)
   <br/>
-**Figure 5**: Comparision of avarage accuracy values with the original paper and my implementation for the different choice of key and value parameters.
+**Figure 6**: Comparision of avarage accuracy values with the original paper and my implementation for the different choice of key and value parameters.
  - My implementation is based on **mean of an area as key**, and **sum of an area as a value** since with these values they can be evaluated in a similar to ordinary attention. 
  - In the original paper, they use
     - **For Key** : Max, Mean and Sample(adding a perturbation during training)
