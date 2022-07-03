@@ -8,7 +8,11 @@ See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502
 
 In Reinforcement Learning (RL) tasks, there exists an agent-environment interaction mechanism through taking actions and obtaining rewards. Agents interact with an environment and this environment provides numeric reward signals. Main goal of the RL is discovering best actions in order to maximize the cumulative reward.
 
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/agentenvironmentaction.png)
+
 Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
+
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/environment.jpg)
 
 A graph $\mathcal{G}=(\mathcal{S},\mathcal{E})$ can be constructed from the state transition process by denoting $\mathcal{S}$ states and $\mathcal{E}$ edges. Then, an adjacency matrix $A$ is defined with state transition probabilities. 
 
@@ -30,13 +34,13 @@ The goal of the agent is to learn an optimal policy π∗ that maximizes the exp
 
 ### Laplacian representations in RL:
 
-Graph definition: $\mathcal{G}=(\mathcal{S},\mathcal{E})$ 
-Vertices $\mathcal{S}$ = States, 
-Edges  $\mathcal{E}$ = State transitions, 
-State transition probabilities $P_{ij}$
-Adjacency matrix elements ($A_{ij}$) = $P_{ij}$
-Degree matrix, $D = \text{diag}(A\text{\textbf{1}})$
-Laplacian matrix, $L = D-A$
+ - Graph definition: $\mathcal{G}=(\mathcal{S},\mathcal{E})$  
+ - Vertices $\mathcal{S}$ = States,  
+ - Edges  $\mathcal{E}$ = State transitions, 
+ - State transition probabilities $P_{ij}$ 
+ - Adjacency matrix elements ($A_{ij}$) = $P_{ij}$ 
+ - Degree matrix, $D = \text{diag}(A\text{\textbf{1}})$ 
+ - Laplacian matrix, $L = D-A$
 
 ### Estimation of the Laplacian representations:
 
@@ -50,7 +54,8 @@ $$
 \varphi(s) = (e_1[s], \cdots , e_d[s])
 \end{gathered}
 \end{equation}
-$$ 
+$$
+ 
 where $ei[s]$ denotes the entry in vector $ei$ that corresponds to state s. 
 
 In particular, e1 is a normalized all-ones vector and has the same value for all s. 
@@ -332,28 +337,25 @@ You can also observe the pre-trained results.
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+### Representation learning results:
 
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridRoomResults.png)
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridMazeResults.png)
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/similarityResults.png)
 
-Figure3 in Wang's paper
-Our Figure3
-
-Figure15 in Wang's paper
-Our Figure15
-
-Wang's similarity results
-Our similarity results
-
+### Reinforcement learning results: 
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridRoomRewards.png)
+![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridMazeRewards.png)
 
 # 4. Conclusion
 
  - All experiments in the paper could not be covered.
  - Obtained rewards per episode during the training iterations not
    given in the paper but in our results it fluctuates
-  - Unlike the continuous environments, in discrete environment eigen-
+ - Unlike the continuous environments, in discrete environment eigen-
    decompositions are not very problematic because the number of states are
    not too many.
-  - Reduced dimension for the Laplacian eigenvectors is chosen as 10 but any detail was not given for this trade
+ - Reduced dimension for the Laplacian eigenvectors is chosen as 10 but any detail was not given for this trade
    off in the paper.
 
 # 5. References
