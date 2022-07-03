@@ -7,12 +7,11 @@ This paper was presented in the International Conference on Acoustics, Speech, &
   - To deal with the data sparsity, they conduct data augmentation with **vocal tract length perturbation (VTLP)** to improve the generalization capability of the classifer.
   - **Index Terms:** Speech Emotion Recognition, convolutional neural network, attention mechanism and data augmentation.
   - I will try to reproduce the results given in the paper according to the methods described in the paper.
-
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+  - Differences in results together with the differences in implementations are given and briefly discussed in the following sections.
 
 ## 1.1. Paper summary
 
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
+
    The authors of the paper apply multiscale area attention which allows the model to attend at multiple scales and granularities and to learn the most appropriate level of details. They offer multsicale area attention because under conventional attention, the model only uses a preset granularity as the basic unit for calculation. They designed an attention-based convolutional neural network with VTLP data augmentation because of the limited amount of training data in IEMOCAP. The advantage of the proposed method is tp be able to dynamically adaption to different areas of interest. Tradional methods uses typical attention neural network classifiers with CNN and LSTM’s. 
    We can summarize the paper main contributions as follows:
    <br/>
@@ -25,7 +24,6 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 
 ## 2.1. The original method
 
-@TODO: Explain the original method.
 ### 2.1.1 Model Architecture and Details
 ![image](https://user-images.githubusercontent.com/53267971/177052946-75265b17-0787-49ff-b830-a1dae08fa20e.png)
  <br/>
@@ -56,7 +54,6 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 
 ## 2.2. Our interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
  <br/>
 ### 2.2.1 Model Architecture and Details
  
@@ -93,7 +90,6 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
   - Divide dataset into a training set(80 %) and test test(20 %)
   - 5-fold cross validation
   - Each utterance is divided into **2-second segment**.
@@ -112,7 +108,6 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 
 ## 3.3. Results
 - You can see the results of the paper as well as my implementation together with comparisions with details.
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
 ### 3.3.1 Selection of maximum area size
 **Proposed:** According to high ACC value two maximum area size is suggested:
   - 4x4 max-area size without augmentation
@@ -138,15 +133,31 @@ This paper was presented in the International Conference on Acoustics, Speech, &
  - In the original paper, they use
     - **For Key** : Max, Mean and Sample(adding a perturbation during training)
     - **For Value** : Max, Mean and Sum
+ - **COMMENT**: The reason with the sample key is high ACC value is that by doing so we are introducing greater randomness to the training procedure.
 
 # 4. Conclusion
-
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+As I mentioned above, the reason why I obtain different result can be summarized below.
+  - Use of the extra 2 emotions in total 6 emotions instead of 4 emotions, where the authors of the paper take one class ‘’ happy’’ and ‘’excitement’’ to increase the amount of data. But I believe that these two emotions are not highly correlated since excitement does not always mean people who are happy, or vice versa. Therefore, I treat them with two different classes although due to reduction in the amount of data my performance will be reduced.(But I think it is still more realistic.) 
+  - Augmentation procedure is not explained in detail, and I used the ‘’default’’ parameters of the **nlpaug** library.
+  - For training part, I use the parameters of the paper **Head Fusion Net** which is the paper of the same authors published before that paper, where they did **NOT** use the **multi-scale area attention**. Since I have no any information about the training procedure of the paper, I used them. This paper can also be found in the references.
+  - For me the **pros** of the paper can be listed as follows:
+    - A good application of Multiscale Area Attention.
+    - Architecture of the overall process are well explained and easily implemented in the paper including attention layer.
+    - Experimental results are presented in details with different parameters.
+  - Together with the **cons** :
+    - IEMOCAP dataset is imbalanced with 9 emotions. 
+    - It requires permission to use. => Difficult to explore the similar approaches in the research.  
+    - Data Augmentation with VTLP is not explained in the paper. Since it has several parameters, results can be different.
+    - Not possible to predict how the paper will be developed in further studies.
+    - Training parameters are not given in the paper, which is set with the help of **[3]** 
 
 # 5. References
-
-@TODO: Provide your references here.
+[1] Mingke Xu, Fan Zhang, Xiadong Cui, Wei Zhang ‘’Speech Emotion Recognition with Multiscale Area Attention  and Data Augmentation’’, ICASSP 2021
+<br/>
+[2] Navdeep Jaitly and Geoffrey E.Hinton ‘’ Vocal tract length perturbation improves speech recognition’’ in Proc. ICML Workshop on Deep Learning for Audio, Speech and Language, 2013, vol 117.
+<br/>
+[3] For the model and training details : https://github.com/lessonxmk/head_fusion (The paper of the same authors published before that paper.)
 
 # Contact
 
-@TODO: Provide your names & email addresses and any other info with which people can contact you.
+Yalçın Cenik, email: yalcin.cenik@metu.edu.tr
