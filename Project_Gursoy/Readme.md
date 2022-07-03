@@ -29,8 +29,6 @@ python run.py -train_data_path -test_data_path -batch_size -train_iter_num -trai
 
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
-
 # 4. Conclusion
 
 To summarize, the key contributions of this work are:
