@@ -1,0 +1,608 @@
+device: cuda.
+Representation model loaded from /content/drive/MyDrive/Laplacian/laplacian_code_Wu_run1_room/log/laprepr/HardMaze/test/model.ckpt.
+Start collecting transitions.
+(10000/10000) steps collected.
+Replay buffer initialization finished, time cost: 1.3935949802398682s
+Training steps per second: 0.
+Step 1; q_loss 1.009; mean_q -1.006; min_q -1.148; max_q -0.4959; mean_r -1.037; mean_dsc 0.98; 
+Tested 50 episodes at step 1, reward mean -50, std 0, time cost 1.157s.
+Training steps per second: 188.3.
+Step 1000; q_loss 0.003183; mean_q -1.574; min_q -1.843; max_q -0.9252; mean_r -1.006; mean_dsc 0.98; 
+Tested 50 episodes at step 1000, reward mean -50, std 0, time cost 1.19s.
+Training steps per second: 187.
+Step 2000; q_loss 0.00478; mean_q -2.369; min_q -2.78; max_q -0.7155; mean_r -1.015; mean_dsc 0.98; 
+Tested 50 episodes at step 2000, reward mean -50, std 0, time cost 1.156s.
+Training steps per second: 185.2.
+Step 3000; q_loss 0.005345; mean_q -3.1; min_q -3.711; max_q -1.577; mean_r -1.005; mean_dsc 0.98; 
+Tested 50 episodes at step 3000, reward mean -50, std 0, time cost 1.158s.
+Training steps per second: 188.1.
+Step 4000; q_loss 0.006328; mean_q -4.02; min_q -4.668; max_q -1.422; mean_r -1.028; mean_dsc 0.98; 
+Tested 50 episodes at step 4000, reward mean -49.96, std 0.196, time cost 1.182s.
+Training steps per second: 186.4.
+Step 5000; q_loss 0.009357; mean_q -4.664; min_q -5.592; max_q -1.785; mean_r -0.9937; mean_dsc 0.98; 
+Tested 50 episodes at step 5000, reward mean -49.96, std 0.196, time cost 1.183s.
+Training steps per second: 186.
+Step 6000; q_loss 0.005566; mean_q -5.703; min_q -6.519; max_q -2.717; mean_r -1.035; mean_dsc 0.98; 
+Tested 50 episodes at step 6000, reward mean -41.82, std 17.51, time cost 1.165s.
+Training steps per second: 186.7.
+Step 7000; q_loss 0.009576; mean_q -6.134; min_q -7.413; max_q -2.405; mean_r -0.9716; mean_dsc 0.98; 
+Tested 50 episodes at step 7000, reward mean -41.6, std 18, time cost 1.163s.
+Training steps per second: 187.7.
+Step 8000; q_loss 0.0137; mean_q -7.152; min_q -8.318; max_q -2.536; mean_r -1.013; mean_dsc 0.98; 
+Tested 50 episodes at step 8000, reward mean -47.16, std 11.27, time cost 1.158s.
+Training steps per second: 187.1.
+Step 9000; q_loss 0.02138; mean_q -7.741; min_q -9.216; max_q -2.589; mean_r -0.9877; mean_dsc 0.98; 
+Tested 50 episodes at step 9000, reward mean -39.28, std 19.11, time cost 1.149s.
+Training steps per second: 187.2.
+Step 10000; q_loss 0.02178; mean_q -8.294; min_q -10.07; max_q -2.57; mean_r -0.9814; mean_dsc 0.98; 
+Tested 50 episodes at step 10000, reward mean -43.86, std 15.27, time cost 1.147s.
+Training steps per second: 187.9.
+Step 11000; q_loss 0.0308; mean_q -9.133; min_q -10.87; max_q -2.522; mean_r -0.9785; mean_dsc 0.98; 
+Tested 50 episodes at step 11000, reward mean -42.04, std 17.06, time cost 1.151s.
+Training steps per second: 186.
+Step 12000; q_loss 0.01049; mean_q -9.384; min_q -11.74; max_q -2.507; mean_r -0.9357; mean_dsc 0.98; 
+Tested 50 episodes at step 12000, reward mean -38.94, std 19.71, time cost 1.184s.
+Training steps per second: 185.8.
+Step 13000; q_loss 0.01256; mean_q -10.31; min_q -12.54; max_q -2.456; mean_r -0.9706; mean_dsc 0.98; 
+Tested 50 episodes at step 13000, reward mean -36.36, std 20.99, time cost 1.148s.
+Training steps per second: 186.8.
+Step 14000; q_loss 0.03554; mean_q -10.8; min_q -13.29; max_q -2.371; mean_r -0.9331; mean_dsc 0.98; 
+Tested 50 episodes at step 14000, reward mean -43.2, std 15.66, time cost 1.164s.
+Training steps per second: 183.9.
+Step 15000; q_loss 0.01466; mean_q -10.83; min_q -14.16; max_q -2.314; mean_r -0.899; mean_dsc 0.98; 
+Tested 50 episodes at step 15000, reward mean -37.36, std 20.39, time cost 1.152s.
+Training steps per second: 185.6.
+Step 16000; q_loss 0.01695; mean_q -11.52; min_q -14.9; max_q -2.247; mean_r -0.9342; mean_dsc 0.98; 
+Tested 50 episodes at step 16000, reward mean -38.66, std 19.25, time cost 1.165s.
+Training steps per second: 185.3.
+Step 17000; q_loss 0.006877; mean_q -13.29; min_q -15.63; max_q -2.201; mean_r -1.002; mean_dsc 0.98; 
+Tested 50 episodes at step 17000, reward mean -37.82, std 19.71, time cost 1.148s.
+Training steps per second: 183.7.
+Step 18000; q_loss 0.02741; mean_q -12.95; min_q -16.43; max_q -2.143; mean_r -0.9443; mean_dsc 0.98; 
+Tested 50 episodes at step 18000, reward mean -38.52, std 19.44, time cost 1.161s.
+Training steps per second: 185.6.
+Step 19000; q_loss 0.02179; mean_q -12.66; min_q -17.09; max_q -2.087; mean_r -0.9054; mean_dsc 0.98; 
+Tested 50 episodes at step 19000, reward mean -33.52, std 21.27, time cost 1.168s.
+Training steps per second: 184.2.
+Step 20000; q_loss 0.01405; mean_q -14.66; min_q -17.75; max_q -2.022; mean_r -0.9798; mean_dsc 0.98; 
+Tested 50 episodes at step 20000, reward mean -36.68, std 20.48, time cost 1.172s.
+Training steps per second: 183.8.
+Step 21000; q_loss 0.02359; mean_q -13.85; min_q -18.45; max_q -1.957; mean_r -0.9273; mean_dsc 0.98; 
+Tested 50 episodes at step 21000, reward mean -32.16, std 22.02, time cost 1.173s.
+Training steps per second: 184.5.
+Step 22000; q_loss 0.01608; mean_q -15.01; min_q -19.11; max_q -1.906; mean_r -0.9439; mean_dsc 0.98; 
+Tested 50 episodes at step 22000, reward mean -38.1, std 19.23, time cost 1.155s.
+Training steps per second: 185.8.
+Step 23000; q_loss 0.07914; mean_q -14.93; min_q -19.79; max_q -1.889; mean_r -0.9084; mean_dsc 0.98; 
+Tested 50 episodes at step 23000, reward mean -36.28, std 20.22, time cost 1.179s.
+Training steps per second: 184.
+Step 24000; q_loss 0.02997; mean_q -15.17; min_q -20.45; max_q -1.84; mean_r -0.9316; mean_dsc 0.98; 
+Tested 50 episodes at step 24000, reward mean -32.14, std 22.02, time cost 1.168s.
+Training steps per second: 185.1.
+Step 25000; q_loss 0.03342; mean_q -15.55; min_q -21.09; max_q -1.799; mean_r -0.9155; mean_dsc 0.98; 
+Tested 50 episodes at step 25000, reward mean -34.74, std 20.64, time cost 1.172s.
+Training steps per second: 158.9.
+Step 26000; q_loss 0.02273; mean_q -16.13; min_q -21.74; max_q -1.746; mean_r -0.93; mean_dsc 0.98; 
+Tested 50 episodes at step 26000, reward mean -38.1, std 19.24, time cost 1.163s.
+Training steps per second: 184.7.
+Step 27000; q_loss 0.02137; mean_q -16.29; min_q -22.15; max_q -1.709; mean_r -0.8858; mean_dsc 0.98; 
+Tested 50 episodes at step 27000, reward mean -34.5, std 20.17, time cost 1.15s.
+Training steps per second: 186.
+Step 28000; q_loss 0.04166; mean_q -15.87; min_q -22.95; max_q -1.658; mean_r -0.8725; mean_dsc 0.98; 
+Tested 50 episodes at step 28000, reward mean -31.54, std 21.16, time cost 1.151s.
+Training steps per second: 184.9.
+Step 29000; q_loss 0.06714; mean_q -16.06; min_q -23.36; max_q -1.574; mean_r -0.871; mean_dsc 0.98; 
+Tested 50 episodes at step 29000, reward mean -31.1, std 22.39, time cost 1.154s.
+Training steps per second: 182.7.
+Step 30000; q_loss 0.0192; mean_q -16.52; min_q -23.94; max_q -1.507; mean_r -0.856; mean_dsc 0.98; 
+Tested 50 episodes at step 30000, reward mean -34.68, std 20.57, time cost 1.159s.
+Training steps per second: 185.
+Step 31000; q_loss 0.06094; mean_q -16.82; min_q -24.52; max_q -1.475; mean_r -0.8533; mean_dsc 0.98; 
+Tested 50 episodes at step 31000, reward mean -39.92, std 18.15, time cost 1.15s.
+Training steps per second: 185.5.
+Step 32000; q_loss 0.01564; mean_q -17.96; min_q -25.08; max_q -1.464; mean_r -0.9006; mean_dsc 0.98; 
+Tested 50 episodes at step 32000, reward mean -34.6, std 20.13, time cost 1.166s.
+Training steps per second: 182.7.
+Step 33000; q_loss 0.04378; mean_q -15.65; min_q -25.38; max_q -1.429; mean_r -0.8501; mean_dsc 0.98; 
+Tested 50 episodes at step 33000, reward mean -41.9, std 17.36, time cost 1.154s.
+Training steps per second: 185.1.
+Step 34000; q_loss 0.01505; mean_q -18.59; min_q -26.09; max_q -1.412; mean_r -0.8767; mean_dsc 0.98; 
+Tested 50 episodes at step 34000, reward mean -32.64, std 20.93, time cost 1.158s.
+Training steps per second: 182.9.
+Step 35000; q_loss 0.03152; mean_q -17.29; min_q -26.51; max_q -1.377; mean_r -0.8654; mean_dsc 0.98; 
+Tested 50 episodes at step 35000, reward mean -40.44, std 18.12, time cost 1.449s.
+Training steps per second: 174.7.
+Step 36000; q_loss 0.0171; mean_q -19.77; min_q -26.93; max_q -1.351; mean_r -0.8987; mean_dsc 0.98; 
+Tested 50 episodes at step 36000, reward mean -28.62, std 21.63, time cost 1.179s.
+Training steps per second: 184.7.
+Step 37000; q_loss 0.01467; mean_q -20.78; min_q -27.49; max_q -1.347; mean_r -0.916; mean_dsc 0.98; 
+Tested 50 episodes at step 37000, reward mean -30.16, std 20.39, time cost 1.159s.
+Training steps per second: 185.1.
+Step 38000; q_loss 0.03547; mean_q -20.12; min_q -27.94; max_q -1.324; mean_r -0.9285; mean_dsc 0.98; 
+Tested 50 episodes at step 38000, reward mean -31.92, std 21.01, time cost 1.156s.
+Training steps per second: 185.5.
+Step 39000; q_loss 0.0209; mean_q -18.81; min_q -28.42; max_q -1.303; mean_r -0.8454; mean_dsc 0.98; 
+Tested 50 episodes at step 39000, reward mean -29.94, std 20.12, time cost 1.159s.
+Training steps per second: 184.2.
+Step 40000; q_loss 0.02282; mean_q -20.1; min_q -28.96; max_q -1.287; mean_r -0.8513; mean_dsc 0.98; 
+Tested 50 episodes at step 40000, reward mean -33.94, std 20.01, time cost 1.168s.
+Training steps per second: 184.2.
+Step 41000; q_loss 0.01051; mean_q -19.83; min_q -29.24; max_q -1.235; mean_r -0.848; mean_dsc 0.98; 
+Tested 50 episodes at step 41000, reward mean -34.14, std 20.63, time cost 1.154s.
+Training steps per second: 185.1.
+Step 42000; q_loss 0.04624; mean_q -21.02; min_q -29.75; max_q -1.217; mean_r -0.9051; mean_dsc 0.98; 
+Tested 50 episodes at step 42000, reward mean -28.5, std 19.82, time cost 1.15s.
+Training steps per second: 184.3.
+Step 43000; q_loss 0.02401; mean_q -19.8; min_q -30.15; max_q -1.216; mean_r -0.8448; mean_dsc 0.98; 
+Tested 50 episodes at step 43000, reward mean -29.54, std 19.68, time cost 1.148s.
+Training steps per second: 185.6.
+Step 44000; q_loss 0.02277; mean_q -21.7; min_q -30.72; max_q -1.151; mean_r -0.921; mean_dsc 0.98; 
+Tested 50 episodes at step 44000, reward mean -34.64, std 19.62, time cost 1.14s.
+Training steps per second: 182.1.
+Step 45000; q_loss 0.08744; mean_q -20.31; min_q -31.13; max_q -1.119; mean_r -0.8559; mean_dsc 0.98; 
+Tested 50 episodes at step 45000, reward mean -29.68, std 19.6, time cost 1.132s.
+Training steps per second: 185.5.
+Step 46000; q_loss 0.05133; mean_q -20.03; min_q -31.53; max_q -1.048; mean_r -0.8708; mean_dsc 0.98; 
+Tested 50 episodes at step 46000, reward mean -32.86, std 17.33, time cost 1.16s.
+Training steps per second: 183.3.
+Step 47000; q_loss 0.03571; mean_q -19.68; min_q -31.89; max_q -1.03; mean_r -0.8496; mean_dsc 0.98; 
+Tested 50 episodes at step 47000, reward mean -29.74, std 19.78, time cost 1.164s.
+Training steps per second: 182.7.
+Step 48000; q_loss 0.02832; mean_q -19.71; min_q -32.24; max_q -1.013; mean_r -0.8304; mean_dsc 0.98; 
+Tested 50 episodes at step 48000, reward mean -25.5, std 19.84, time cost 1.162s.
+Training steps per second: 184.7.
+Step 49000; q_loss 0.0319; mean_q -19.11; min_q -32.58; max_q -0.9816; mean_r -0.8436; mean_dsc 0.98; 
+Tested 50 episodes at step 49000, reward mean -29.14, std 20.01, time cost 1.173s.
+Training steps per second: 182.6.
+Step 50000; q_loss 0.02749; mean_q -21.16; min_q -32.97; max_q -1.001; mean_r -0.8565; mean_dsc 0.98; 
+Tested 50 episodes at step 50000, reward mean -31.78, std 19.08, time cost 1.171s.
+Training steps per second: 182.7.
+Step 51000; q_loss 0.0216; mean_q -19.92; min_q -33.38; max_q -0.9538; mean_r -0.8394; mean_dsc 0.98; 
+Tested 50 episodes at step 51000, reward mean -33.08, std 18.01, time cost 1.186s.
+Training steps per second: 184.
+Step 52000; q_loss 0.02274; mean_q -20.21; min_q -33.74; max_q -0.9348; mean_r -0.8263; mean_dsc 0.98; 
+Tested 50 episodes at step 52000, reward mean -27.18, std 20.49, time cost 1.185s.
+Training steps per second: 184.3.
+Step 53000; q_loss 0.03106; mean_q -20.18; min_q -34.12; max_q -0.9272; mean_r -0.8306; mean_dsc 0.98; 
+Tested 50 episodes at step 53000, reward mean -23.08, std 19.02, time cost 1.163s.
+Training steps per second: 184.5.
+Step 54000; q_loss 0.02796; mean_q -20.19; min_q -34.48; max_q -0.9276; mean_r -0.8009; mean_dsc 0.98; 
+Tested 50 episodes at step 54000, reward mean -27.5, std 19.92, time cost 1.15s.
+Training steps per second: 185.1.
+Step 55000; q_loss 0.02232; mean_q -21.3; min_q -34.89; max_q -0.9094; mean_r -0.8736; mean_dsc 0.98; 
+Tested 50 episodes at step 55000, reward mean -32.98, std 18.83, time cost 1.157s.
+Training steps per second: 185.5.
+Step 56000; q_loss 0.02748; mean_q -18.78; min_q -35.17; max_q -0.8831; mean_r -0.8105; mean_dsc 0.98; 
+Tested 50 episodes at step 56000, reward mean -29.02, std 19, time cost 1.144s.
+Training steps per second: 184.
+Step 57000; q_loss 0.04177; mean_q -21.67; min_q -35.43; max_q -0.8711; mean_r -0.8324; mean_dsc 0.98; 
+Tested 50 episodes at step 57000, reward mean -31.04, std 19.34, time cost 1.159s.
+Training steps per second: 184.5.
+Step 58000; q_loss 0.02936; mean_q -24.06; min_q -35.77; max_q -0.8626; mean_r -0.9084; mean_dsc 0.98; 
+Tested 50 episodes at step 58000, reward mean -25.3, std 19.02, time cost 1.177s.
+Training steps per second: 183.
+Step 59000; q_loss 0.01217; mean_q -22.06; min_q -36.07; max_q -0.8609; mean_r -0.8124; mean_dsc 0.98; 
+Tested 50 episodes at step 59000, reward mean -29.9, std 18.42, time cost 1.164s.
+Training steps per second: 183.2.
+Step 60000; q_loss 0.02649; mean_q -20.15; min_q -36.34; max_q -0.8271; mean_r -0.7998; mean_dsc 0.98; 
+Tested 50 episodes at step 60000, reward mean -31.88, std 17.58, time cost 1.191s.
+Training steps per second: 178.3.
+Step 61000; q_loss 0.02139; mean_q -20.67; min_q -36.65; max_q -0.8292; mean_r -0.8547; mean_dsc 0.98; 
+Tested 50 episodes at step 61000, reward mean -28.36, std 17.44, time cost 1.134s.
+Training steps per second: 184.7.
+Step 62000; q_loss 0.02426; mean_q -21.11; min_q -36.99; max_q -0.8146; mean_r -0.8355; mean_dsc 0.98; 
+Tested 50 episodes at step 62000, reward mean -32.12, std 17.77, time cost 1.225s.
+Training steps per second: 182.4.
+Step 63000; q_loss 0.01849; mean_q -23.26; min_q -37.14; max_q -0.7881; mean_r -0.8665; mean_dsc 0.98; 
+Tested 50 episodes at step 63000, reward mean -28.48, std 17.55, time cost 1.152s.
+Training steps per second: 184.6.
+Step 64000; q_loss 0.014; mean_q -20.38; min_q -37.47; max_q -0.7759; mean_r -0.8045; mean_dsc 0.98; 
+Tested 50 episodes at step 64000, reward mean -29.48, std 18.88, time cost 1.165s.
+Training steps per second: 182.8.
+Step 65000; q_loss 0.01357; mean_q -20.52; min_q -37.73; max_q -0.754; mean_r -0.7861; mean_dsc 0.98; 
+Tested 50 episodes at step 65000, reward mean -32.78, std 17.57, time cost 1.161s.
+Training steps per second: 183.2.
+Step 66000; q_loss 0.01838; mean_q -21.77; min_q -37.97; max_q -0.7437; mean_r -0.8354; mean_dsc 0.98; 
+Tested 50 episodes at step 66000, reward mean -29.46, std 19.31, time cost 1.16s.
+Training steps per second: 184.7.
+Step 67000; q_loss 0.02324; mean_q -21.47; min_q -38.27; max_q -0.7094; mean_r -0.8142; mean_dsc 0.98; 
+Tested 50 episodes at step 67000, reward mean -32.42, std 18.25, time cost 1.162s.
+Training steps per second: 182.6.
+Step 68000; q_loss 0.02509; mean_q -21.68; min_q -38.58; max_q -0.7236; mean_r -0.8495; mean_dsc 0.98; 
+Tested 50 episodes at step 68000, reward mean -30.06, std 18.91, time cost 1.186s.
+Training steps per second: 182.4.
+Step 69000; q_loss 0.0247; mean_q -21.43; min_q -38.83; max_q -0.6909; mean_r -0.8261; mean_dsc 0.98; 
+Tested 50 episodes at step 69000, reward mean -30.16, std 20.12, time cost 1.18s.
+Training steps per second: 183.4.
+Step 70000; q_loss 0.04849; mean_q -21.55; min_q -39.07; max_q -0.6543; mean_r -0.8107; mean_dsc 0.98; 
+Tested 50 episodes at step 70000, reward mean -30.18, std 19.57, time cost 1.158s.
+Training steps per second: 184.7.
+Step 71000; q_loss 0.04156; mean_q -21.86; min_q -39.32; max_q -0.6143; mean_r -0.8104; mean_dsc 0.98; 
+Tested 50 episodes at step 71000, reward mean -32.2, std 19.67, time cost 1.156s.
+Training steps per second: 183.5.
+Step 72000; q_loss 0.01834; mean_q -20.01; min_q -39.59; max_q -0.6052; mean_r -0.7922; mean_dsc 0.98; 
+Tested 50 episodes at step 72000, reward mean -29.24, std 19.6, time cost 1.159s.
+Training steps per second: 183.6.
+Step 73000; q_loss 0.02018; mean_q -20.97; min_q -39.73; max_q -0.5933; mean_r -0.7971; mean_dsc 0.98; 
+Tested 50 episodes at step 73000, reward mean -31.48, std 18.58, time cost 1.153s.
+Training steps per second: 185.
+Step 74000; q_loss 0.02081; mean_q -22.06; min_q -40.01; max_q -0.5907; mean_r -0.8568; mean_dsc 0.98; 
+Tested 50 episodes at step 74000, reward mean -29.18, std 19.88, time cost 1.15s.
+Training steps per second: 184.3.
+Step 75000; q_loss 0.02496; mean_q -22.32; min_q -40.28; max_q -0.5815; mean_r -0.7898; mean_dsc 0.98; 
+Tested 50 episodes at step 75000, reward mean -29.3, std 18.78, time cost 1.134s.
+Training steps per second: 185.2.
+Step 76000; q_loss 0.02618; mean_q -20.4; min_q -40.51; max_q -0.5596; mean_r -0.7822; mean_dsc 0.98; 
+Tested 50 episodes at step 76000, reward mean -31.34, std 18.68, time cost 1.146s.
+Training steps per second: 183.7.
+Step 77000; q_loss 0.06219; mean_q -20.73; min_q -40.77; max_q -0.5503; mean_r -0.7908; mean_dsc 0.98; 
+Tested 50 episodes at step 77000, reward mean -30.56, std 18.42, time cost 1.149s.
+Training steps per second: 184.6.
+Step 78000; q_loss 0.04256; mean_q -19.72; min_q -41.01; max_q -0.5318; mean_r -0.7929; mean_dsc 0.98; 
+Tested 50 episodes at step 78000, reward mean -27.68, std 16.1, time cost 1.139s.
+Training steps per second: 184.6.
+Step 79000; q_loss 0.01727; mean_q -17.75; min_q -41.3; max_q -0.5304; mean_r -0.7244; mean_dsc 0.98; 
+Tested 50 episodes at step 79000, reward mean -29.7, std 18.85, time cost 1.191s.
+Training steps per second: 181.3.
+Step 80000; q_loss 0.01244; mean_q -21.2; min_q -41.34; max_q -0.5048; mean_r -0.8057; mean_dsc 0.98; 
+Tested 50 episodes at step 80000, reward mean -26.62, std 17.25, time cost 1.184s.
+Training steps per second: 181.1.
+Step 81000; q_loss 0.0142; mean_q -20.64; min_q -41.54; max_q -0.4906; mean_r -0.7963; mean_dsc 0.98; 
+Tested 50 episodes at step 81000, reward mean -30.94, std 18.2, time cost 1.176s.
+Training steps per second: 177.2.
+Step 82000; q_loss 0.01644; mean_q -18.98; min_q -41.81; max_q -0.4796; mean_r -0.7786; mean_dsc 0.98; 
+Tested 50 episodes at step 82000, reward mean -27.72, std 18.51, time cost 1.147s.
+Training steps per second: 184.7.
+Step 83000; q_loss 0.008827; mean_q -18.18; min_q -41.96; max_q -0.4689; mean_r -0.766; mean_dsc 0.98; 
+Tested 50 episodes at step 83000, reward mean -26, std 18.9, time cost 1.162s.
+Training steps per second: 158.2.
+Step 84000; q_loss 0.02843; mean_q -22.89; min_q -42.36; max_q -0.462; mean_r -0.8838; mean_dsc 0.98; 
+Tested 50 episodes at step 84000, reward mean -30.28, std 17.4, time cost 1.155s.
+Training steps per second: 184.8.
+Step 85000; q_loss 0.05964; mean_q -19.73; min_q -42.29; max_q -0.4737; mean_r -0.7889; mean_dsc 0.98; 
+Tested 50 episodes at step 85000, reward mean -29.6, std 19.22, time cost 1.157s.
+Training steps per second: 183.8.
+Step 86000; q_loss 0.01729; mean_q -22.07; min_q -42.45; max_q -0.449; mean_r -0.8332; mean_dsc 0.98; 
+Tested 50 episodes at step 86000, reward mean -31.18, std 18.65, time cost 1.159s.
+Training steps per second: 184.
+Step 87000; q_loss 0.00888; mean_q -18.15; min_q -42.79; max_q -0.4418; mean_r -0.7234; mean_dsc 0.98; 
+Tested 50 episodes at step 87000, reward mean -25.88, std 19.76, time cost 1.166s.
+Training steps per second: 183.8.
+Step 88000; q_loss 0.01314; mean_q -18.71; min_q -43.1; max_q -0.4433; mean_r -0.782; mean_dsc 0.98; 
+Tested 50 episodes at step 88000, reward mean -24.38, std 18.46, time cost 1.156s.
+Training steps per second: 184.2.
+Step 89000; q_loss 0.01152; mean_q -20.3; min_q -43; max_q -0.4215; mean_r -0.8379; mean_dsc 0.98; 
+Tested 50 episodes at step 89000, reward mean -25.2, std 17.34, time cost 1.16s.
+Training steps per second: 183.3.
+Step 90000; q_loss 0.01681; mean_q -19.95; min_q -43.18; max_q -0.4086; mean_r -0.796; mean_dsc 0.98; 
+Tested 50 episodes at step 90000, reward mean -30.22, std 18.51, time cost 1.178s.
+Training steps per second: 183.4.
+Step 91000; q_loss 0.01881; mean_q -18.87; min_q -42.89; max_q -0.3964; mean_r -0.783; mean_dsc 0.98; 
+Tested 50 episodes at step 91000, reward mean -35, std 16.23, time cost 1.17s.
+Training steps per second: 180.1.
+Step 92000; q_loss 0.01703; mean_q -20.51; min_q -43.64; max_q -0.3949; mean_r -0.789; mean_dsc 0.98; 
+Tested 50 episodes at step 92000, reward mean -31.06, std 17.38, time cost 1.147s.
+Training steps per second: 184.7.
+Step 93000; q_loss 0.017; mean_q -21.92; min_q -43.56; max_q -0.3987; mean_r -0.8651; mean_dsc 0.98; 
+Tested 50 episodes at step 93000, reward mean -29.62, std 19.33, time cost 1.143s.
+Training steps per second: 184.1.
+Step 94000; q_loss 0.0067; mean_q -17.31; min_q -43.61; max_q -0.3918; mean_r -0.734; mean_dsc 0.98; 
+Tested 50 episodes at step 94000, reward mean -25.82, std 18.96, time cost 1.163s.
+Training steps per second: 181.8.
+Step 95000; q_loss 0.01173; mean_q -20.15; min_q -43.9; max_q -0.4038; mean_r -0.7694; mean_dsc 0.98; 
+Tested 50 episodes at step 95000, reward mean -28.52, std 19.04, time cost 1.154s.
+Training steps per second: 183.8.
+Step 96000; q_loss 0.01042; mean_q -16.89; min_q -44.07; max_q -0.4081; mean_r -0.6908; mean_dsc 0.98; 
+Tested 50 episodes at step 96000, reward mean -25.82, std 17.47, time cost 1.159s.
+Training steps per second: 183.7.
+Step 97000; q_loss 0.01278; mean_q -21.16; min_q -44.04; max_q -0.392; mean_r -0.8125; mean_dsc 0.98; 
+Tested 50 episodes at step 97000, reward mean -32.12, std 17.14, time cost 1.18s.
+Training steps per second: 182.3.
+Step 98000; q_loss 0.01277; mean_q -18.07; min_q -44.11; max_q -0.3833; mean_r -0.7767; mean_dsc 0.98; 
+Tested 50 episodes at step 98000, reward mean -24.84, std 17.39, time cost 1.159s.
+Training steps per second: 184.5.
+Step 99000; q_loss 0.02709; mean_q -22.25; min_q -44.38; max_q -0.3811; mean_r -0.8479; mean_dsc 0.98; 
+Tested 50 episodes at step 99000, reward mean -25.72, std 18.45, time cost 1.174s.
+Training steps per second: 182.7.
+Step 100000; q_loss 0.01338; mean_q -17.35; min_q -44.59; max_q -0.3711; mean_r -0.7191; mean_dsc 0.98; 
+Tested 50 episodes at step 100000, reward mean -27.72, std 19.67, time cost 1.166s.
+Training steps per second: 183.1.
+Step 101000; q_loss 0.01803; mean_q -22.44; min_q -44.65; max_q -0.3816; mean_r -0.8411; mean_dsc 0.98; 
+Tested 50 episodes at step 101000, reward mean -30.84, std 17.99, time cost 1.159s.
+Training steps per second: 183.9.
+Step 102000; q_loss 0.01139; mean_q -22.54; min_q -44.84; max_q -0.3704; mean_r -0.8506; mean_dsc 0.98; 
+Tested 50 episodes at step 102000, reward mean -27.48, std 18.21, time cost 1.157s.
+Training steps per second: 183.2.
+Step 103000; q_loss 0.009915; mean_q -18.63; min_q -44.94; max_q -0.3672; mean_r -0.7876; mean_dsc 0.98; 
+Tested 50 episodes at step 103000, reward mean -26.76, std 19.07, time cost 1.163s.
+Training steps per second: 183.
+Step 104000; q_loss 0.01819; mean_q -19.84; min_q -44.98; max_q -0.3375; mean_r -0.8067; mean_dsc 0.98; 
+Tested 50 episodes at step 104000, reward mean -30.54, std 18.83, time cost 1.163s.
+Training steps per second: 183.4.
+Step 105000; q_loss 0.007263; mean_q -20.89; min_q -44.89; max_q -0.3172; mean_r -0.8639; mean_dsc 0.98; 
+Tested 50 episodes at step 105000, reward mean -30, std 18.36, time cost 1.155s.
+Training steps per second: 183.5.
+Step 106000; q_loss 0.01029; mean_q -20.8; min_q -45.07; max_q -0.2972; mean_r -0.8596; mean_dsc 0.98; 
+Tested 50 episodes at step 106000, reward mean -29.6, std 17.54, time cost 1.176s.
+Training steps per second: 174.
+Step 107000; q_loss 0.01909; mean_q -19.21; min_q -44.8; max_q -0.2938; mean_r -0.7674; mean_dsc 0.98; 
+Tested 50 episodes at step 107000, reward mean -30.4, std 17.31, time cost 1.153s.
+Training steps per second: 183.8.
+Step 108000; q_loss 0.0227; mean_q -17.76; min_q -44.73; max_q -0.2909; mean_r -0.7246; mean_dsc 0.98; 
+Tested 50 episodes at step 108000, reward mean -33.74, std 17.79, time cost 1.142s.
+Training steps per second: 182.7.
+Step 109000; q_loss 0.009521; mean_q -17.6; min_q -42.42; max_q -0.2765; mean_r -0.7945; mean_dsc 0.98; 
+Tested 50 episodes at step 109000, reward mean -33.8, std 17.22, time cost 1.168s.
+Training steps per second: 182.1.
+Step 110000; q_loss 0.01381; mean_q -18.99; min_q -43.95; max_q -0.2671; mean_r -0.7623; mean_dsc 0.98; 
+Tested 50 episodes at step 110000, reward mean -28.62, std 19.2, time cost 1.163s.
+Training steps per second: 183.8.
+Step 111000; q_loss 0.02236; mean_q -17.87; min_q -43.6; max_q -0.2613; mean_r -0.7461; mean_dsc 0.98; 
+Tested 50 episodes at step 111000, reward mean -27.14, std 17.22, time cost 1.154s.
+Training steps per second: 183.4.
+Step 112000; q_loss 0.01594; mean_q -17.99; min_q -43.77; max_q -0.245; mean_r -0.7668; mean_dsc 0.98; 
+Tested 50 episodes at step 112000, reward mean -23.78, std 17.58, time cost 1.186s.
+Training steps per second: 181.9.
+Step 113000; q_loss 0.01398; mean_q -18.31; min_q -44.28; max_q -0.226; mean_r -0.7696; mean_dsc 0.98; 
+Tested 50 episodes at step 113000, reward mean -30.44, std 20.33, time cost 1.159s.
+Training steps per second: 183.2.
+Step 114000; q_loss 0.005726; mean_q -18.44; min_q -41.16; max_q -0.2261; mean_r -0.7717; mean_dsc 0.98; 
+Tested 50 episodes at step 114000, reward mean -27.98, std 18.64, time cost 1.178s.
+Training steps per second: 182.8.
+Step 115000; q_loss 0.01245; mean_q -16.74; min_q -43.15; max_q -0.2345; mean_r -0.7181; mean_dsc 0.98; 
+Tested 50 episodes at step 115000, reward mean -31.18, std 18.86, time cost 1.169s.
+Training steps per second: 182.9.
+Step 116000; q_loss 0.009144; mean_q -18.16; min_q -43.46; max_q -0.2436; mean_r -0.7683; mean_dsc 0.98; 
+Tested 50 episodes at step 116000, reward mean -30.38, std 19.51, time cost 1.377s.
+Training steps per second: 173.9.
+Step 117000; q_loss 0.007287; mean_q -17.19; min_q -42.23; max_q -0.2606; mean_r -0.7889; mean_dsc 0.98; 
+Tested 50 episodes at step 117000, reward mean -29.4, std 18.51, time cost 1.14s.
+Training steps per second: 184.3.
+Step 118000; q_loss 0.005541; mean_q -20.36; min_q -42.75; max_q -0.2484; mean_r -0.8217; mean_dsc 0.98; 
+Tested 50 episodes at step 118000, reward mean -28.92, std 17.7, time cost 1.149s.
+Training steps per second: 183.4.
+Step 119000; q_loss 0.01087; mean_q -20.6; min_q -40.62; max_q -0.2285; mean_r -0.781; mean_dsc 0.98; 
+Tested 50 episodes at step 119000, reward mean -23.08, std 18.52, time cost 1.146s.
+Training steps per second: 182.7.
+Step 120000; q_loss 0.0057; mean_q -16.9; min_q -41.28; max_q -0.2321; mean_r -0.7116; mean_dsc 0.98; 
+Tested 50 episodes at step 120000, reward mean -28.84, std 18.43, time cost 1.149s.
+Training steps per second: 184.2.
+Step 121000; q_loss 0.004611; mean_q -19.79; min_q -41.65; max_q -0.2284; mean_r -0.8197; mean_dsc 0.98; 
+Tested 50 episodes at step 121000, reward mean -35.56, std 17.95, time cost 1.226s.
+Training steps per second: 181.2.
+Step 122000; q_loss 0.004427; mean_q -17.82; min_q -41.05; max_q -0.2079; mean_r -0.7574; mean_dsc 0.98; 
+Tested 50 episodes at step 122000, reward mean -33.12, std 17.8, time cost 1.15s.
+Training steps per second: 183.1.
+Step 123000; q_loss 0.01208; mean_q -19.95; min_q -41.61; max_q -0.2065; mean_r -0.8179; mean_dsc 0.98; 
+Tested 50 episodes at step 123000, reward mean -28.02, std 17.84, time cost 1.169s.
+Training steps per second: 181.5.
+Step 124000; q_loss 0.00392; mean_q -19.06; min_q -41.82; max_q -0.2034; mean_r -0.7617; mean_dsc 0.98; 
+Tested 50 episodes at step 124000, reward mean -30.8, std 18.54, time cost 1.175s.
+Training steps per second: 181.
+Step 125000; q_loss 0.00337; mean_q -18.37; min_q -41.45; max_q -0.2018; mean_r -0.7752; mean_dsc 0.98; 
+Tested 50 episodes at step 125000, reward mean -28.3, std 17.77, time cost 1.166s.
+Training steps per second: 182.9.
+Step 126000; q_loss 0.00403; mean_q -20.28; min_q -41.66; max_q -0.1972; mean_r -0.8183; mean_dsc 0.98; 
+Tested 50 episodes at step 126000, reward mean -31.94, std 17.72, time cost 1.156s.
+Training steps per second: 183.8.
+Step 127000; q_loss 0.009714; mean_q -19.01; min_q -41.51; max_q -0.2138; mean_r -0.841; mean_dsc 0.98; 
+Tested 50 episodes at step 127000, reward mean -31.3, std 19.59, time cost 1.17s.
+Training steps per second: 181.2.
+Step 128000; q_loss 0.004305; mean_q -17.94; min_q -41.79; max_q -0.2067; mean_r -0.7508; mean_dsc 0.98; 
+Tested 50 episodes at step 128000, reward mean -33.22, std 15.94, time cost 1.153s.
+Training steps per second: 184.3.
+Step 129000; q_loss 0.009908; mean_q -17.38; min_q -41.46; max_q -0.2167; mean_r -0.7645; mean_dsc 0.98; 
+Tested 50 episodes at step 129000, reward mean -35.64, std 16.16, time cost 1.159s.
+Training steps per second: 184.
+Step 130000; q_loss 0.004717; mean_q -17.91; min_q -42.38; max_q -0.1869; mean_r -0.7098; mean_dsc 0.98; 
+Tested 50 episodes at step 130000, reward mean -26.16, std 18.52, time cost 1.181s.
+Training steps per second: 182.5.
+Step 131000; q_loss 0.005522; mean_q -15.75; min_q -41.33; max_q -0.1779; mean_r -0.6916; mean_dsc 0.98; 
+Tested 50 episodes at step 131000, reward mean -26.92, std 19.39, time cost 1.169s.
+Training steps per second: 183.6.
+Step 132000; q_loss 0.003374; mean_q -18.84; min_q -42.41; max_q -0.1682; mean_r -0.7686; mean_dsc 0.98; 
+Tested 50 episodes at step 132000, reward mean -31.7, std 18.3, time cost 1.149s.
+Training steps per second: 184.2.
+Step 133000; q_loss 0.004699; mean_q -14.84; min_q -42.21; max_q -0.1672; mean_r -0.6892; mean_dsc 0.98; 
+Tested 50 episodes at step 133000, reward mean -24.24, std 17.85, time cost 1.148s.
+Training steps per second: 184.
+Step 134000; q_loss 0.002984; mean_q -19.19; min_q -41.91; max_q -0.159; mean_r -0.8117; mean_dsc 0.98; 
+Tested 50 episodes at step 134000, reward mean -22.84, std 18.96, time cost 1.15s.
+Training steps per second: 183.2.
+Step 135000; q_loss 0.00352; mean_q -15.13; min_q -42.19; max_q -0.1469; mean_r -0.7188; mean_dsc 0.98; 
+Tested 50 episodes at step 135000, reward mean -30.36, std 18.26, time cost 1.164s.
+Training steps per second: 181.
+Step 136000; q_loss 0.004857; mean_q -17.08; min_q -41.63; max_q -0.1392; mean_r -0.7515; mean_dsc 0.98; 
+Tested 50 episodes at step 136000, reward mean -29.74, std 17.77, time cost 1.16s.
+Training steps per second: 182.4.
+Step 137000; q_loss 0.004912; mean_q -20.52; min_q -42.22; max_q -0.1443; mean_r -0.8214; mean_dsc 0.98; 
+Tested 50 episodes at step 137000, reward mean -30.06, std 17.35, time cost 1.169s.
+Training steps per second: 182.2.
+Step 138000; q_loss 0.004971; mean_q -16.53; min_q -41.99; max_q -0.1605; mean_r -0.6977; mean_dsc 0.98; 
+Tested 50 episodes at step 138000, reward mean -30.02, std 17.64, time cost 1.172s.
+Training steps per second: 181.6.
+Step 139000; q_loss 0.00277; mean_q -16.68; min_q -42.24; max_q -0.1652; mean_r -0.7436; mean_dsc 0.98; 
+Tested 50 episodes at step 139000, reward mean -31.76, std 17.82, time cost 1.178s.
+Training steps per second: 172.2.
+Step 140000; q_loss 0.005117; mean_q -18.36; min_q -42.3; max_q -0.1584; mean_r -0.7844; mean_dsc 0.98; 
+Tested 50 episodes at step 140000, reward mean -26.44, std 18.17, time cost 1.166s.
+Training steps per second: 183.7.
+Step 141000; q_loss 0.002633; mean_q -16.11; min_q -40.77; max_q -0.1661; mean_r -0.6817; mean_dsc 0.98; 
+Tested 50 episodes at step 141000, reward mean -31, std 18.82, time cost 1.162s.
+Training steps per second: 182.2.
+Step 142000; q_loss 0.002308; mean_q -17.16; min_q -42.14; max_q -0.1608; mean_r -0.7449; mean_dsc 0.98; 
+Tested 50 episodes at step 142000, reward mean -24.34, std 18.84, time cost 1.182s.
+Training steps per second: 157.6.
+Step 143000; q_loss 0.003209; mean_q -17.72; min_q -41.78; max_q -0.1644; mean_r -0.7883; mean_dsc 0.98; 
+Tested 50 episodes at step 143000, reward mean -26.98, std 18.52, time cost 1.161s.
+Training steps per second: 184.
+Step 144000; q_loss 0.002386; mean_q -17.6; min_q -41.75; max_q -0.1675; mean_r -0.7879; mean_dsc 0.98; 
+Tested 50 episodes at step 144000, reward mean -30.04, std 18.25, time cost 1.151s.
+Training steps per second: 183.
+Step 145000; q_loss 0.005232; mean_q -18.12; min_q -42.07; max_q -0.1738; mean_r -0.7683; mean_dsc 0.98; 
+Tested 50 episodes at step 145000, reward mean -32.52, std 16.71, time cost 1.164s.
+Training steps per second: 182.4.
+Step 146000; q_loss 0.005526; mean_q -17.82; min_q -41.79; max_q -0.1743; mean_r -0.7872; mean_dsc 0.98; 
+Tested 50 episodes at step 146000, reward mean -30.48, std 20.67, time cost 1.161s.
+Training steps per second: 182.9.
+Step 147000; q_loss 0.007484; mean_q -18.49; min_q -41.7; max_q -0.1632; mean_r -0.7677; mean_dsc 0.98; 
+Tested 50 episodes at step 147000, reward mean -30.04, std 18.4, time cost 1.171s.
+Training steps per second: 183.
+Step 148000; q_loss 0.002364; mean_q -20.21; min_q -41.72; max_q -0.15; mean_r -0.8552; mean_dsc 0.98; 
+Tested 50 episodes at step 148000, reward mean -27.68, std 19.3, time cost 1.182s.
+Training steps per second: 182.7.
+Step 149000; q_loss 0.002136; mean_q -17; min_q -40.58; max_q -0.1562; mean_r -0.7819; mean_dsc 0.98; 
+Tested 50 episodes at step 149000, reward mean -28.22, std 18.98, time cost 1.176s.
+Training steps per second: 182.2.
+Step 150000; q_loss 0.003131; mean_q -17.54; min_q -41.42; max_q -0.1585; mean_r -0.7434; mean_dsc 0.98; 
+Tested 50 episodes at step 150000, reward mean -27.02, std 18.12, time cost 1.151s.
+Training steps per second: 182.
+Step 151000; q_loss 0.06368; mean_q -16.28; min_q -41.77; max_q -0.1545; mean_r -0.7586; mean_dsc 0.98; 
+Tested 50 episodes at step 151000, reward mean -34.84, std 17.23, time cost 1.162s.
+Training steps per second: 183.
+Step 152000; q_loss 0.01038; mean_q -17.81; min_q -42.05; max_q -0.1622; mean_r -0.7432; mean_dsc 0.98; 
+Tested 50 episodes at step 152000, reward mean -29.42, std 19.13, time cost 1.17s.
+Training steps per second: 181.9.
+Step 153000; q_loss 0.0019; mean_q -19.34; min_q -42.29; max_q -0.1582; mean_r -0.8681; mean_dsc 0.98; 
+Tested 50 episodes at step 153000, reward mean -26.18, std 19.7, time cost 1.178s.
+Training steps per second: 181.
+Step 154000; q_loss 0.002512; mean_q -19.22; min_q -41.78; max_q -0.1683; mean_r -0.7934; mean_dsc 0.98; 
+Tested 50 episodes at step 154000, reward mean -31.7, std 18.48, time cost 1.165s.
+Training steps per second: 183.
+Step 155000; q_loss 0.007018; mean_q -15.11; min_q -42; max_q -0.1697; mean_r -0.7207; mean_dsc 0.98; 
+Tested 50 episodes at step 155000, reward mean -27.68, std 18.27, time cost 1.168s.
+Training steps per second: 183.
+Step 156000; q_loss 0.003105; mean_q -19.11; min_q -41.77; max_q -0.1654; mean_r -0.7805; mean_dsc 0.98; 
+Tested 50 episodes at step 156000, reward mean -30.84, std 17.57, time cost 1.169s.
+Training steps per second: 182.2.
+Step 157000; q_loss 0.0149; mean_q -15.9; min_q -42.31; max_q -0.1637; mean_r -0.69; mean_dsc 0.98; 
+Tested 50 episodes at step 157000, reward mean -32.16, std 17.63, time cost 1.153s.
+Training steps per second: 181.7.
+Step 158000; q_loss 0.01198; mean_q -18.08; min_q -40.77; max_q -0.1668; mean_r -0.8022; mean_dsc 0.98; 
+Tested 50 episodes at step 158000, reward mean -27.24, std 18.32, time cost 1.145s.
+Training steps per second: 183.8.
+Step 159000; q_loss 0.005451; mean_q -18.22; min_q -42.31; max_q -0.1407; mean_r -0.7692; mean_dsc 0.98; 
+Tested 50 episodes at step 159000, reward mean -30.94, std 17.71, time cost 1.15s.
+Training steps per second: 182.7.
+Step 160000; q_loss 0.001447; mean_q -15.45; min_q -41.72; max_q -0.1387; mean_r -0.7197; mean_dsc 0.98; 
+Tested 50 episodes at step 160000, reward mean -27.26, std 18.46, time cost 1.174s.
+Training steps per second: 182.5.
+Step 161000; q_loss 0.003454; mean_q -14.94; min_q -41.39; max_q -0.1366; mean_r -0.6645; mean_dsc 0.98; 
+Tested 50 episodes at step 161000, reward mean -30.32, std 19.39, time cost 1.171s.
+Training steps per second: 182.7.
+Step 162000; q_loss 0.004194; mean_q -19.41; min_q -42.29; max_q -0.1328; mean_r -0.8233; mean_dsc 0.98; 
+Tested 50 episodes at step 162000, reward mean -31.6, std 19.37, time cost 1.155s.
+Training steps per second: 182.8.
+Step 163000; q_loss 0.002388; mean_q -18.64; min_q -41.37; max_q -0.1318; mean_r -0.7906; mean_dsc 0.98; 
+Tested 50 episodes at step 163000, reward mean -29.58, std 19.73, time cost 1.159s.
+Training steps per second: 182.9.
+Step 164000; q_loss 0.003424; mean_q -17.53; min_q -42.02; max_q -0.1246; mean_r -0.7679; mean_dsc 0.98; 
+Tested 50 episodes at step 164000, reward mean -29.44, std 17.61, time cost 1.158s.
+Training steps per second: 182.7.
+Step 165000; q_loss 0.00247; mean_q -14.69; min_q -41.07; max_q -0.114; mean_r -0.6937; mean_dsc 0.98; 
+Tested 50 episodes at step 165000, reward mean -27.6, std 18.14, time cost 1.264s.
+Training steps per second: 179.3.
+Step 166000; q_loss 0.01318; mean_q -18.42; min_q -42.28; max_q -0.1119; mean_r -0.7679; mean_dsc 0.98; 
+Tested 50 episodes at step 166000, reward mean -29.74, std 17.39, time cost 1.158s.
+Training steps per second: 182.4.
+Step 167000; q_loss 0.0008141; mean_q -16.44; min_q -41.41; max_q -0.1095; mean_r -0.7403; mean_dsc 0.98; 
+Tested 50 episodes at step 167000, reward mean -26.46, std 18.92, time cost 1.176s.
+Training steps per second: 180.5.
+Step 168000; q_loss 0.002885; mean_q -17.28; min_q -42.03; max_q -0.1081; mean_r -0.7852; mean_dsc 0.98; 
+Tested 50 episodes at step 168000, reward mean -28.92, std 18.12, time cost 1.172s.
+Training steps per second: 181.6.
+Step 169000; q_loss 0.004694; mean_q -18.19; min_q -42.23; max_q -0.09205; mean_r -0.8001; mean_dsc 0.98; 
+Tested 50 episodes at step 169000, reward mean -28.86, std 20.65, time cost 1.148s.
+Training steps per second: 182.4.
+Step 170000; q_loss 0.002982; mean_q -15.52; min_q -42.03; max_q -0.09593; mean_r -0.6842; mean_dsc 0.98; 
+Tested 50 episodes at step 170000, reward mean -28.46, std 16.76, time cost 1.185s.
+Training steps per second: 180.8.
+Step 171000; q_loss 0.009226; mean_q -17.8; min_q -42; max_q -0.09914; mean_r -0.7301; mean_dsc 0.98; 
+Tested 50 episodes at step 171000, reward mean -30.56, std 19.05, time cost 1.166s.
+Training steps per second: 181.2.
+Step 172000; q_loss 0.002011; mean_q -17.17; min_q -41.43; max_q -0.09752; mean_r -0.7432; mean_dsc 0.98; 
+Tested 50 episodes at step 172000, reward mean -26.1, std 18.23, time cost 1.161s.
+Training steps per second: 182.3.
+Step 173000; q_loss 0.001514; mean_q -16.15; min_q -41.43; max_q -0.09211; mean_r -0.7316; mean_dsc 0.98; 
+Tested 50 episodes at step 173000, reward mean -27.6, std 19.77, time cost 1.199s.
+Training steps per second: 181.4.
+Step 174000; q_loss 0.00303; mean_q -17.41; min_q -41.69; max_q -0.07232; mean_r -0.7814; mean_dsc 0.98; 
+Tested 50 episodes at step 174000, reward mean -24.44, std 17.23, time cost 1.156s.
+Training steps per second: 183.
+Step 175000; q_loss 0.004432; mean_q -17.08; min_q -41.71; max_q -0.0699; mean_r -0.7503; mean_dsc 0.98; 
+Tested 50 episodes at step 175000, reward mean -29.94, std 18.18, time cost 1.166s.
+Training steps per second: 183.3.
+Step 176000; q_loss 0.002313; mean_q -16.39; min_q -42.35; max_q -0.0753; mean_r -0.731; mean_dsc 0.98; 
+Tested 50 episodes at step 176000, reward mean -28.34, std 17.18, time cost 1.172s.
+Training steps per second: 182.7.
+Step 177000; q_loss 0.004445; mean_q -13.03; min_q -41.5; max_q -0.07776; mean_r -0.6633; mean_dsc 0.98; 
+Tested 50 episodes at step 177000, reward mean -29.54, std 18.11, time cost 1.145s.
+Training steps per second: 183.
+Step 178000; q_loss 0.001076; mean_q -17.31; min_q -42.11; max_q -0.08461; mean_r -0.7465; mean_dsc 0.98; 
+Tested 50 episodes at step 178000, reward mean -26.12, std 19.43, time cost 1.148s.
+Training steps per second: 182.9.
+Step 179000; q_loss 0.002505; mean_q -15.83; min_q -41.8; max_q -0.08056; mean_r -0.7341; mean_dsc 0.98; 
+Tested 50 episodes at step 179000, reward mean -33.56, std 18.19, time cost 1.146s.
+Training steps per second: 181.2.
+Step 180000; q_loss 0.00549; mean_q -17.22; min_q -41.79; max_q -0.09963; mean_r -0.7594; mean_dsc 0.98; 
+Tested 50 episodes at step 180000, reward mean -29.78, std 17.31, time cost 1.17s.
+Training steps per second: 171.
+Step 181000; q_loss 0.002633; mean_q -14.15; min_q -41.49; max_q -0.104; mean_r -0.6524; mean_dsc 0.98; 
+Tested 50 episodes at step 181000, reward mean -23.84, std 17.63, time cost 1.197s.
+Training steps per second: 179.3.
+Step 182000; q_loss 0.00254; mean_q -17.01; min_q -40.63; max_q -0.1096; mean_r -0.7087; mean_dsc 0.98; 
+Tested 50 episodes at step 182000, reward mean -28.9, std 17.88, time cost 1.173s.
+Training steps per second: 180.2.
+Step 183000; q_loss 0.001716; mean_q -18.53; min_q -41.79; max_q -0.1078; mean_r -0.8328; mean_dsc 0.98; 
+Tested 50 episodes at step 183000, reward mean -26.38, std 17.88, time cost 1.175s.
+Training steps per second: 182.5.
+Step 184000; q_loss 0.009638; mean_q -18.11; min_q -41.78; max_q -0.09858; mean_r -0.7699; mean_dsc 0.98; 
+Tested 50 episodes at step 184000, reward mean -30.7, std 19.22, time cost 1.16s.
+Training steps per second: 182.5.
+Step 185000; q_loss 0.001561; mean_q -15.23; min_q -41.78; max_q -0.09282; mean_r -0.7122; mean_dsc 0.98; 
+Tested 50 episodes at step 185000, reward mean -28.92, std 17.91, time cost 1.152s.
+Training steps per second: 181.4.
+Step 186000; q_loss 0.00125; mean_q -17.88; min_q -41.47; max_q -0.09554; mean_r -0.781; mean_dsc 0.98; 
+Tested 50 episodes at step 186000, reward mean -30.16, std 18.13, time cost 1.172s.
+Training steps per second: 181.3.
+Step 187000; q_loss 0.001073; mean_q -13.78; min_q -41.75; max_q -0.09766; mean_r -0.6354; mean_dsc 0.98; 
+Tested 50 episodes at step 187000, reward mean -25.06, std 19.9, time cost 1.164s.
+Training steps per second: 181.7.
+Step 188000; q_loss 0.005434; mean_q -18.9; min_q -42.42; max_q -0.1006; mean_r -0.7772; mean_dsc 0.98; 
+Tested 50 episodes at step 188000, reward mean -29.62, std 17.79, time cost 1.181s.
+Training steps per second: 178.6.
+Step 189000; q_loss 0.001791; mean_q -14.25; min_q -42.1; max_q -0.1031; mean_r -0.6755; mean_dsc 0.98; 
+Tested 50 episodes at step 189000, reward mean -31.94, std 18.44, time cost 1.181s.
+Training steps per second: 181.
+Step 190000; q_loss 0.002483; mean_q -17.25; min_q -42.71; max_q -0.09422; mean_r -0.7205; mean_dsc 0.98; 
+Tested 50 episodes at step 190000, reward mean -29.46, std 18.94, time cost 1.153s.
+Training steps per second: 181.6.
+Step 191000; q_loss 0.00267; mean_q -16.28; min_q -41.45; max_q -0.09119; mean_r -0.7583; mean_dsc 0.98; 
+Tested 50 episodes at step 191000, reward mean -33.18, std 16.47, time cost 1.162s.
+Training steps per second: 181.8.
+Step 192000; q_loss 0.00148; mean_q -14.87; min_q -40.37; max_q -0.09839; mean_r -0.6595; mean_dsc 0.98; 
+Tested 50 episodes at step 192000, reward mean -26.32, std 18.01, time cost 1.159s.
+Training steps per second: 181.6.
+Step 193000; q_loss 0.001548; mean_q -16.76; min_q -42.37; max_q -0.09916; mean_r -0.73; mean_dsc 0.98; 
+Tested 50 episodes at step 193000, reward mean -29.9, std 19.17, time cost 1.151s.
+Training steps per second: 182.6.
+Step 194000; q_loss 0.002192; mean_q -15.96; min_q -40.79; max_q -0.08658; mean_r -0.7289; mean_dsc 0.98; 
+Tested 50 episodes at step 194000, reward mean -31.24, std 18.99, time cost 1.162s.
+Training steps per second: 180.1.
+Step 195000; q_loss 0.007134; mean_q -17.78; min_q -42.03; max_q -0.06817; mean_r -0.7615; mean_dsc 0.98; 
+Tested 50 episodes at step 195000, reward mean -27.74, std 18.94, time cost 1.145s.
+Training steps per second: 182.6.
+Step 196000; q_loss 0.003347; mean_q -16.56; min_q -41.43; max_q -0.07231; mean_r -0.7429; mean_dsc 0.98; 
+Tested 50 episodes at step 196000, reward mean -33.56, std 19.53, time cost 1.144s.
+Training steps per second: 182.
+Step 197000; q_loss 0.004773; mean_q -18.47; min_q -42.36; max_q -0.07206; mean_r -0.7966; mean_dsc 0.98; 
+Tested 50 episodes at step 197000, reward mean -30.76, std 18.35, time cost 1.168s.
+Training steps per second: 181.2.
+Step 198000; q_loss 0.004686; mean_q -12.93; min_q -42.09; max_q -0.07488; mean_r -0.6267; mean_dsc 0.98; 
+Tested 50 episodes at step 198000, reward mean -27.64, std 19.84, time cost 1.185s.
+Training steps per second: 180.3.
+Step 199000; q_loss 0.001376; mean_q -13.71; min_q -40.69; max_q -0.06957; mean_r -0.654; mean_dsc 0.98; 
+Tested 50 episodes at step 199000, reward mean -28.64, std 17.23, time cost 1.157s.
+Training steps per second: 181.8.
+Step 200000; q_loss 0.003771; mean_q -15.59; min_q -42.09; max_q -0.05682; mean_r -0.704; mean_dsc 0.98; 
+Tested 50 episodes at step 200000, reward mean -30.84, std 18.67, time cost 1.183s.

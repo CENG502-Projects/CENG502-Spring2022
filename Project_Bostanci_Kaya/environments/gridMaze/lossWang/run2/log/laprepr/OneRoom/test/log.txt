@@ -1,0 +1,14 @@
+device: cuda.
+Start collecting samples.
+(10000/30000) steps collected.
+(20000/30000) steps collected.
+(30000/30000) steps collected.
+Data collection finished, time cost: 4.043733596801758s
+Training steps per second: 0.
+Step 1; loss_pos 0.0003907; loss_neg 0.04754; loss_total 0.04793; 
+Training steps per second: 205.1.
+Step 1000; loss_pos 6.893e-08; loss_neg 0.0475; loss_total 0.0475; 
+Training steps per second: 195.
+Step 2000; loss_pos 4.732e-08; loss_neg 0.0475; loss_total 0.0475; 
+Training steps per second: 204.3.
+Step 3000; loss_pos 1.911e-08; loss_neg 0.0475; loss_total 0.0475; 

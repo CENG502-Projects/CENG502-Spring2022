@@ -1,0 +1,416 @@
+device: cuda.
+Start collecting samples.
+(10000/100000) steps collected.
+(20000/100000) steps collected.
+(30000/100000) steps collected.
+(40000/100000) steps collected.
+(50000/100000) steps collected.
+(60000/100000) steps collected.
+(70000/100000) steps collected.
+(80000/100000) steps collected.
+(90000/100000) steps collected.
+(100000/100000) steps collected.
+Data collection finished, time cost: 16.949440479278564s
+Training steps per second: 0.
+Step 1; loss_pos 0.000333; loss_neg 0.969; loss_total 0.9693; 
+Training steps per second: 58.11.
+Step 1000; loss_pos 0.1043; loss_neg 0.507; loss_total 0.6113; 
+Training steps per second: 58.59.
+Step 2000; loss_pos 0.09728; loss_neg 0.4839; loss_total 0.5812; 
+Training steps per second: 58.83.
+Step 3000; loss_pos 0.08958; loss_neg 0.4846; loss_total 0.5742; 
+Training steps per second: 58.92.
+Step 4000; loss_pos 0.09804; loss_neg 0.4754; loss_total 0.5734; 
+Training steps per second: 58.75.
+Step 5000; loss_pos 0.1059; loss_neg 0.4779; loss_total 0.5839; 
+Training steps per second: 58.12.
+Step 6000; loss_pos 0.09482; loss_neg 0.4779; loss_total 0.5727; 
+Training steps per second: 59.01.
+Step 7000; loss_pos 0.09717; loss_neg 0.4771; loss_total 0.5743; 
+Training steps per second: 58.73.
+Step 8000; loss_pos 0.1171; loss_neg 0.4793; loss_total 0.5964; 
+Training steps per second: 58.81.
+Step 9000; loss_pos 0.09544; loss_neg 0.4751; loss_total 0.5705; 
+Training steps per second: 56.96.
+Step 10000; loss_pos 0.09833; loss_neg 0.4788; loss_total 0.5772; 
+Training steps per second: 57.62.
+Step 11000; loss_pos 0.08596; loss_neg 0.4774; loss_total 0.5633; 
+Training steps per second: 57.66.
+Step 12000; loss_pos 0.1081; loss_neg 0.4748; loss_total 0.5829; 
+Training steps per second: 57.87.
+Step 13000; loss_pos 0.1096; loss_neg 0.4788; loss_total 0.5884; 
+Training steps per second: 57.64.
+Step 14000; loss_pos 0.1048; loss_neg 0.4773; loss_total 0.582; 
+Training steps per second: 56.85.
+Step 15000; loss_pos 0.109; loss_neg 0.478; loss_total 0.587; 
+Training steps per second: 57.81.
+Step 16000; loss_pos 0.09412; loss_neg 0.4743; loss_total 0.5684; 
+Training steps per second: 56.98.
+Step 17000; loss_pos 0.1103; loss_neg 0.4788; loss_total 0.5892; 
+Training steps per second: 54.6.
+Step 18000; loss_pos 0.09978; loss_neg 0.4764; loss_total 0.5761; 
+Training steps per second: 58.62.
+Step 19000; loss_pos 0.108; loss_neg 0.4727; loss_total 0.5807; 
+Training steps per second: 57.4.
+Step 20000; loss_pos 0.09769; loss_neg 0.4752; loss_total 0.5729; 
+Training steps per second: 59.44.
+Step 21000; loss_pos 0.102; loss_neg 0.475; loss_total 0.577; 
+Training steps per second: 59.53.
+Step 22000; loss_pos 0.09942; loss_neg 0.4716; loss_total 0.571; 
+Training steps per second: 59.45.
+Step 23000; loss_pos 0.1077; loss_neg 0.4779; loss_total 0.5856; 
+Training steps per second: 59.03.
+Step 24000; loss_pos 0.1061; loss_neg 0.4769; loss_total 0.583; 
+Training steps per second: 59.32.
+Step 25000; loss_pos 0.1058; loss_neg 0.4738; loss_total 0.5795; 
+Training steps per second: 59.17.
+Step 26000; loss_pos 0.09945; loss_neg 0.4721; loss_total 0.5715; 
+Training steps per second: 59.57.
+Step 27000; loss_pos 0.09246; loss_neg 0.4749; loss_total 0.5674; 
+Training steps per second: 59.8.
+Step 28000; loss_pos 0.09227; loss_neg 0.4709; loss_total 0.5631; 
+Training steps per second: 59.39.
+Step 29000; loss_pos 0.08686; loss_neg 0.4757; loss_total 0.5625; 
+Training steps per second: 58.08.
+Step 30000; loss_pos 0.09037; loss_neg 0.4778; loss_total 0.5682; 
+Training steps per second: 59.88.
+Step 31000; loss_pos 0.08534; loss_neg 0.4742; loss_total 0.5595; 
+Training steps per second: 59.93.
+Step 32000; loss_pos 0.1049; loss_neg 0.476; loss_total 0.5808; 
+Training steps per second: 59.47.
+Step 33000; loss_pos 0.08802; loss_neg 0.475; loss_total 0.5631; 
+Training steps per second: 59.46.
+Step 34000; loss_pos 0.0831; loss_neg 0.4781; loss_total 0.5612; 
+Training steps per second: 59.86.
+Step 35000; loss_pos 0.0928; loss_neg 0.4742; loss_total 0.567; 
+Training steps per second: 56.34.
+Step 36000; loss_pos 0.1016; loss_neg 0.4761; loss_total 0.5777; 
+Training steps per second: 59.68.
+Step 37000; loss_pos 0.09116; loss_neg 0.4797; loss_total 0.5709; 
+Training steps per second: 59.68.
+Step 38000; loss_pos 0.08793; loss_neg 0.4752; loss_total 0.5632; 
+Training steps per second: 59.29.
+Step 39000; loss_pos 0.09801; loss_neg 0.4731; loss_total 0.5711; 
+Training steps per second: 58.53.
+Step 40000; loss_pos 0.09892; loss_neg 0.4712; loss_total 0.5701; 
+Training steps per second: 59.65.
+Step 41000; loss_pos 0.09647; loss_neg 0.4774; loss_total 0.5738; 
+Training steps per second: 59.7.
+Step 42000; loss_pos 0.09957; loss_neg 0.4767; loss_total 0.5762; 
+Training steps per second: 59.54.
+Step 43000; loss_pos 0.1063; loss_neg 0.4746; loss_total 0.581; 
+Training steps per second: 59.51.
+Step 44000; loss_pos 0.09922; loss_neg 0.4751; loss_total 0.5743; 
+Training steps per second: 59.76.
+Step 45000; loss_pos 0.08624; loss_neg 0.4737; loss_total 0.56; 
+Training steps per second: 59.9.
+Step 46000; loss_pos 0.09249; loss_neg 0.4703; loss_total 0.5628; 
+Training steps per second: 59.91.
+Step 47000; loss_pos 0.08606; loss_neg 0.4737; loss_total 0.5597; 
+Training steps per second: 59.22.
+Step 48000; loss_pos 0.1045; loss_neg 0.4759; loss_total 0.5804; 
+Training steps per second: 59.21.
+Step 49000; loss_pos 0.1063; loss_neg 0.4767; loss_total 0.583; 
+Training steps per second: 57.68.
+Step 50000; loss_pos 0.09939; loss_neg 0.4755; loss_total 0.5749; 
+Training steps per second: 59.53.
+Step 51000; loss_pos 0.0916; loss_neg 0.4768; loss_total 0.5684; 
+Training steps per second: 58.5.
+Step 52000; loss_pos 0.1019; loss_neg 0.473; loss_total 0.5749; 
+Training steps per second: 58.59.
+Step 53000; loss_pos 0.09438; loss_neg 0.4729; loss_total 0.5673; 
+Training steps per second: 58.35.
+Step 54000; loss_pos 0.1111; loss_neg 0.4746; loss_total 0.5857; 
+Training steps per second: 54.77.
+Step 55000; loss_pos 0.09384; loss_neg 0.4734; loss_total 0.5672; 
+Training steps per second: 58.41.
+Step 56000; loss_pos 0.09445; loss_neg 0.4767; loss_total 0.5711; 
+Training steps per second: 57.9.
+Step 57000; loss_pos 0.1226; loss_neg 0.475; loss_total 0.5976; 
+Training steps per second: 60.39.
+Step 58000; loss_pos 0.1016; loss_neg 0.4758; loss_total 0.5774; 
+Training steps per second: 61.24.
+Step 59000; loss_pos 0.08741; loss_neg 0.4726; loss_total 0.56; 
+Training steps per second: 60.08.
+Step 60000; loss_pos 0.09322; loss_neg 0.4766; loss_total 0.5698; 
+Training steps per second: 61.39.
+Step 61000; loss_pos 0.08944; loss_neg 0.4742; loss_total 0.5637; 
+Training steps per second: 61.31.
+Step 62000; loss_pos 0.09298; loss_neg 0.4749; loss_total 0.5679; 
+Training steps per second: 61.06.
+Step 63000; loss_pos 0.09828; loss_neg 0.4717; loss_total 0.57; 
+Training steps per second: 61.34.
+Step 64000; loss_pos 0.105; loss_neg 0.4739; loss_total 0.5789; 
+Training steps per second: 61.71.
+Step 65000; loss_pos 0.09134; loss_neg 0.4755; loss_total 0.5668; 
+Training steps per second: 61.16.
+Step 66000; loss_pos 0.1068; loss_neg 0.4748; loss_total 0.5816; 
+Training steps per second: 61.16.
+Step 67000; loss_pos 0.1052; loss_neg 0.4747; loss_total 0.5799; 
+Training steps per second: 61.18.
+Step 68000; loss_pos 0.09918; loss_neg 0.4734; loss_total 0.5725; 
+Training steps per second: 61.79.
+Step 69000; loss_pos 0.09264; loss_neg 0.4761; loss_total 0.5687; 
+Training steps per second: 59.89.
+Step 70000; loss_pos 0.09108; loss_neg 0.4749; loss_total 0.566; 
+Training steps per second: 61.76.
+Step 71000; loss_pos 0.105; loss_neg 0.478; loss_total 0.583; 
+Training steps per second: 61.5.
+Step 72000; loss_pos 0.08876; loss_neg 0.4751; loss_total 0.5639; 
+Training steps per second: 57.72.
+Step 73000; loss_pos 0.1245; loss_neg 0.4744; loss_total 0.5989; 
+Training steps per second: 61.69.
+Step 74000; loss_pos 0.1046; loss_neg 0.4746; loss_total 0.5793; 
+Training steps per second: 61.68.
+Step 75000; loss_pos 0.09952; loss_neg 0.4741; loss_total 0.5736; 
+Training steps per second: 61.33.
+Step 76000; loss_pos 0.1064; loss_neg 0.4729; loss_total 0.5793; 
+Training steps per second: 58.04.
+Step 77000; loss_pos 0.0959; loss_neg 0.4754; loss_total 0.5713; 
+Training steps per second: 59.36.
+Step 78000; loss_pos 0.1173; loss_neg 0.4714; loss_total 0.5887; 
+Training steps per second: 60.22.
+Step 79000; loss_pos 0.08739; loss_neg 0.4731; loss_total 0.5605; 
+Training steps per second: 55.63.
+Step 80000; loss_pos 0.08632; loss_neg 0.4738; loss_total 0.5602; 
+Training steps per second: 57.28.
+Step 81000; loss_pos 0.09481; loss_neg 0.4748; loss_total 0.5696; 
+Training steps per second: 58.24.
+Step 82000; loss_pos 0.09194; loss_neg 0.4736; loss_total 0.5656; 
+Training steps per second: 58.68.
+Step 83000; loss_pos 0.1062; loss_neg 0.475; loss_total 0.5812; 
+Training steps per second: 61.42.
+Step 84000; loss_pos 0.09342; loss_neg 0.4756; loss_total 0.569; 
+Training steps per second: 61.47.
+Step 85000; loss_pos 0.1292; loss_neg 0.4784; loss_total 0.6076; 
+Training steps per second: 61.44.
+Step 86000; loss_pos 0.1062; loss_neg 0.4751; loss_total 0.5813; 
+Training steps per second: 60.6.
+Step 87000; loss_pos 0.08681; loss_neg 0.4781; loss_total 0.565; 
+Training steps per second: 60.7.
+Step 88000; loss_pos 0.1208; loss_neg 0.4739; loss_total 0.5947; 
+Training steps per second: 59.43.
+Step 89000; loss_pos 0.1021; loss_neg 0.4764; loss_total 0.5785; 
+Training steps per second: 60.29.
+Step 90000; loss_pos 0.1123; loss_neg 0.4719; loss_total 0.5842; 
+Training steps per second: 61.04.
+Step 91000; loss_pos 0.105; loss_neg 0.4752; loss_total 0.5803; 
+Training steps per second: 57.04.
+Step 92000; loss_pos 0.1109; loss_neg 0.4726; loss_total 0.5835; 
+Training steps per second: 60.39.
+Step 93000; loss_pos 0.1022; loss_neg 0.4737; loss_total 0.5758; 
+Training steps per second: 61.29.
+Step 94000; loss_pos 0.09914; loss_neg 0.472; loss_total 0.5711; 
+Training steps per second: 60.58.
+Step 95000; loss_pos 0.09892; loss_neg 0.4736; loss_total 0.5725; 
+Training steps per second: 60.15.
+Step 96000; loss_pos 0.09911; loss_neg 0.4757; loss_total 0.5748; 
+Training steps per second: 59.2.
+Step 97000; loss_pos 0.0919; loss_neg 0.4752; loss_total 0.567; 
+Training steps per second: 59.24.
+Step 98000; loss_pos 0.09581; loss_neg 0.4764; loss_total 0.5722; 
+Training steps per second: 59.2.
+Step 99000; loss_pos 0.08822; loss_neg 0.475; loss_total 0.5632; 
+Training steps per second: 56.25.
+Step 100000; loss_pos 0.08925; loss_neg 0.4755; loss_total 0.5648; 
+Training steps per second: 60.33.
+Step 101000; loss_pos 0.09049; loss_neg 0.4748; loss_total 0.5653; 
+Training steps per second: 59.28.
+Step 102000; loss_pos 0.09153; loss_neg 0.4745; loss_total 0.5661; 
+Training steps per second: 60.55.
+Step 103000; loss_pos 0.1151; loss_neg 0.4778; loss_total 0.593; 
+Training steps per second: 60.83.
+Step 104000; loss_pos 0.08508; loss_neg 0.477; loss_total 0.5621; 
+Training steps per second: 60.82.
+Step 105000; loss_pos 0.07489; loss_neg 0.475; loss_total 0.5499; 
+Training steps per second: 60.62.
+Step 106000; loss_pos 0.08821; loss_neg 0.4767; loss_total 0.5649; 
+Training steps per second: 61.29.
+Step 107000; loss_pos 0.1092; loss_neg 0.4767; loss_total 0.5859; 
+Training steps per second: 61.63.
+Step 108000; loss_pos 0.07167; loss_neg 0.4715; loss_total 0.5432; 
+Training steps per second: 61.71.
+Step 109000; loss_pos 0.1085; loss_neg 0.4713; loss_total 0.5799; 
+Training steps per second: 60.08.
+Step 110000; loss_pos 0.09326; loss_neg 0.4724; loss_total 0.5656; 
+Training steps per second: 57.58.
+Step 111000; loss_pos 0.09003; loss_neg 0.4734; loss_total 0.5634; 
+Training steps per second: 61.51.
+Step 112000; loss_pos 0.1113; loss_neg 0.4751; loss_total 0.5863; 
+Training steps per second: 61.66.
+Step 113000; loss_pos 0.1001; loss_neg 0.4753; loss_total 0.5754; 
+Training steps per second: 61.81.
+Step 114000; loss_pos 0.1057; loss_neg 0.4776; loss_total 0.5833; 
+Training steps per second: 61.51.
+Step 115000; loss_pos 0.09461; loss_neg 0.4758; loss_total 0.5704; 
+Training steps per second: 61.54.
+Step 116000; loss_pos 0.08178; loss_neg 0.4737; loss_total 0.5555; 
+Training steps per second: 61.51.
+Step 117000; loss_pos 0.1028; loss_neg 0.4765; loss_total 0.5794; 
+Training steps per second: 61.73.
+Step 118000; loss_pos 0.0926; loss_neg 0.4765; loss_total 0.5691; 
+Training steps per second: 61.98.
+Step 119000; loss_pos 0.09057; loss_neg 0.475; loss_total 0.5656; 
+Training steps per second: 57.87.
+Step 120000; loss_pos 0.1024; loss_neg 0.475; loss_total 0.5774; 
+Training steps per second: 61.19.
+Step 121000; loss_pos 0.1056; loss_neg 0.4748; loss_total 0.5804; 
+Training steps per second: 61.5.
+Step 122000; loss_pos 0.1107; loss_neg 0.4734; loss_total 0.5841; 
+Training steps per second: 62.06.
+Step 123000; loss_pos 0.1024; loss_neg 0.4733; loss_total 0.5757; 
+Training steps per second: 61.58.
+Step 124000; loss_pos 0.11; loss_neg 0.4767; loss_total 0.5868; 
+Training steps per second: 61.57.
+Step 125000; loss_pos 0.1078; loss_neg 0.4727; loss_total 0.5805; 
+Training steps per second: 61.2.
+Step 126000; loss_pos 0.09259; loss_neg 0.4723; loss_total 0.5649; 
+Training steps per second: 61.47.
+Step 127000; loss_pos 0.1084; loss_neg 0.474; loss_total 0.5824; 
+Training steps per second: 60.48.
+Step 128000; loss_pos 0.09496; loss_neg 0.4756; loss_total 0.5706; 
+Training steps per second: 58.93.
+Step 129000; loss_pos 0.08642; loss_neg 0.4739; loss_total 0.5603; 
+Training steps per second: 53.81.
+Step 130000; loss_pos 0.1023; loss_neg 0.4739; loss_total 0.5762; 
+Training steps per second: 58.47.
+Step 131000; loss_pos 0.1012; loss_neg 0.4752; loss_total 0.5764; 
+Training steps per second: 59.31.
+Step 132000; loss_pos 0.09013; loss_neg 0.4779; loss_total 0.568; 
+Training steps per second: 59.4.
+Step 133000; loss_pos 0.1171; loss_neg 0.4734; loss_total 0.5905; 
+Training steps per second: 59.18.
+Step 134000; loss_pos 0.1053; loss_neg 0.4748; loss_total 0.5801; 
+Training steps per second: 58.95.
+Step 135000; loss_pos 0.08159; loss_neg 0.4738; loss_total 0.5554; 
+Training steps per second: 58.92.
+Step 136000; loss_pos 0.1181; loss_neg 0.4771; loss_total 0.5952; 
+Training steps per second: 58.72.
+Step 137000; loss_pos 0.1015; loss_neg 0.4749; loss_total 0.5764; 
+Training steps per second: 58.86.
+Step 138000; loss_pos 0.1064; loss_neg 0.4752; loss_total 0.5816; 
+Training steps per second: 58.87.
+Step 139000; loss_pos 0.07784; loss_neg 0.4754; loss_total 0.5533; 
+Training steps per second: 54.93.
+Step 140000; loss_pos 0.1003; loss_neg 0.4733; loss_total 0.5737; 
+Training steps per second: 58.44.
+Step 141000; loss_pos 0.1021; loss_neg 0.4736; loss_total 0.5756; 
+Training steps per second: 58.58.
+Step 142000; loss_pos 0.1018; loss_neg 0.4751; loss_total 0.5769; 
+Training steps per second: 58.7.
+Step 143000; loss_pos 0.109; loss_neg 0.4743; loss_total 0.5833; 
+Training steps per second: 58.56.
+Step 144000; loss_pos 0.1044; loss_neg 0.4784; loss_total 0.5828; 
+Training steps per second: 58.35.
+Step 145000; loss_pos 0.09179; loss_neg 0.475; loss_total 0.5668; 
+Training steps per second: 58.73.
+Step 146000; loss_pos 0.09049; loss_neg 0.4752; loss_total 0.5657; 
+Training steps per second: 58.84.
+Step 147000; loss_pos 0.1127; loss_neg 0.4771; loss_total 0.5898; 
+Training steps per second: 55.52.
+Step 148000; loss_pos 0.08664; loss_neg 0.4735; loss_total 0.5602; 
+Training steps per second: 58.88.
+Step 149000; loss_pos 0.1127; loss_neg 0.4744; loss_total 0.5872; 
+Training steps per second: 57.57.
+Step 150000; loss_pos 0.0957; loss_neg 0.4733; loss_total 0.569; 
+Training steps per second: 58.79.
+Step 151000; loss_pos 0.09481; loss_neg 0.4731; loss_total 0.5679; 
+Training steps per second: 59.01.
+Step 152000; loss_pos 0.09657; loss_neg 0.4731; loss_total 0.5697; 
+Training steps per second: 59.24.
+Step 153000; loss_pos 0.09341; loss_neg 0.4735; loss_total 0.5669; 
+Training steps per second: 58.71.
+Step 154000; loss_pos 0.1016; loss_neg 0.4748; loss_total 0.5764; 
+Training steps per second: 59.05.
+Step 155000; loss_pos 0.1025; loss_neg 0.4759; loss_total 0.5783; 
+Training steps per second: 58.52.
+Step 156000; loss_pos 0.1031; loss_neg 0.4737; loss_total 0.5768; 
+Training steps per second: 58.9.
+Step 157000; loss_pos 0.08073; loss_neg 0.481; loss_total 0.5617; 
+Training steps per second: 58.97.
+Step 158000; loss_pos 0.09566; loss_neg 0.4728; loss_total 0.5685; 
+Training steps per second: 58.7.
+Step 159000; loss_pos 0.09612; loss_neg 0.4717; loss_total 0.5678; 
+Training steps per second: 55.02.
+Step 160000; loss_pos 0.09579; loss_neg 0.4774; loss_total 0.5732; 
+Training steps per second: 58.89.
+Step 161000; loss_pos 0.1044; loss_neg 0.4734; loss_total 0.5779; 
+Training steps per second: 58.98.
+Step 162000; loss_pos 0.1026; loss_neg 0.4722; loss_total 0.5747; 
+Training steps per second: 58.81.
+Step 163000; loss_pos 0.08159; loss_neg 0.4767; loss_total 0.5583; 
+Training steps per second: 59.79.
+Step 164000; loss_pos 0.09312; loss_neg 0.4787; loss_total 0.5718; 
+Training steps per second: 60.09.
+Step 165000; loss_pos 0.09396; loss_neg 0.4724; loss_total 0.5663; 
+Training steps per second: 59.89.
+Step 166000; loss_pos 0.07665; loss_neg 0.4727; loss_total 0.5494; 
+Training steps per second: 56.5.
+Step 167000; loss_pos 0.1134; loss_neg 0.4744; loss_total 0.5878; 
+Training steps per second: 60.31.
+Step 168000; loss_pos 0.08742; loss_neg 0.475; loss_total 0.5624; 
+Training steps per second: 59.35.
+Step 169000; loss_pos 0.1016; loss_neg 0.4738; loss_total 0.5754; 
+Training steps per second: 58.48.
+Step 170000; loss_pos 0.1001; loss_neg 0.4748; loss_total 0.5749; 
+Training steps per second: 59.44.
+Step 171000; loss_pos 0.08704; loss_neg 0.4746; loss_total 0.5617; 
+Training steps per second: 59.98.
+Step 172000; loss_pos 0.0866; loss_neg 0.4744; loss_total 0.561; 
+Training steps per second: 59.97.
+Step 173000; loss_pos 0.0906; loss_neg 0.4727; loss_total 0.5633; 
+Training steps per second: 59.44.
+Step 174000; loss_pos 0.08264; loss_neg 0.4753; loss_total 0.558; 
+Training steps per second: 59.91.
+Step 175000; loss_pos 0.08827; loss_neg 0.4757; loss_total 0.564; 
+Training steps per second: 60.27.
+Step 176000; loss_pos 0.08964; loss_neg 0.4718; loss_total 0.5614; 
+Training steps per second: 59.99.
+Step 177000; loss_pos 0.1073; loss_neg 0.4756; loss_total 0.5829; 
+Training steps per second: 59.77.
+Step 178000; loss_pos 0.1272; loss_neg 0.475; loss_total 0.6022; 
+Training steps per second: 59.8.
+Step 179000; loss_pos 0.1086; loss_neg 0.4755; loss_total 0.5842; 
+Training steps per second: 58.61.
+Step 180000; loss_pos 0.09637; loss_neg 0.4744; loss_total 0.5707; 
+Training steps per second: 59.6.
+Step 181000; loss_pos 0.08155; loss_neg 0.4744; loss_total 0.556; 
+Training steps per second: 60.19.
+Step 182000; loss_pos 0.08438; loss_neg 0.4761; loss_total 0.5605; 
+Training steps per second: 59.96.
+Step 183000; loss_pos 0.09617; loss_neg 0.4742; loss_total 0.5704; 
+Training steps per second: 59.79.
+Step 184000; loss_pos 0.09509; loss_neg 0.4749; loss_total 0.57; 
+Training steps per second: 60.83.
+Step 185000; loss_pos 0.09652; loss_neg 0.472; loss_total 0.5685; 
+Training steps per second: 55.71.
+Step 186000; loss_pos 0.08843; loss_neg 0.4745; loss_total 0.5629; 
+Training steps per second: 60.04.
+Step 187000; loss_pos 0.09683; loss_neg 0.4729; loss_total 0.5697; 
+Training steps per second: 59.25.
+Step 188000; loss_pos 0.1105; loss_neg 0.473; loss_total 0.5835; 
+Training steps per second: 59.99.
+Step 189000; loss_pos 0.08619; loss_neg 0.4745; loss_total 0.5607; 
+Training steps per second: 58.71.
+Step 190000; loss_pos 0.09631; loss_neg 0.4728; loss_total 0.5691; 
+Training steps per second: 59.78.
+Step 191000; loss_pos 0.1146; loss_neg 0.4738; loss_total 0.5883; 
+Training steps per second: 60.02.
+Step 192000; loss_pos 0.08933; loss_neg 0.4791; loss_total 0.5684; 
+Training steps per second: 59.41.
+Step 193000; loss_pos 0.09144; loss_neg 0.4748; loss_total 0.5662; 
+Training steps per second: 60.51.
+Step 194000; loss_pos 0.1087; loss_neg 0.4753; loss_total 0.584; 
+Training steps per second: 62.1.
+Step 195000; loss_pos 0.1063; loss_neg 0.4725; loss_total 0.5788; 
+Training steps per second: 62.24.
+Step 196000; loss_pos 0.08872; loss_neg 0.4727; loss_total 0.5614; 
+Training steps per second: 61.91.
+Step 197000; loss_pos 0.1004; loss_neg 0.4749; loss_total 0.5753; 
+Training steps per second: 61.84.
+Step 198000; loss_pos 0.1061; loss_neg 0.4802; loss_total 0.5863; 
+Training steps per second: 62.29.
+Step 199000; loss_pos 0.1059; loss_neg 0.4749; loss_total 0.5808; 
+Training steps per second: 60.46.
+Step 200000; loss_pos 0.1039; loss_neg 0.4751; loss_total 0.5791; 
+Training finished, time cost 3383s.

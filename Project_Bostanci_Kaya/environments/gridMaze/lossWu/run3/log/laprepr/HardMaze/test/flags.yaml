@@ -1,0 +1,18 @@
+batch_size: 1024
+c_neg: 1.0
+d: 10
+device: null
+discount: 0.9
+env_id: HardMaze
+log_dir: C:\Users\Semih Kaya\Dropbox\2021-2022 Spring Semester\CENG502 - Advanced
+  Deep Learning\Project\Experiement Codes\Wu_GridMaze_Run3\laplacian_code_Wu\log\laprepr\HardMaze\test
+n_samples: 100000
+opt_args:
+  lr: 0.001
+  name: Adam
+print_freq: 1000
+reg_neg: 0.0
+replay_buffer_size: 100000
+save_freq: 10000
+total_train_steps: 200000
+w_neg: 1.0
