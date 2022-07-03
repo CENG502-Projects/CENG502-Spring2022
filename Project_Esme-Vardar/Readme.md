@@ -28,8 +28,9 @@ $$
 \end{equation}
 $$
 
-be the collection of N x K + T feature vectors in one few shot task, where p is the feature dimension. Given an input F0 = F and the
-associated graph affinity A0 = A, GNN conducts the following
+be the collection of $N \times K + T$ feature vectors in one few shot task, where p is the feature dimension. Given an input 
+$F_0 = F$ and the associated graph affinity 
+$A_0 = A$, GNN conducts the following
 layer-wise propagation in the hidden layers as 
 
 $$
