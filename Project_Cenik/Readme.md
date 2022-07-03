@@ -59,8 +59,8 @@ This paper was presented in the International Conference on Acoustics, Speech, &
   - You can submit for your request to be able to download the dataset :
       - https://sail.usc.edu/iemocap/release_form.php
   - 9 types of emotions with imbalances
-    - Paper used: ‘ Neural’, ‘Sad’, ‘Angry’ and ‘Happy’
-    - My implementation :‘ Neural’, ‘Sad’, ‘Angry’, ‘Happy’, ‘Frustration’, ‘Excitement’
+    - Paper used: ‘ Neutral’, ‘Sad’, ‘Angry’ and ‘Happy’
+    - My implementation :‘ Neutral’, ‘Sad’, ‘Angry’, ‘Happy’, ‘Frustration’, ‘Excitement’
 
   
 ### 2.2.2 Multiscale Area Attention
