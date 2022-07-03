@@ -357,7 +357,7 @@ The Laplacian in RL: Learning Representations with Efficient Approximations ([pd
 
 <a id="3">[3]</a> 
 Chevalier-Boisvert et. al (2018). 
-TMinimalistic Gridworld Environment for OpenAI Gym ([github]([https://arxiv.org/pdf/1810.04586.pdf](https://github.com/Farama-Foundation/gym-minigrid))).
+TMinimalistic Gridworld Environment for OpenAI Gym ([github](https://github.com/Farama-Foundation/gym-minigrid)).
 
 # 6. Acknowledgements
 
