@@ -8,7 +8,7 @@ See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502
 
 In Reinforcement Learning (RL) tasks, there exists an agent-environment interaction mechanism through taking actions and obtaining rewards. Agents interact with an environment and this environment provides numeric reward signals. Main goal of the RL is discovering best actions in order to maximize the cumulative reward.
 
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/agentenvironmentaction.png)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/agentenvironmentaction.JPG)
 
 Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
 
@@ -339,13 +339,13 @@ You can also observe the pre-trained results.
 
 ### Representation learning results:
 
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridRoomResults.png)
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridMazeResults.png)
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/similarityResults.png)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridRoomResults.PNG)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridMazeResults.PNG)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/similarityResults.PNG)
 
 ### Reinforcement learning results: 
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridRoomRewards.png)
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/ourGridMazeRewards.png)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridRoomRewards.PNG)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridMazeRewards.PNG)
 
 # 4. Conclusion
 
