@@ -1,4 +1,4 @@
-# Paper title [Learning Dynamics via Graph Neural Networks for Human Pose Estimation and Tracking]
+# Learning Dynamics via Graph Neural Networks for Human Pose Estimation and Tracking
 
 This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.edu.tr/~skalkan/ADL/) project for reproducing a paper without an implementation. See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502-Spring2021](https://github.com/CENG502-Projects/CENG502-Spring2022)) for a complete list of all paper reproduction projects.
 
@@ -95,7 +95,13 @@ where $$\alpha_{kk'} = Softmax_{k'}(\textbf{J}^{T}\_{kq}\textbf{J}\_{k'k})$$
  $\textbf{J}^T$ represents the transpose of  $\textbf{J} $ and the similarity is calculated as dot product of keys and queries. Then, the results are fed into the softmax function to get attention coefficients  $\alpha_{kk'}$.
 
 Because different edges represents different meanings, two separate MLPs are used in the message aggregating function which are  $\textbf{MLP}\_{spatial}(\cdot) $ for in-frame edges, and   $\textbf{MLP}\_{temporal}(\cdot) $ for inter-frame edges.
-   
+
+For the pose prediction, the predictions of the last history frame is used as the predictions of joints for the current frame. Joint features obtained from the GNN prediction are fed into another prediction MLP:
+
+$$ Prob = \textbf{MLP}\_{pred}(J)$$
+
+
+
 ## 2.2. Our interpretation 
 
 <!--- @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them. --->
@@ -108,12 +114,24 @@ Because different edges represents different meanings, two separate MLPs are use
 
 - Inputs were concatenated from the three stages of the Single-Frame Pose Estimator, resulting in a 144-channel output. We took only the last channel dimension, as we could not find how we can reduce 144-channel output to 17 channel. It was stated that average pooling was used on the inputs of the model, but as it was not clearly stated how they used it we could not implement it.
 
+- Prob from the $\textbf{MLP}\_{pred}(J)$ denotes the probability distribution over all joint types of the input node in the paper. From this statement we understood that the predicted node features are fed into an MLP to obtain positions on the image. Hence, we implemented as this way.
+
+- The paper states that they used the Hungarian matching to to compute an one-to-one mapping between the predicted poses and the estimated poses. In order to reduce the complexity, we used the distances between centers of the bounding boxes as the similarity score.
+
 
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
 
 <!--- @TODO: Describe the setup of the original paper and whether you changed any settings. --->
+
+The original paper fine-tuned object detector on PoseTrack 2017 and PoseTrack 2018 datasets. We directly used pretrained object detector.
+
+The authors also used PoseTrack 2017 and PoseTrack 2018 datasets to train the GNN model. We were able to only use a small portion of the PoseTrack 2018 dataset, nearly 1/10 of it.
+
+Soft-NMS was used to incorporate pose information for discarding unwanted detections. We did not use it.
+
+Paper trained the model by using learning rate 0.0001 for 10 epochs, and then reduced the learning rate by a factor of 10 at 5th and 8th epochs, and total training was 20 epochs. The initial learning rate of our implementation is the same but we have trained the model 3 epochs because our dataset size for training that was used was small.
 
 ## 3.2. Running the code
 
