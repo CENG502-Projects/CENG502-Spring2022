@@ -15,7 +15,7 @@ In Reinforcement Learning (RL) tasks, there exists an agent-environment interact
 
 Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
 
-| ![Figure 2: Example grid environment](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/environment.JPG) | 
+| ![Figure 2: Example grid environment](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/environment.JPG) =498x495| 
 |:--:| 
 | *Figure 2: Example grid environment* |
 
