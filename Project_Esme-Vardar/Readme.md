@@ -16,6 +16,95 @@ CIFAR-FS.
 
 ## 2.1. The original method
 
+Few-shot learning aims to learn a model that can generalize well to new tasks with only a few labelled samples. Each few-shot task has a support set S and a query set Q. The support set S contains N classes with K samples for each class it is called as N-way K-shot. 
+
+Let 
+
+$$
+\begin{equation}
+\begin{aligned}
+\mathbf{F}=\left(\mathrm{f}_{1}, \mathrm{f}_{2}, \ldots, \mathrm{f}_{N \times K+T}\right) \in \mathbb{R}^{(N \times K+T) \times p} 
+\end{aligned}
+\end{equation}
+$$
+
+be the collection of N x K + T feature vectors in one few shot task, where p is the feature dimension. Given an input F0 = F and the
+associated graph affinity A0 = A, GNN conducts the following
+layer-wise propagation in the hidden layers as 
+
+$$
+\begin{equation}
+\mathbf{F}^{l+1}=\sigma\left(\mathbf{D}^{-1 / 2} \mathbf{A}^{l} \mathbf{D}^{-1 / 2} \mathbf{F}^{l}\right)
+\end{equation}
+$$
+
+### Introducing CRF to GNN:
+To produce the affinities A that consider contexts, this paper utilizes the marginal distribution of each random variable in CRFs to compute affinity in all GNN layers.
+#### Unary Compatibility:
+
+$$
+\begin{equation}
+\psi\left(u_{i}^{l}=m\right)
+\end{equation}
+$$
+
+Unary compatibility is to describe the relation between the variable ui of support samples and its corresponding observation. Mathematically, it can be formulated as 
+
+$$
+\begin{equation}
+\left\{\begin{array}{cl} 1-\eta & \text { if } m=y_{i} \\
+\eta /(N-1) & \text { if } m \neq y_{i}
+\end{array},\right.
+\end{equation}
+$$
+
+
+#### Binary Compatibility:
+
+$$
+\begin{equation}
+\phi\left(u_{j}^{l}=m, u_{k}^{l}=n\right)
+\end{equation}
+$$
+
+Binary compatibility is to describe the relations between the connected
+random variables, uj and uk. Mathematically, it can be formulated as 
+
+$$
+\begin{equation}
+\phi\left(u_{j}^{l}=m, u_{k}^{l}=n\right)=\left\{\begin{array}{cl}
+t_{2, k}^{l} & \text { if } m=n \\
+\left(1-t_{j, k}^{l}\right) /(N-1) & \text { if } m \neq n
+\end{array}\right.
+\end{equation}
+$$
+
+#### Marginal Distribution:
+The marginal distribution of variable ui is obtained by marginalizing out all random variables other than ui in CRF. They adopt the loopy belief propagation to calculate marginal distribution of each node in CRF.
+
+$$
+\begin{equation}
+\mathbf{m}_{l, i \rightarrow j}^{r}=\left[\phi\left(u_{i}^{l}, u_{j}^{l}\right)\left(\left(\mathbf{b}_{l, i}\right)^{r-1} \oslash \mathbf{m}_{l, j \rightarrow i}^{r-1}\right)\right]
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\mathbf{P}\left(u_{i}^{l} \mid \mathbf{F}^{l}, \mathcal{Y}_{s}\right) \propto
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\sum_{\mathcal{V}_{l}^{c r f} \backslash\{u_{i}^{l}\}}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\mathbf{P}\left(u_{1}^{l}, u_{2}^{l}, \ldots, u_{N K+T}^{l} \mid \mathbf{F}^{l}, \mathcal{Y}_{s}\right)
+\end{equation}
+$$
 
 @TODO: Explain the original method.
 
