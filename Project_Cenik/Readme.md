@@ -136,7 +136,7 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 As I mentioned above, the reason why I obtain different result can be summarized below.
   - Use of the extra 2 emotions in total 6 emotions instead of 4 emotions, where the authors of the paper take one class ‘’ happy’’ and ‘’excitement’’ to increase the amount of data. But I believe that these two emotions are not highly correlated since excitement does not always mean people who are happy, or vice versa. Therefore, I treat them with two different classes although due to reduction in the amount of data my performance will be reduced.(But I think it is still more realistic.) 
   - Augmentation procedure is not explained in detail, and I used the ‘’default’’ parameters of the **nlpaug** library.
-  - For training part, I use the parameters of the paper **Head Fusion Net** which is the paper of the same authors published before that paper, where they did **NOT** use the **multi-scale area attention**. Since I have no any information about the training procedure of the paper, I used them. This paper can also be found in the references.
+  - For training part, I use the parameters of the paper **Head Fusion Net** which is the paper of the same authors published before that paper, where they did **NOT** use the **multi-scale area attention**. Since I have no any information about the training procedure of the paper, I used them. This paper repo can be also found in the references.
   - For me the **pros** of the paper can be listed as follows:
     - A good application of Multiscale Area Attention.
     - Architecture of the overall process are well explained and easily implemented in the paper including attention layer.
