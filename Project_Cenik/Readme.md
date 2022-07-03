@@ -147,6 +147,7 @@ As I mentioned above, the reason why I obtain different result can be summarized
     - Data Augmentation with VTLP is not explained in the paper. Since it has several parameters, results can be different.
     - Not possible to predict how the paper will be developed in further studies.
     - Training parameters are not given in the paper, which is set with the help of **[3]** 
+      - Epoch : 100, Batch Size = 32, Learning Rate = 0.0001 are taken for training 
 
 # 5. References
 [1] Mingke Xu, Fan Zhang, Xiadong Cui, Wei Zhang ‘’Speech Emotion Recognition with Multiscale Area Attention  and Data Augmentation’’, ICASSP 2021
