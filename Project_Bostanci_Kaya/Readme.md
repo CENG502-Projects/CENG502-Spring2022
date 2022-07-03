@@ -274,15 +274,17 @@ You can follow the steps in order to understand how to install required packages
 
 ```
 
-### How to conduct an experiment:
+### How to conduct an experiment through Google Colab:
 
-**Step-1**:  Upload \sourceCode to your Google Drive
+**Step-1**:  Upload the source codes located in \environments folder with different losses and run numbers to your Google Drive. (Codes under \run folders are identical.)
 
-**Step-2**: Copy the Jupiter notebook to your Google Drive
+**Step-2**: Copy the Jupyter notebook (CEng502_Project_Bostanci_Kaya_.ipynb) in \colabNotebook directory to your Google Drive (If you used Colab already, then you can directly add the given notebook file to "Colab Notebooks" folder on your Google Drive. Otherwise you need to create a dummy notebook to make the "Colab Notebooks" directory on your Google Drive.)
 
-**Step-3**: Open the notebook in Google Colab
+**Step-3**: Open the Jupyter notebook "CEng502_Project_Bostanci_Kaya_.ipynb" in Google Colab
 
-**Step-4**: Follow the instructions on the notebook. These instructions can be summarized as follows:
+**Step-4**: Follow the instructions on the notebook. 
+
+Colab notebook instructions can be summarized as follows:
 
 **Step-4.1**: Install required packages:
 
@@ -293,11 +295,6 @@ You can follow the steps in order to understand how to install required packages
 ```bash
  pip install gym-minigrid
 ```  
-Note that you need to install YAML package after download the package through http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyyaml if you run the code outside of the Colab platform:
-
-```bash
- pip3 install PyYAML-3.11-cp35-none-win32.whl
-``` 
 
 **Step-4.2**: Change directory to the spesific experiment. For example, following command can be used for Grid Room experiments with Wang's loss for run1, 
 ```bash
@@ -321,6 +318,69 @@ Note that you need to install YAML package after download the package through ht
  !python visualize_reprs.py --log_sub_dir=laprepr/HardMaze/test
 ```  
  
+### How to conduct an experiment through Visual Studio Code:
+
+**Step-1**:  Download the source codes located in \environments folder with different losses and run numbers to your local drive. (Codes under \run folders are identical.)
+
+**Step-2**: Install required packages:
+
+```bash
+ pip install gym3
+```  
+
+```bash
+ pip install gym-minigrid
+```  
+Note that you need to install YAML package after download the package through http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyyaml if you run the code outside of the Colab platform:
+
+```bash
+ pip3 install PyYAML-3.11-cp35-none-win32.whl
+``` 
+
+  
+**Step-3 (Optional)**: Update launch.json configuration file through files in \visualStudioConfigs according to your experiment. For example, you need to copy the content in TrainLapRepConfig.txt file to the VisualStudio launch.json file.
+
+```json
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": [
+                "--env_id", "HardMaze", 
+                "--log_sub_dir", "test", 
+                "--args", "w_neg=1.0"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
+``` 
+
+**Step-4**: Train network for state representations (If you add a launch.json file, you can run the related Python script directly) : 
+
+```bash
+ !python train_laprepr.py --env_id=HardMaze --log_sub_dir=test --args="w_neg=1.0"
+```
+
+**Step-5**: Train DQN (If you add a launch.json file, you can run the related Python script directly): 
+  
+```bash
+ !python train_dqn_repr.py --log_sub_dir=mix --env_id=HardMaze --repr_ckpt_sub_path=laprepr/HardMaze/test/model.ckpt --reward_mode=mix
+```
+  
+ **Step-6**:  Visualizate representations and plot rewards for each training step (If you add a launch.json file, you can run the related Python script directly): 
+
+```bash
+ !python visualize_reprs.py --log_sub_dir=laprepr/HardMaze/test
+```  
 
 ### How to obtain results:
 
