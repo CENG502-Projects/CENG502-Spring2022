@@ -12,7 +12,7 @@ In Reinforcement Learning (RL) tasks, there exists an agent-environment interact
 
 Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
 
-![alt text](https://github.com/CENG502-Projects/CENG502-Spring2022/tree/main/Project_Bostanci_Kaya/figures/environment.jpg)
+![alt text](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/environment.JPG)
 
 A graph $\mathcal{G}=(\mathcal{S},\mathcal{E})$ can be constructed from the state transition process by denoting $\mathcal{S}$ states and $\mathcal{E}$ edges. Then, an adjacency matrix $A$ is defined with state transition probabilities. 
 
