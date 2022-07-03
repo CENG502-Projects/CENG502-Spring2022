@@ -2,6 +2,9 @@
 import os
 import argparse
 import importlib
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+
+from mpl_toolkits.axes_grid1 import ImageGrid
 
 import numpy as np
 import torch as th
@@ -173,26 +176,69 @@ def main():
     #map_[pos_batch[:, 0], pos_batch[:, 1]] = l2_dists
     ### Wang's implementation  -- l2distance values  are substituted with state reperesentations
     for dimensionIndex in range(states_reprs.shape[1]): 
-        map_[pos_batch[:, 0], pos_batch[:, 1]] = states_reprs[:, dimensionIndex]
+        map_[pos_batch[:, 0], pos_batch[:, 1]] = -states_reprs[:, dimensionIndex]/np.linalg.norm(states_reprs[:, dimensionIndex])
         im_ = plt.imshow(map_, interpolation='none', cmap='bwr')
         plt.colorbar()
         # add the walls to the normalized distance plot
         walls = np.expand_dims(env.task.maze.render(), axis=-1)
         map_2 = im_.cmap(im_.norm(map_))
+        #map_2 = im_.cmap(map_)
         map_2[:, :, :-1] = map_2[:, :, :-1] * (1 - walls) + 0.5 * walls
         map_2[:, :, -1:] = map_2[:, :, -1:] * (1 - walls) + 1.0 * walls
-        map_2[goal_pos[0], goal_pos[1]] = [1, 0, 0, 1]
+        #map_2[goal_pos[0], goal_pos[1]] = [1, 0, 0, 1]
         plt.cla()
         plt.imshow(map_2, interpolation='none')
         plt.xticks([])
         plt.yticks([])
-        plt.title(flags.env_id)
         figfile = os.path.join(output_dir, '{}'.format(flags.env_id))
-        suffixString = "dimension" + str(dimensionIndex+1) + ".png"
+        suffixString = "_appr_dimension" + str(dimensionIndex+1) + ".pdf"
         figfile = figfile + suffixString
         plt.savefig(figfile, bbox_inches='tight')
         plt.clf()
 
+    map_ = np.zeros(image_shape[:2], dtype=np.float32)
+    ##### Wu's implementation for visualization of ground truth 
+    #map_[pos_batch[:, 0], pos_batch[:, 1]] = l2_dists
+    ### Wang's implementation  -- l2distance values  are substituted with state reperesentations
+    for dimensionIndex in range(states_reprs.shape[1]): 
+        map_[pos_batch[:, 0], pos_batch[:, 1]] = groundTruthEigenvectors[:, dimensionIndex]
+        im_ = plt.imshow(map_, interpolation='none', cmap='bwr')
+        plt.colorbar()
+        # add the walls to the normalized distance plot
+        walls = np.expand_dims(env.task.maze.render(), axis=-1)
+        map_2 = im_.cmap(im_.norm(map_))
+        #map_2 = im_.cmap(map_)
+        map_2[:, :, :-1] = map_2[:, :, :-1] * (1 - walls) + 0.5 * walls
+        map_2[:, :, -1:] = map_2[:, :, -1:] * (1 - walls) + 1.0 * walls
+        #map_2[goal_pos[0], goal_pos[1]] = [1, 0, 0, 1]
+        plt.cla()
+        plt.imshow(map_2, interpolation='none')
+        plt.xticks([])
+        plt.yticks([])
+        figfile = os.path.join(output_dir, '{}'.format(flags.env_id))
+        suffixString = "_gt_dimension" + str(dimensionIndex+1) + ".pdf"
+        figfile = figfile + suffixString
+        plt.savefig(figfile, bbox_inches='tight')
+        plt.clf()
+    
+    # Obtain DQN Results
+    log_dir = os.path.join('log', 'dqn_repr', flags.env_id, 'mix')
+    results_file = os.path.join(log_dir, 'results.csv')
+    results = np.loadtxt(results_file, delimiter=',')
+
+    # Plot DQN Results
+    x = results[:, 0]
+    y = results[:, 1]
+    plt.plot(x, y , color='RoyalBlue', linestyle='-', linewidth=1.5, label='mix reward')
+    # ax = plt.gca()
+    # ax.ticklabel_format(useMathText=True, scilimits=[-5, 5])
+    plt.xticks(np.arange(0, max(x)+40000.0, 40000.0))
+    plt.xlabel('Train steps')
+    plt.ylabel('Episodic returns')
+    plt.grid(True)
+    figfile = os.path.join(output_dir, '{}.pdf'.format('EpisodicReturnVsTrainingSteps'))
+    plt.savefig(figfile, bbox_inches='tight')
+    plt.clf()
 
 
 if __name__ == '__main__':
