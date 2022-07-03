@@ -75,7 +75,7 @@ This paper was presented in the International Conference on Acoustics, Speech, &
   - Weighted Accuracy (WA)
   - Unweighted Accuracy (UA)
   - ACC - average of (WA) and (UA)
-    - In this paper, out success will based on the ACC.
+    - In this paper, our success will based on the ACC.
     
 ### 2.2.4 Data Augmentation
 ![image](https://user-images.githubusercontent.com/53267971/177053613-593e2a8e-2d76-4d18-aa18-4dbdc7314619.png)
