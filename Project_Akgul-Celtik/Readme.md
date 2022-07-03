@@ -130,7 +130,7 @@ Paper trained the model by using learning rate 0.0001 for 10 epochs, and then re
 Directory structure:
 
 
-    ├── posetrack_data *
+    ├── posetrack_data
     │   ├── annotations
     │   │   ├── test
     │   │   ├── train
@@ -139,18 +139,22 @@ Directory structure:
     │        ├── test
     │        ├── train
     │        └── val
-    ├── gnn_images ~
-    ├── gnn_joints ~
-    ├── gnn_models ~
-    ├── models *
-    ├── results ~
+    ├── gnn_images
+    ├── gnn_joints
+    ├── gnn_models
+    ├── models
+    ├── results
     ├── posetrack_train.py (WORKING_MAIN.PY)
     ├── posetrack_test.py (CLASSES.PY)
-    └── poseval *
+    └── poseval
 
-Folders with * on their right are the folders that should be downloaded, folders with ~ on their right are the folders that should be downloaded
 First of all, the modules that are listed in the requirements.txt should be downloaded. Pretrained hrnet_w32_386_288.pth model should be downloaded and placed to the main folder.
 https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
+
+Training the GNN part is done with the posetrack_train.py file. Usage is like this:
+python posetrack_train.py --is_train <True|False> --mode {train/val/test}: When --is_train is not used, preprocess of the images is done.This setting should be called first before beginning the training. After preprocessing step is done, code will be called with the --is_train option, so that GNN model would begin training. --mode flag uses which annotation folder would be selected.
+
+python posetrack_test.py --is_preprocess <True|False> --mode {train/val/test} --saved_model_path: --is_preprocess flag should be called first to preprocess the outputs of the detection and hrnet models, so that our pretrained GNN model can generate COCO formatted results. --is_preprocess should be called at least once for that reason. --mode flag uses which annotation folder would be selected. --saved_model_path should be model's name that has been placed in the gnn_models folder.
 
 ## 3.3. Results
 
@@ -159,7 +163,6 @@ https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/READM
 # 4. Conclusion
 
 <!--- @TODO: Discuss the paper in relation to the results in the paper and your results. --->
-The paper proposes a new approach for both human pose estimation and tracking. The model tries to combine GNN and CNN models in order to achieve more consistent results. The GNN part is used to model the temporal dynamics of the human poses while also capturing the missed poses. When combining GNN with the human pose estimation model, it surpasses the performances of state-of-the-art models in PoseTrack 2017 and 2018 datasets
 
 # 5. References
 
