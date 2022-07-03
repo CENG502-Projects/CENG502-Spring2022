@@ -381,6 +381,24 @@ Note that you need to install YAML package after download the package through ht
 ```bash
  !python visualize_reprs.py --log_sub_dir=laprepr/HardMaze/test
 ```  
+### How to calculate similarities between estimated and actual eigenvectors (requires MATLAB):
+
+**Step-1**: Download the MATLAB scripts in \tools\obtainSimilarityResults folder to your local drive:
+
+```
+ calculateGroundTruthSimilarity.m 
+ loadGroundTruthEigenvectorsToWorkspace.m
+ loadStateRepresentationsToWorkspace.m
+``` 
+
+**Step-2**: Copy the given scripts to \environments\[ENVIRONMENT]\[LOSS]\[RUNNUMBER]\csvResults folder with respect to the desired experiment. For example, these scripts can work under the following folder:
+
+
+```
+ ..\environments\gridRoom\lossWu\run2\csvResults\
+```
+
+**Step-3**: Run calculateGroundTruthSimilarity.m file in MATLAB and obtain similarity results for each dimension and their mean.
 
 ### How to obtain results:
 
