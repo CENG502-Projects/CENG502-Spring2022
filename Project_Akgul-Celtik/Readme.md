@@ -158,7 +158,7 @@ https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/READM
 # 4. Conclusion
 
 <!--- @TODO: Discuss the paper in relation to the results in the paper and your results. --->
-In conclusion, the paper proposes a new approach for both human pose estimation and tracking. The model tries to combine GNN and CNN models in order to achieve more consistent results. The GNN part is used to model the temporal dynamics of the human poses while also capturing the missed poses. When combining GNN with the human pose estimation model, it surpasses the performances of state-of-the-art models in PoseTrack 2017 and 2018 datasets
+The paper proposes a new approach for both human pose estimation and tracking. The model tries to combine GNN and CNN models in order to achieve more consistent results. The GNN part is used to model the temporal dynamics of the human poses while also capturing the missed poses. When combining GNN with the human pose estimation model, it surpasses the performances of state-of-the-art models in PoseTrack 2017 and 2018 datasets
 
 # 5. References
 
