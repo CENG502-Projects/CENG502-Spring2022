@@ -97,6 +97,12 @@ class TypeMatching(nn.Module):
     1. Given a set of element x_i, extract its type vector t_i
     2. Compute `Compatibility`
     3. If this compatibility is larger than treshold, permit f_u to access x_i.
+  
+  Args:
+  -----
+    type_inference  [nn.Module]:                  TypeMatching Module
+    funcSign        [Tensor(signature_dim, nf)]:  Signature Matrix
+    treshold        [int]:                        Treshold for routing
   '''
   def __init__(self, type_inference, funcSign, threshold):
     super().__init__()
@@ -141,9 +147,9 @@ class ModLin2D(nn.Module):
     Args:
     ----
       code  [Tensor(dcond x nf)]: Code matrix of a all `function`s.
-      dout  [int]: Dimension of the output of the projection.
-      din   [int]: Dimension of the input  of the projection.
-      dcond [int]: Dimension of the code vector.
+      dout  [int]:                Dimension of the output of the projection.
+      din   [int]:                Dimension of the input  of the projection.
+      dcond [int]:                Dimension of the code vector.
     
     Attributes:
     -----------
@@ -185,12 +191,12 @@ class ModMLP(nn.Module):
 
   Args:
   ----
-    mlp_depth [int]: Number of ModLin layers
-    code     [Tensor(dcond x 1)]: Code vector of a `function`.
-    dout     [int]: Dimension of the output projection
-    din      [int]: Dimension of the input  projection
-    dcond    [int]: Dimension of the code vector
-    activ    [nn.Module]: Activation function applied after every ModLin Layer
+    mlp_depth [int]:               Number of ModLin layers
+    code      [Tensor(dcond x 1)]: Code vector of a `function`.
+    dout      [int]:               Dimension of the output projection
+    din       [int]:               Dimension of the input  projection
+    dcond     [int]:               Dimension of the code vector
+    activ     [nn.Module]:         Activation function applied after every ModLin Layer
   
   Attributes:
   -----------
@@ -218,11 +224,11 @@ class ModAttn(nn.Module):
   Args:
   ----
     code_matrix [Tensor(dcond x nf)]: Code matrix of a all `function`s.
-    din         [int]: Dimension of the input  projection
-    dcond       [int]: Dimension of the code vector
-    n_heads     [int]: Number of attention heads
-    attn_prob   [float]: Drop-out rate
-    proj_prob   [float]: Drop-out rate
+    din         [int]:                Dimension of the input  projection
+    dcond       [int]:                Dimension of the code vector
+    n_heads     [int]:                Number of attention heads
+    attn_prob   [float]:              Drop-out rate
+    proj_prob   [float]:              Drop-out rate
   
   Arguments:
   ----------
