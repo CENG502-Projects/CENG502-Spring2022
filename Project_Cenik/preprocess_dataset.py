@@ -23,7 +23,7 @@ LABEL_DICT1 = {
     # '08': 'surprised'
 
 impro_or_script='impro'
-RATE=16000
+RATE=40000 # Sampling Rate
 T=2
 
 def build_test_list(valid_files, LABEL_DICT1, RATE, t):
