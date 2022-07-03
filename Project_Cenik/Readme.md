@@ -86,8 +86,8 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 - Aim is randomly generating a random warp factor.
 - Implementation is very easy due to **nlpaug** library for textual augmentation in machine learning. 
   - nlpaug.augmenter.audio.vtlp
-    - Since details are not given in the paper, I used the **default parameters** of the function vtlp with the parameters:
-    - nlpaug.augmenter.audio.vtlp.VtlpAug(sampling_rate, zone=(0.2, 0.8), coverage=0.1, fhi=4800, factor=(0.9, 1.1), name='Vtlp_Aug', verbose=0, stateless=True) 
+  - Since details are not given in the paper, I used the **default parameters** of the function vtlp with the parameters:
+  - nlpaug.augmenter.audio.vtlp.VtlpAug(sampling_rate, zone=(0.2, 0.8), coverage=0.1, fhi=4800, factor=(0.9, 1.1), name='Vtlp_Aug', verbose=0, stateless=True) 
 
 # 3. Experiments and results
 
@@ -106,7 +106,6 @@ This paper was presented in the International Conference on Acoustics, Speech, &
    - **Area attention layer** followed by fully connected layer for classification.
     <br/>
    - All other details can be found in Model Architecture part.
-  - 
 ## 3.2. Running the code
 
 @TODO: Explain your code & directory structure and how other people can run it.
@@ -122,15 +121,23 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 ![image](https://user-images.githubusercontent.com/53267971/177053810-f78928aa-53c4-4004-945a-6bdbcc80ee38.png)
 <br/>
 **Figure 4**: Three evaluation metrics versus accuracy plots in the paper with/without data augmentation  
-3.3.2 My result compared to paper
-  
-![image](https://user-images.githubusercontent.com/53267971/177053845-6a49e827-ca6f-456c-947b-dc3a18323b32.png)
+### 3.3.2 My result compared to paper 
+![image](https://user-images.githubusercontent.com/53267971/177054598-bc02efcb-daf0-46e3-95fb-4665a1c9c4a0.png)
 <br/>
-**Figure 5**: My implementation three evaluation metrics versus accuracy plots in the paper **only with** data augmentation. 
+**Figure 5**: My implementation with three evaluation metrics versus accuracy plots in the paper **only with** data augmentation. 
 <br/>
+
 - I obtained the **max-area size 2x2**(In the paper there was 3x3) with average accuracy as **59.73** % while paper propeses max-area size 3x3 with average accuracy as **78.44 %. The reason for this reduction may due to for the following reasons
   - I have used extra 2 emotions in total 6 emotions instead of 4 emotions, where the authors of the paper take one class ‘’ happy’’ and ‘’excitement’’ to increase the amount of data.
-  - Augmentation procedure is not explained in detail, and I used the ‘’default’’ parameters of the nlpaug librar
+  - Augmentation procedure is not explained in detail, and I used the ‘’default’’ parameters of the nlpaug library.
+  
+  ![image](https://user-images.githubusercontent.com/53267971/177054691-2da45904-8dbf-498b-bbce-cacaaf8b4ba1.png)
+  <br/>
+**Figure 5**: Comparision of avarage accuracy values with the original paper and my implementation for the different choice of key and value parameters.
+ - My implementation is based on **mean of an area as key**, and **sum of an area as a value** since with these values they can be evaluated in a similar to ordinary attention. 
+ - In the original paper, they use
+    - **For Key** : Max, Mean and Sample(adding a perturbation during training)
+    - **For Value** : Max, Mean and Sum
 
 # 4. Conclusion
 
