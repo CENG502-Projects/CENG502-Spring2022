@@ -130,7 +130,7 @@ Paper trained the model by using learning rate 0.0001 for 10 epochs, and then re
 Directory structure:
 
 
-    ├── posetrack_data
+    ├── posetrack_data *
     │   ├── annotations
     │   │   ├── test
     │   │   ├── train
@@ -139,15 +139,16 @@ Directory structure:
     │        ├── test
     │        ├── train
     │        └── val
-    ├── gnn_images
-    ├── gnn_joints
-    ├── gnn_models
-    ├── models
-    ├── results
+    ├── gnn_images ~
+    ├── gnn_joints ~
+    ├── gnn_models ~
+    ├── models *
+    ├── results ~
     ├── posetrack_train.py (WORKING_MAIN.PY)
     ├── posetrack_test.py (CLASSES.PY)
-    └── poseval
+    └── poseval *
 
+Folders with * on their right are the folders that should be downloaded, folders with ~ on their right are the folders that should be downloaded
 First of all, the modules that are listed in the requirements.txt should be downloaded. Pretrained hrnet_w32_386_288.pth model should be downloaded and placed to the main folder.
 https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
 
