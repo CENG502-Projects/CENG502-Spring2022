@@ -17,15 +17,6 @@ Multi-person pose estimation and tracking is a hot research area that has been u
 ## 2.1. The original method
 
 <!--- @TODO: Explain the original method. --->
-Paper uses three models to find the human poses:
-Single Frame Pose Estimator
-GAN Model 
-Object Detector
-First, humans are found using object detector, where faster-rcnn with feature pyramid network is used.
-Second, the found human is cropped and rescaled. Then, Single Frame Pose Estimator is used to find current poses.
-Third, GAN model is used on the n previous frames, and it is tried to find the pose in the current frame.
-And lastly, Single Frame Pose Estimator output and GAN output are merged to find all of the poses.
-
 <p align-items="center">
    <img src="https://user-images.githubusercontent.com/64609605/177032733-06c31927-73f5-4117-8e70-e7542c5c6e44.png" alt="Figure 1. Overall pipeline of the proposed method">
   <p>Figure 1. Overall pipeline of the proposed method</p>
@@ -152,6 +143,7 @@ Directory structure:
     ├── gnn_joints
     ├── gnn_models
     ├── models
+    ├── results
     ├── posetrack_train.py (WORKING_MAIN.PY)
     ├── posetrack_test.py (CLASSES.PY)
     └── poseval
