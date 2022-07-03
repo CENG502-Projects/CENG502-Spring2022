@@ -176,7 +176,7 @@ The total objective function can be a weighted summation of two losses,
 
 $$
 \begin{equation}
-\mathcal{L}=\lambda_{\operatorname{cr} f} \mathcal{L}^{\operatorname{cr} f}+\lambda_{g n n} \mathcal{L}^{g n n}
+\mathcal{L}=\lambda_{\operatorname{crf}} \mathcal{L}^{\operatorname{crf}}+\lambda_{g n n} \mathcal{L}^{g n n}
 \end{equation}
 $$
 
