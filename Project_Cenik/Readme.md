@@ -13,7 +13,12 @@ This paper was presented in the International Conference on Acoustics, Speech, &
 ## 1.1. Paper summary
 
 @TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
-The authors of the paper apply multiscale area attention which allows the model to attend at multiple scales and granularities and tp o learn the most appropriate level of details. They offer multsicale area attention because under conventional attention, the model only uses a preset granularity as the basic unit for calculation. They designed an attention-based convolutional neural network with VTLP data augmentation because of the limited amount of training data in IEMOCAP
+   The authors of the paper apply multiscale area attention which allows the model to attend at multiple scales and granularities and to learn the most appropriate level of details. They offer multsicale area attention because under conventional attention, the model only uses a preset granularity as the basic unit for calculation. They designed an attention-based convolutional neural network with VTLP data augmentation because of the limited amount of training data in IEMOCAP. The advantage of the proposed method is tp be able to dynamically adaption to different areas of interest. Tradional methods uses typical attention neural network classifiers with CNN and LSTM’s. 
+   We can summarize the paper main contributions as follows:
+    - First attempt for applying **multiscale area attention** to SER
+    - Data augmentation on the IEMOCAP dataset with **vocal tract length perturbation(VTLP)** to able to achieve accuracy improvement
+
+
 # 2. The method and my interpretation
 
 ## 2.1. The original method
