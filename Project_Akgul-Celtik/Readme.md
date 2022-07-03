@@ -36,18 +36,18 @@ A- Single-Frame Pose Estimation
 Pose estimation is performed for each frame. Each human detection in a frame is cropped and then rescaled to 384×288. These detections are fed into the HRNet (pretrained on COCO) and it produces 96x72 heatmaps for each 17 joints. However, we ignore the ear joints due to the fact that paper states it uses 15 joints in 2017 dataset format. The positions of the $\textit{k}$-th joints are computed as:
 
 
-$$\ l^{*}_{k} = \underset{(i,j)}{\arg\max} \textbf{H}_{ijk}$$
+$$l_{k}^{\*} = \underset{(i,j)}{\arg\max} \textbf{H}\_{ijk}$$
    
-where $l^{*}_{k}$ is the position within heatmap.
+where $l_{k}^{\*}$ is the position within heatmap.
    
 The training loss of the single-frame pose estimation model uses these heatmaps. The ground truth heatmaps are generated using the following 2D Gaussian distribution:
 
-$$\textbf{H}_{ijk}^{gt} = exp(-\frac{||(i,j)-l_{k}||^{2}_{2}}{\sigma^{2}})$$
+$$\textbf{H}\_{ijk}^{gt} = exp(-\frac{||(i,j)-l_{k}||^{2}\_{2}}{\sigma^{2}})$$
 
    
 $\sigma$ is set to 3 and the model is trained with the following loss:
 
-$$\mathcal{L}_{e} = \sum_i^H\sum_j^W\sum_k^K ||\textbf{H}_{ijk}^{pred} - \textbf{H}_{ijk}^{gt} ||^{2}_{2}$$
+$$\mathcal{L}\_{e} = \sum_i^H\sum_j^W\sum_k^K ||\textbf{H}\_{ijk}^{pred} - \textbf{H}\_{ijk}^{gt} ||^{2}\_{2}$$
 
 where $H$, $W$, $K$ are the height, the width of heatmaps, and the number of joints, respectively.
 
@@ -64,7 +64,7 @@ table
     
 All the 2D positions used fır the $p_k$ are normalized with respect to the center of last tracked pose. All of these cues are fed into different MLPs that do not share weights to have the same dimension and are merged using average pooling. Therefore, the final feature of a joint is calculated as follows:
 
-$$\textbf{J}_k = \textbf{Pooling}(\textbf{MLP}_{vis}(v_k),\textbf{MLP}_{pos}(p_k),\textbf{MLP}_{type}(c_k))$$
+$$\textbf{J}\_k = \textbf{Pooling}(\textbf{MLP}\_{vis}(v_k),\textbf{MLP}\_{pos}(p_k),\textbf{MLP}\_{type}(c_k))$$
     
 Graph structure of the connected joints of frames has two different edge types:
 * Edges that connect joints in the same frame
@@ -74,15 +74,15 @@ The first type of edges capture the relative movements and spatial structure of 
     
 In each layer, graph nodes are updated via message passing:
     
-$$\textbf{J}_k^{l+1} = \textbf{J}_k^l + \textbf{MLP}([\textbf{J}_k^{l} || \textbf{M}(\textbf{J}^{l}_{k', k' \in \mathcal{N}_{\textbf{J}_k^l}} | \textbf{J}_k^l)])$$
+$$\textbf{J}\_k^{l+1} = \textbf{J}\_k^l + \textbf{MLP}(\[\textbf{J}\_k^{l} || \textbf{M}(\textbf{J}^{l}\_{k', k' \in \mathcal{N}\_{\textbf{J}\_k^l}} | \textbf{J}\_k^l)])$$
 
-where $\textbf{J}_{k}^{l}$ is the feature of the $\textit{k}$-th joint. at the $\textit{l}$-th layer. $\mathcal{N}_{\textbf{J}_{k}^{l}}$ represents the set of neighbours of the $\textit{k}$-th joint, $\textbf{M}$ message aggregating function, and $[\cdot||\cdot]$ represents the concatenation of vectors
+where $\textbf{J}^{l}\_{k}$ is the feature of the $\textit{k}$ -th joint at the $\textit{l}$ -th layer. $\mathcal{N}\_{\textbf{J}^{l}\_{k}}$ represents the set of neighbours of the $\textit{k}$-th joint, $\textbf{M}$ message aggregating function, and $[\cdot||\cdot]$ represents the concatenation of vectors.
 
-Self-attion is also used in message passing. $\textbf{J}_{kq}$ represents the query of $\textbf{J}_{k}$ and each joint $\textbf{J}_{k'}$ is transformed into $\textbf{J}_{k'v}$ (value) and $\textbf{J}_{k'k}$ (key). The final aggregated feature can be computed as:
+Self-attion is also used in message passing. $\textbf{J}\_{kq}$ represents the query of $\textbf{J}\_{k}$ and each joint $\textbf{J}\_{k'}$ is transformed into $\textbf{J}\_{k'v}$ (value) and $\textbf{J}\_{k'k}$ (key). The final aggregated feature can be computed as:
 
-$$\textbf{M}(\textbf{J}_{k', k' \in \mathcal{N}_{\textbf{J}_k}} | \textbf{J}^{l}_{k}) = \sum_{k' \in \mathcal{N}_{\textbf{J}_k}} \alpha_{kk'}\textbf{J}_{k'v}, $$
+$$\textbf{M}(\textbf{J}\_{k', k' \in \mathcal{N}\_{\textbf{J}\_k}} | \textbf{J}^{l}\_{k}) = \sum_{k' \in \mathcal{N}\_{\textbf{J}\_k}} \alpha_{kk'}\textbf{J}\_{k'v}, $$
 
-where $$\alpha_{kk'} = Softmax_{k'}(\textbf{J}^{T}_{kq}\textbf{J}_{k'k})$$
+where $$\alpha_{kk'} = Softmax_{k'}(\textbf{J}^{T}\_{kq}\textbf{J}\_{k'k})$$
     
    
 ## 2.2. Our interpretation 
@@ -137,9 +137,9 @@ Dataset: Andriluka, M., Iqbal, U., Insafutdinov, E., Pishchulin, L., Milan, A., 
 
 Evaluation toolkit: https://github.com/leonid-pishchulin/poseval
 
-Hrnet model that was downloaded: https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
+HRNet model that was downloaded: https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
 
-Hrnet code that was used: https://github.com/stefanopini/simple-HRNet
+HRNet code that was used: https://github.com/stefanopini/simple-HRNet
 
 # Contact
 
