@@ -210,13 +210,21 @@ of the input element with the respective function
 The original method relies on `sparsity`: Not all the functions take entire tokens but they are specialized in one function iteration (remember that input tokens are routed independently). This sparsity allows Neural Interpreter functions not only learn the underlying distribution but also interpret how the distribution is generated and when data coming from related distribution is fed to model, model is able to predict from which distribution it is coming from and its class correctly. See Multiclass Classification Experiment for further details.
 
 ## 2.2. Our interpretation 
-We strictly stick to the original method: We shared the `code` vector across same type of functions. To avoid the mode collapse (routing input tokens only one function) we defined `signature` vectors
+We strictly stick to the original method: We shared the `code` vector across same type of functions. To avoid the mode collapse (routing input tokens only one function) we defined `signature` vectors from the highest entropy distribution: Normal distribtion and it is fixed. Authors proposed two distinct methods to create signature vectors: 
+
+1. Learnable
+2. Fix, initialized from high entropy
+
+To avoid overhead we used fixed implementation. Further, as described in the paper, we shared the **W<sub>c</sub>** across scripts (each script has its own **W<sub>c</sub>** and different scripts have different **W<sub>c</sub>**) and **W** & **b** across all interpreter layers.  `code` vector and `signature` vector is used to determine routing in out implementation as well. In our implementation, we further map the range of cosine distance to [0, 1] range in order to avoid `nan` values. (infinity values at exponentials 0 values at mask and their multiplication becomes nan).  
 
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/800/1*F1wPk37NPc94fHuae9XTSA.png"/>
+</p>
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+<p align='center'><b>Figure 5:</b>  Samples from the Digits Dataset. </p>
 
 ## 3.2. Running the code
 
