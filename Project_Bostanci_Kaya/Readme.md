@@ -15,7 +15,10 @@ In Reinforcement Learning (RL) tasks, there exists an agent-environment interact
 
 Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
 
-![Figure 2: Example grid environment](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/environment.JPG)
+| ![Figure 2: Example grid environment](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/environment.JPG) | 
+|:--:| 
+| *Figure 2: Example grid environment* |
+
 
 A graph $\mathcal{G}=(\mathcal{S},\mathcal{E})$ can be constructed from the state transition process by denoting $\mathcal{S}$ states and $\mathcal{E}$ edges. Then, an adjacency matrix $A$ is defined with state transition probabilities. 
 
@@ -342,13 +345,33 @@ You can also observe the pre-trained results.
 
 ### Representation learning results:
 
-![Figure 3: GridRoom representation results](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridRoomResults.PNG)
-![Figure 4: GridMaze representation results](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridMazeResults.PNG)
-![Figure 5: Similarities between estimated and actual eigenvectors of the graph Laplacian matrices](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/similarityResults.PNG)
+| ![Figure 3: GridRoom representation results](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridRoomResults.PNG) | 
+|:--:| 
+| *Figure 3: GridRoom representation results* |
+
+
+| ![Figure 4: GridMaze representation results](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridMazeResults.PNG) | 
+|:--:| 
+| *Figure 4: GridMaze representation results* |
+
+
+| ![Figure 5: Similarities between estimated and actual eigenvectors of the graph Laplacian matrices](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/similarityResults.PNG) | 
+|:--:| 
+| *Figure 5: Similarities between estimated and actual eigenvectors of the graph Laplacian matrices* |
+
+
 
 ### Reinforcement learning results: 
-![Figure 6: GridRoom rewards for each training iteration](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridRoomRewards.PNG)
-![Figure 7: GridMaze rewards for each training iteration](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridMazeRewards.PNG)
+
+| ![Figure 6: GridRoom rewards for each training iteration](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridRoomRewards.PNG) | 
+|:--:| 
+| *Figure 6: GridRoom rewards for each training iteration* |
+
+
+| ![Figure 7: GridMaze rewards for each training iteration](https://raw.githubusercontent.com/CENG502-Projects/CENG502-Spring2022/main/Project_Bostanci_Kaya/figures/ourGridMazeRewards.PNG) | 
+|:--:| 
+| *Figure 7: GridMaze rewards for each training iteration* |
+
 
 # 4. Conclusion
 
