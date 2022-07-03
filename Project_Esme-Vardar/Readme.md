@@ -150,7 +150,7 @@ variables in CRF is inferred by loopy belief propagation, using the compatibilit
 • Step4: The output features $F_{l+1}$ of the $l$-th iteration are computed by aggregating their neighboring features with $A_l$ as their weights.
 
 Repeat above process layer by layer for $L$ iterations and
-get the final output $F_{L+1}$ and affinity matrix A_L for network
+get the final output $F_{L+1}$ and affinity matrix $A_L$ for network
 optimization and inference.
 
 ### Loss:
