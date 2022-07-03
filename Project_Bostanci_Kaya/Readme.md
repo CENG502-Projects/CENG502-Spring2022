@@ -33,10 +33,18 @@ However, directly applying eigen-decompositon to the graph Laplacian matrix is c
 
 An agent interacts with an environment by observing states and taking actions, with an aim of maximizing cumulative reward
 
-The environment then yields a reward signal Rt sampled from the reward function r(st; at).
-The state observation in the next timestep st+1 2 S is sampled according to an environment-specific transition distribution function p(st+1jst; at). A policy is defined as a mapping π : S ! A that returns an action a given a state s.
+The environment then yields a reward signal $Rt$ sampled from the reward function $r(s_t; a_t)$.
+The state observation in the next timestep $s_{t+1} \in S$ is sampled according to an environment-specific transition distribution function $p(s_{t+1} | s_t; a_t)$. A policy is defined as a mapping $\pi: S \rightarrow A$ that returns an action $a$ given a state $s$.
 
-The goal of the agent is to learn an optimal policy π∗ that maximizes the expected cumulative reward:
+The goal of the agent is to learn an optimal policy $\pi\*$ that maximizes the expected cumulative reward such that:
+
+$$
+\begin{equation}
+\begin{gathered}
+\pi^{*}=\arg \max _{\pi \in \Pi} \mathbb{E}_{p, \pi} \sum_{t=0}^{\infty} \gamma^{t} R_{t}
+\end{gathered}
+\end{equation}
+$$
 
 ### Laplacian representations in RL:
 
@@ -50,7 +58,7 @@ The goal of the agent is to learn an optimal policy π∗ that maximizes the exp
 
 ### Estimation of the Laplacian representations:
 
-We denote the i-th smallest eigenvalue of $L$ as $\lambda_i$, and the corresponding unit eigenvector as $e_i \in \mathbb{R}^{|\mathcal{S}|}$ .
+Let denote the i-th smallest eigenvalue of $L$ as $\lambda_i$, and the corresponding unit eigenvector as $e_i \in \mathbb{R}^{|\mathcal{S}|}$ .
 
 The d-dimensional Laplacian representation of a state s:
 
@@ -222,6 +230,8 @@ In the RL experiments, a mixture of the rewards is used  by following experiment
 ## 3.2. Running the code
 
 We conducted the experiments on the Google's Colab (https://colab.research.google.com/) platform.
+
+Furthermore, we used Visual Studio Code to analyze code and debug errors.
 
 ### Required packages: 
 
