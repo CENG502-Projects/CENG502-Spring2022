@@ -28,14 +28,34 @@ And lastly, Single Frame Pose Estimator output and GAN output are merged to find
 
 ![image](https://user-images.githubusercontent.com/64609605/177032733-06c31927-73f5-4117-8e70-e7542c5c6e44.png)
 <p align="center">
-    *Figure 1. Overall pipeline of the proposed method*
+    Figure 1. Overall pipeline of the proposed method
 </p>
 
-The proposed method's overall pipeline is shown in the figure above. The model uses two separate processes to find human poses in current frame _t_ of a video. In the first process, it tries to find the poses as in the classical approaches by using a Single Frame Pose Estimation model with possible missed human detections. In the second process, it tries to make us of the previous _n_ (default value is 3 in the paper) frames to understand the motion of the people to predict the poses that would be in the next frame using a GNN Pose Prediction model. Then the result of the Single Frame Pose Estimation and GNN Pose Prediction model are merged to obtain final poses.
+The proposed method's overall pipeline is shown in the figure above. The model uses two separate processes to find human poses in current frame _t_ of a video. In the first process, it tries to find the poses as in the classical approaches by using a Single-Frame Pose Estimation model with possible missed human detections. In the second process, it tries to make us of the previous _n_ (default value is 3 in the paper) frames to understand the motion of the people to predict the poses that would be in the next frame using a GNN Pose Prediction model. Then the result of the Single-Frame Pose Estimation and GNN Pose Prediction model are merged to obtain final poses.
 
-<h2>1- Single Frame Pose Estimation<h2>
-
-
+<h4>Single-Frame Pose Estimation<h4>
+Pose estimation is performed for each frame. Each human detection in a frame is cropped and then rescaled to 384×288. These detections are fed into the HRNet (pretrained on COCO) and it produces 96x72 heatmaps for each 17 joints. However, we ignore the ear joints due to the fact that paper states it uses 15 joints in 2017 dataset format. The positions of the _k_-th joints are computed as:
+   
+<br>
+   $$(1)\ l^{*}_{k} = \underset{(i,j)}{\arg\max} \textbf{H}_{ijk}$$
+<br>
+   
+where $l^{*}_{k}$ is the position within heatmap.
+   
+The training loss of the single-frame pose estimation model uses these heatmaps. The ground truth heatmaps are generated using the following 2D Gaussian distribution:
+   
+<br>
+   $$\textbf{H}_{ijk}^{gt} = exp(-\frac{||(i,j)-l_{k}||^{2}_{2}}{\sigma^{2}})$$
+<br>
+   
+$\sigma$ is set to 3 and we train the model with following loss:
+   
+<br>
+   $$\mathcal{L}_{e} = \sum_i^H\sum_j^W\sum_k^K ||\textbf{H}_{ijk}^{pred} - \textbf{H}_{ijk}^{gt} ||^{2}_{2}$$
+<br>
+where $H$, $W$, $K$ are the height, the width of heatmaps, and the number of joints, respectively.
+   
+   
 ## 2.2. Our interpretation 
 
 <!--- @TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them. --->
