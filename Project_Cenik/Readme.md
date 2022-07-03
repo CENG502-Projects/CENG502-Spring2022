@@ -98,29 +98,39 @@ This paper was presented in the International Conference on Acoustics, Speech, &
   - 5-fold cross validation
   - Each utterance is divided into **2-second segment**.
     - **1-second** (for training) or **1.5-second** (for testing) overlap between segments.
+  -  **Librosa** for logMel spectrogram(Time-frequency information in Mel scale, which human can interpret) features.
+   - Two **parallel convolutional layers** to extract textures from
+      - Time axis,
+      - Frequency axis
+   - **Four consequtive convolutional layers** with Batch Normalization
+   - **Area attention layer** followed by fully connected layer for classification.
     <br/>
-## 3.1.1 Selection of maximum area size
-**Proposed:** According to high ACC value two maximum area size is suggested:
-  - 4x4 max-area size without augmentation
-  - 3x3 max-area size with augmentation.
-
-![image](https://user-images.githubusercontent.com/53267971/177053810-f78928aa-53c4-4004-945a-6bdbcc80ee38.png)
-3.1.1.1 My Result compared to paper
-  
-![image](https://user-images.githubusercontent.com/53267971/177053845-6a49e827-ca6f-456c-947b-dc3a18323b32.png)
-- I obtained the max-area size 2x2 with average accuracy as 59.73 % while paper propeses max-area size 3x3 with average accuracy as 78.44 %. The reason for this reduction may due to for the following reasons
-  - I have used extra 2 emotions in total 6 emotions instead of 4 emotions, where the authors of the paper take one class ‘’ happy’’ and ‘’excitement’’ to increase the amount of data.
-  - Augmentation procedure is not explained in detail, and I used the ‘’default’’ parameters of the nlpaug librar
-
-
-
+   - All other details can be found in Model Architecture part.
+  - 
 ## 3.2. Running the code
 
 @TODO: Explain your code & directory structure and how other people can run it.
 
 ## 3.3. Results
-
+- You can see the results of the paper as well as my implementation together with comparisions with details.
 @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+### 3.3.1 Selection of maximum area size
+**Proposed:** According to high ACC value two maximum area size is suggested:
+  - 4x4 max-area size without augmentation
+  - 3x3 max-area size with augmentation.
+
+![image](https://user-images.githubusercontent.com/53267971/177053810-f78928aa-53c4-4004-945a-6bdbcc80ee38.png)
+<br/>
+**Figure 4**: Three evaluation metrics versus accuracy plots in the paper with/without data augmentation  
+3.3.2 My result compared to paper
+  
+![image](https://user-images.githubusercontent.com/53267971/177053845-6a49e827-ca6f-456c-947b-dc3a18323b32.png)
+<br/>
+**Figure 5**: My implementation three evaluation metrics versus accuracy plots in the paper **only with** data augmentation. 
+<br/>
+- I obtained the **max-area size 2x2**(In the paper there was 3x3) with average accuracy as **59.73** % while paper propeses max-area size 3x3 with average accuracy as **78.44 %. The reason for this reduction may due to for the following reasons
+  - I have used extra 2 emotions in total 6 emotions instead of 4 emotions, where the authors of the paper take one class ‘’ happy’’ and ‘’excitement’’ to increase the amount of data.
+  - Augmentation procedure is not explained in detail, and I used the ‘’default’’ parameters of the nlpaug librar
 
 # 4. Conclusion
 
