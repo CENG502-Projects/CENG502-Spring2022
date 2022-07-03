@@ -20,7 +20,7 @@ Cartesian (x, y) positions of the agent can be used for the state representation
 | *Figure 2: Example grid environment* |
 
 
-A graph $\mathcal{G}=\(\mathcal{S},\mathcal{E}\)$ can be constructed from the state transition process by denoting $\mathcal{S}$ states and $\mathcal{E}$ edges. Then, an adjacency matrix $A$ is defined with state transition probabilities. 
+A graph $\mathcal{G}=\( \mathcal{S},\mathcal{E} \)$ can be constructed from the state transition process by denoting $\mathcal{S}$ states and $\mathcal{E}$ edges. Then, an adjacency matrix $A$ is defined with state transition probabilities. 
 
 State embeddings are crucial to find the state-space geometry. They can be obtained through the calculations of the graph Laplacian matrix $L$. 
 
@@ -33,8 +33,8 @@ However, directly applying eigen-decompositon to the graph Laplacian matrix is c
 
 An agent interacts with an environment by observing states and taking actions, with an aim of maximizing cumulative reward
 
-The environment then yields a reward signal $Rt$ sampled from the reward function $r\(s_t; a_t\)$.
-The state observation in the next timestep $s_{t+1} \in S$ is sampled according to an environment-specific transition distribution function $p \(s_{t+1} | s_t; a_t\)$. A policy is defined as a mapping $\pi: S \rightarrow A$ that returns an action $a$ given a state $s$.
+The environment then yields a reward signal $Rt$ sampled from the reward function $r \( s_t; a_t \)$.
+The state observation in the next timestep $s_{t+1} \in S$ is sampled according to an environment-specific transition distribution function $p \( s_{t+1} | s_t; a_t \)$. A policy is defined as a mapping $\pi: S-->A$ that returns an action $a$ given a state $s$.
 
 The goal of the agent is to learn an optimal policy $\pi\ast$ that maximizes the expected cumulative reward such that:
 
