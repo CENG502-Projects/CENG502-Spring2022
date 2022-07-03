@@ -4,7 +4,7 @@ This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+This is an unofficial implementation of [Synthesizing Mesh Deformation Sequences with Bidirectional LSTM by Qiao et al.](https://ieeexplore.ieee.org/document/9217964).
 
 ## 1.1. Paper summary
 
@@ -22,17 +22,7 @@ This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.
 
 # 3. Experiments and results
 
-## 3.1. Experimental setup
-
-@TODO: Describe the setup of the original paper and whether you changed any settings.
-
-## 3.2. Running the code
-
-@TODO: Explain your code & directory structure and how other people can run it.
-
-## 3.3. Results
-
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+Not available.
 
 # 4. Conclusion
 
