@@ -44,4 +44,4 @@ Not available.
 
 # Contact
 
-Please feel free to contact me by email, if you need any further information or have any questions (furkankdem [at] gmail.com)
+_Please feel free to contact me by email, if you need any further information or have any questions (furkankdem [at] gmail.com)_
