@@ -6,21 +6,18 @@ See [CENG502 (Spring 2022) Project List]([https://github.com/sinankalkan/CENG502
 
 # 1. Introduction
 
-@TODO: Introduce the paper (inc. where it is published) and describe your goal (reproducibility).
+In Reinforcement Learning (RL) tasks, there exists an agent-environment interaction mechanism through taking actions and obtaining rewards. Agents interact with an environment and this environment provides numeric reward signals. Main goal of the RL is discovering best actions in order to maximize the cumulative reward.
 
-In Reinforcement Learning (RL) tasks, state transition process can be used to generate a weighted graph 
+Cartesian (x, y) positions of the agent can be used for the state representations. In order to capture the geometry of the underlying state sparce, it is desired to learn a state representation from the environment.
 
-state embeddings are crucial to find the state-space geometry. 
+A graph $\mathcal{G}=(\mathcal{S},\mathcal{E})$ can be constructed from the state transition process by denoting $\mathcal{S}$ states and $\mathcal{E}$ edges. Then, an adjacency matrix $A$ is defined with state transition probabilities. 
 
-taking the eigenvectors of the Laplacian matrix of the state-transition graph as state
-embeddings
+State embeddings are crucial to find the state-space geometry. They can be obtained through the calculations of the graph Laplacian matrix $L$. 
 
-However, directly making eigendecompositon of the graph Laplacian matrix is computationally inefficient especially when the number of states is increased.
+However, directly applying eigen-decompositon to the graph Laplacian matrix is computationally inefficient especially when the number of states is increased. Therefore, an estimation method is required to find the closest representation vectors to the actual eigenvectors. 
 
 
 ## 1.1. Paper summary
-
-@TODO: Summarize the paper, the method & its contributions in relation with the existing literature.
 
 ### Reinforcement Learning (RL) overview: 
 
@@ -33,19 +30,28 @@ The goal of the agent is to learn an optimal policy π∗ that maximizes the exp
 
 ### Laplacian representations in RL:
 
-Graph definition, G(V,E): 
-
-Vertices = States, Edges = State transitions, Adjacency matrix elements (A_{ij}): State transition probabilities  
-
-Degree matrix, D = diag(A)
-
-Laplacian matrix, L = D-A
+Graph definition: $\mathcal{G}=(\mathcal{S},\mathcal{E})$ 
+Vertices $\mathcal{S}$ = States, 
+Edges  $\mathcal{E}$ = State transitions, 
+State transition probabilities $P_{ij}$
+Adjacency matrix elements ($A_{ij}$) = $P_{ij}$
+Degree matrix, $D = \text{diag}(A\text{\textbf{1}})$
+Laplacian matrix, $L = D-A$
 
 ### Estimation of the Laplacian representations:
 
-We denote the i-th smallest eigenvalue of L as λi, and the corresponding unit eigenvector as ei 2 RjSj.
+We denote the i-th smallest eigenvalue of $L$ as $\lambda_i$, and the corresponding unit eigenvector as $e_i \in \mathbb{R}^{|\mathcal{S}|}$ .
 
-The d-dimensional Laplacian representation of a state s is ’(s) = (e1[s]; · · · ; ed[s]), where ei[s] denotes the entry in vector ei that corresponds to state s. 
+The d-dimensional Laplacian representation of a state s:
+
+$$
+\begin{equation}
+\begin{gathered}
+\varphi(s) = (e_1[s], \cdots , e_d[s])
+\end{gathered}
+\end{equation}
+$$ 
+where $ei[s]$ denotes the entry in vector $ei$ that corresponds to state s. 
 
 In particular, e1 is a normalized all-ones vector and has the same value for all s. 
 
@@ -59,11 +65,6 @@ $$
 \end{gathered}
 \end{equation}
 $$ 
-
-
-# 2. The method and my interpretation
-
-## 2.1. The original method
 
 The authors in [[1]](#1) proposes that the generalized graph drawing (GGD) objective can be approximated as follows:
 
@@ -93,11 +94,11 @@ $$
 
 In this report, the equation above is referred as "Wang's loss".
 
-## 2.2. Our interpretation 
+# 2. The method and my interpretation
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+## 2.1. The original method
 
-Wu's loss code:
+We adapted a baseline code to implement a representation loss which is defined by Wu in [[2]](#2):
 
 ```Python
 def l2_dist(x1, x2):
@@ -133,8 +134,28 @@ def neg_loss(x, c=1.0, reg=0.0):
         reg_part = 0.0
     return part1 + part2 + part3 + reg * reg_part
 ```
+Common part to calculate the overall representation loss:
 
-Wang's loss code (interpretation): 
+```Python
+def _build_loss(self, batch):
+     s1 = batch.s1
+     s2 = batch.s2
+     s_neg = batch.s_neg
+     s1_repr = self._repr_fn(s1)
+     s2_repr = self._repr_fn(s2)
+     s_neg_repr = self._repr_fn(s_neg)
+     loss_positive = pos_loss(s1_repr, s2_repr)
+     loss_negative = neg_loss(s_neg_repr, c=self._c_neg, reg=self._reg_neg)
+     loss = loss_positive + self._w_neg * loss_negative
+     info = self._train_info
+     info['loss_pos'] = loss_positive.item()
+     info['loss_neg'] = loss_negative.item()
+     info['loss_total'] = loss.item()
+     return loss
+```
+## 2.2. Our interpretation 
+
+We used the following approach to implement the representation loss that is introduced by Wang in [[1]](#1)
 
 ```Python
 def pos_loss(x1, x2):
@@ -159,70 +180,48 @@ def neg_loss(x, c=1.0, reg=0.0):
     return neg_loss
 ```
 
-Common part to calculate the overall representation loss:
-
-```Python
-def _build_loss(self, batch):
-     s1 = batch.s1
-     s2 = batch.s2
-     s_neg = batch.s_neg
-     s1_repr = self._repr_fn(s1)
-     s2_repr = self._repr_fn(s2)
-     s_neg_repr = self._repr_fn(s_neg)
-     loss_positive = pos_loss(s1_repr, s2_repr)
-     loss_negative = neg_loss(s_neg_repr, c=self._c_neg, reg=self._reg_neg)
-     loss = loss_positive + self._w_neg * loss_negative
-     info = self._train_info
-     info['loss_pos'] = loss_positive.item()
-     info['loss_neg'] = loss_negative.item()
-     info['loss_total'] = loss.item()
-     return loss
-```
-
 # 3. Experiments and results
 
 ## 3.1. Experimental setup
 
-All experiments are conducted in discrete grid world reinforcement learning environments. These environments are generated with MiniGrid [[3]](#3).
+All experiments are conducted in two discrete grid world reinforcement learning environments. These environments are generated with MiniGrid which is provided in [[3]](#3).
 
-Two discrete environments, *GridRoom* and *GridMaze* are used in the representation learning and expected reward maximization experiments 
+Two discrete environments, *GridRoom* and *GridMaze* are used in the representation learning and expected reward maximization experiments.
 
-Position observations
+*GridRoom* environment contains 20x20 grid with 271 states and *GridMaze* environment contains 18x18 grid with 161 states. 4 possible actions are available for these environments. An agent is able to go up, down, left and right.
 
-State size
+We used position observations as input.
 
-GridRoom example
+Episode lengths for each environment is 50.
 
-GridMaze example
+Training parameters:
+ - Episode length = 50
+ - Batch size = 1024
+ - reducedDimension, d =10
+ - Adam optimizer with learning rate $10^{-3}$
+ - Discount factor = 0.9
+ - Number of training steps = 200000
+ - MLP networks with RELU activations for representation learning and DQN
 
-Environments
-
-GridRoom position observations
-GridMaze position observations
-
-Losses
-
-Wu's loss
-Wang's loss--> implemented
+In the RL experiments, a mixture of the rewards is used  by following experiments of Wu in [[2]](#2):
+**Sparse** = -1[norm(stateMapping-goalVector)$> \epsilon$] 
+**Distance** = -norm(stateMapping-goalVector)
+**Mixture of the rewards** = $0.5*\text{Sparse} + 0.5*\text{Distance}$
 
 ## 3.2. Running the code
 
-We conducted the experiments on the Google's [Colab](https://colab.research.google.com/](https://colab.research.google.com/ ) platform.
+We conducted the experiments on the Google's Colab (https://colab.research.google.com/) platform.
 
 ### Required packages: 
 
-gym3:
-pip install gym3
+ - gym3, 
+ - minigrid,  
+ - YAML (not reqired for Colab)
 
-minigrid, 
-pip install gym-minigrid
+You can follow the steps in order to understand how to install required packages and how to conduct any experiment.
 
-YAML (not reqired for Colab)
-Download the wheel from http://www.lfd.uci.edu/~gohlke/pythonlibs/#pyyaml that suits your need (Python version, 32/64 bit).
-pip3 install PyYAML-3.11-cp35-none-win32.whl
+### Source code directory structure
 
-### \sourceCode directory structure
-    
 ```
 \environments
 │
@@ -305,25 +304,31 @@ Note that you need to install YAML package after download the package through ht
  !python train_dqn_repr.py --log_sub_dir=mix --env_id=HardMaze --repr_ckpt_sub_path=laprepr/HardMaze/test/model.ckpt --reward_mode=mix
 ```
   
-   **Step-4.5**:  Visualization: 
+   **Step-4.5**:  Visualizate representations and plot rewards for each training step: 
 
 ```bash
  !python visualize_reprs.py --log_sub_dir=laprepr/HardMaze/test
 ```  
  
-  
-  **Step-4.6**: Plot expected rewards
-  
-```bash
- !python plot_curves.py --log_sub_dir=laprepr/HardMaze/test 
-```  
-   
 
 ### How to obtain results:
 
-1. State representation figures can be found in lossWu\log\visualize_reprs
-2. Reward maximization figures can be found in lossWu\figures\learning_curves
+After you run a code with run1 and Wang's representation loss, you can find the results such that:
 
+1. Estimated state representation figures for each dimension: 
+```
+ \environments\gridMaze\lossWang\run1\log\visualize_reprs\HardMaze_appr_dimension1.pdf
+```  
+2. Ground-truth state representation figures:
+```
+ \environments\gridMaze\lossWang\run1\log\visualize_reprs\HardMaze_gt_dimension1.pdf
+```  
+3. Reward maximization figures: 
+```
+ \environments\gridMaze\lossWang\run1\log\visualize_reprs\EpisodicReturnVsTrainingSteps.pdf
+```  
+You can obtain these results for different runs, losses and environments.
+You can also observe the pre-trained results. 
 
 ## 3.3. Results
 
@@ -342,30 +347,35 @@ Our similarity results
 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+ - All experiments in the paper could not be covered.
+ - Obtained rewards per episode during the training iterations not
+   given in the paper but in our results it fluctuates
+  - Unlike the continuous environments, in discrete environment eigen-
+   decompositions are not very problematic because the number of states are
+   not too many.
+  - Reduced dimension for the Laplacian eigenvectors is chosen as 10 but any detail was not given for this trade
+   off in the paper.
 
 # 5. References
 
 <a id="1">[1]</a> 
-Wang K. et. al (2021). 
-Towards Better Laplacian Representation in Reinforcement Learning with
+Wang K. et. al (2021), Towards Better Laplacian Representation in Reinforcement Learning with
 Generalized Graph Drawing ([pdf](https://arxiv.org/pdf/2107.05545.pdf)), ICML2021.
 
 <a id="2">[2]</a> 
-Wu Y. et. al (2019). 
-The Laplacian in RL: Learning Representations with Efficient Approximations ([pdf](https://arxiv.org/pdf/1810.04586.pdf)), ICLR2019.
+Wu Y. et. al (2019), The Laplacian in RL: Learning Representations with Efficient Approximations ([pdf](https://arxiv.org/pdf/1810.04586.pdf)), ICLR2019.
 
 <a id="3">[3]</a> 
-Chevalier-Boisvert et. al (2018). 
-TMinimalistic Gridworld Environment for OpenAI Gym ([github](https://github.com/Farama-Foundation/gym-minigrid)).
+Chevalier-Boisvert et. al (2018),  Minimalistic Gridworld Environment for OpenAI Gym ([github](https://github.com/Farama-Foundation/gym-minigrid)).
+
+<a id="4">[4]</a> 
+Wu Y. (2021), Learning Laplacian Representations in Reinforcement Learning ([github](https://github.com/yifan12wu/rl-laplacian)).
 
 # 6. Acknowledgements
 
 Thanks to Kaixin Wang for his precious help!
 
 # Contact
-
-Github:
 
 Safa Mesut Bostancı: [Github](https://github.com/smbostanci)
 
