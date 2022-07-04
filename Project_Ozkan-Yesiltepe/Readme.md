@@ -280,7 +280,19 @@ Again running the same scripts for MNIST dataset yields:
 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
+Project Directory:
+```
+├── models
+│   └── basic_layers.py
+│   └── interpreters.py
+│   └── classification_head.py
+├── dataset.py
+├── utils.py
+├── train.py
+├── Report.ipynb
+├── Readme.md
+```
+
 
 ## 3.3. Results
 Original paper obtains comparable result with the state of the art architectures, see table below from original paper:
@@ -298,26 +310,24 @@ Our implementation yields 10% accuracy on 10 class classification. To investigat
 
 # 4. Conclusion
 
+## Experiments & Analysis
+
 ### Experiments & Analysis
 
-Experiments & Analysis
+* In the paper, authors have designed several experiments to speculate the reusable computational units, information modularization, out of distribution functions, and systematic generalization. In this regard, they have designed a toy Boolean experiment, multi-task image classification, and abstract reasoning experiments.
 
-In the paper, authors have designed several experiments to speculate the reusable computational units, information modularization, out of distribution functions, and systematic generalization. In this regard, they have designed a toy Boolean experiment, multi-task image classification, and abstract reasoning experiments.
+* Due to our familiarity with the image classification task we have decided to focus on this part of the experiments. In the original experiment, they have run 3 different classifications i.e. multi-task with 3 different classifications head at the end of neural interpreter model to show the generalizability of neural-interpreter. However, in order to first successfully run and test our model, we have decided to start with a simpler experiment with only 1 classification on MNIST and then increase the difficulty as we succeed in different experiment configurations. As a result for MNIST we have integrated 1 cls token and 1 classification head and  we have kept the model parameters around 0.2-0.3 M as compared to 0.6 M for the multi-task experiment.
 
-Due to our familiarity with the image classification task we have decided to focus on this part of the experiments. In the original experiment, they have run 3 different classifications i.e. multi-task with 3 different classifications head at the end of neural interpreter model to show the generalizability of neural-interpreter. However, in order to first successfully run and test our model, we have decided to start with a simpler experiment with only 1 classification on MNIST and then increase the difficulty as we succeed in different experiment configurations. As a result for MNIST we have integrated 1 cls token and 1 classification head and  we have kept the model parameters around 0.2-0.3 M as compared to 0.6 M for the multi-task experiment.
+ 
+### Comparative Discussion & Challenges
 
+* In the classification task, we have obtained around 15 % accuracy which highly indicates a training problem when compared to 98-99 % for MNIST classification with many Conv based architectures and also Multi-Task results of neural-interpreter paper. We have tracked our shared parameters, layer matrices, and gradients. Initially our model’s accuracy was below 10 % and we have detected that our compatibility matrices are were going to NAN values, this was mainly due to the exponentiation and masking, where high values for the exponentiation went to infinity and zero values for the mask resulted indeterminacy, NANs which have diverged our models training and blocked gradient flows to our model. This problem directly corresponds to equation-3 and we have fixed this issue by introducing a softmax in between and then L1 norm as our own way of stabilization which allowed our model to reach 15 % of accuracy.
 
-Comparative Discussion & Challenges
+* However, this change has direct implications for certain hyperparameters that are suggested for the problems at hand. We have observed that our compatibility matrix was consisting of mostly zeros due to the changed interval for the tau parameter which masks the compatibility scores. As a result we have hand-crafted this hyperparameter to keep sparse but also not vanishing connections between tokens and functions.
 
-In the classification task, we have obtained around 15 % accuracy which highly indicates a training problem when compared to 98-99 % for MNIST classification with many Conv based architectures and also Multi-Task results of neural-interpreter paper. We have tracked our shared parameters, layer matrices, and gradients. Initially our model’s accuracy was below 10 % and we have detected that our compatibility matrices are were going to NAN values, this was mainly due to the exponentiation and masking, where high values for the exponentiation went to infinity and zero values for the mask resulted indeterminacy, NANs which have diverged our models training and blocked gradient flows to our model. This problem directly corresponds to equation-3 and we have fixed this issue by introducing a softmax in between and then L1 norm as our own way of stabilization which allowed our model to reach 15 % of accuracy.
+* Additionally, authors emphasize ‘edge of chaos’ for their model where certain hyperparameters are strictly required for successful training and neural-interpreter is very sensitive to some of them especially i.e. tau which determines the compatibility matrix. Also authors do not explicitly indicate what some of the hyperparameters correspond to i.e. the intermediate feature dimension and this has left us some freedom to make some assumptions about the model and it might be the case that this model configuration has brought us a completely different loss and hyperparameter space which has diminished our model’s sustainability under this configuration.
 
-However, this change has direct implications for certain hyperparameters that are suggested for the problems at hand. We have observed that our compatibility matrix was consisting of mostly zeros due to the changed interval for the tau parameter which masks the compatibility scores. As a result we have hand-crafted this hyperparameter to keep sparse but also not vanishing connections between tokens and functions.
-
-Additionally, authors emphasize ‘edge of chaos’ for their model where certain hyperparameters are strictly required for successful training and neural-interpreter is very sensitive to some of them especially i.e. tau which determines the compatibility matrix. Also authors do not explicitly indicate what some of the hyperparameters correspond to i.e. the intermediate feature dimension and this has left us some freedom to make some assumptions about the model and it might be the case that this model configuration has brought us a completely different loss and hyperparameter space which has diminished our model’s sustainability under this configuration.
-
-Unfortunately, we could not tune our hyperparameters in detail with wandb sweep and we could only try some of the hyperparameters manually i.e. tau, nf, and ni. The reason was because the model has significant computational overhead. Although tons of parameters are shared, they are reused tons of times yielding tons of computations. As a result even 1 epoch on MNIST has taken significant time within our limited computational resources.
-
-
+* Unfortunately, we could not tune our hyperparameters in detail with wandb sweep and we could only try some of the hyperparameters manually i.e. tau, nf, and ni. The reason was because the model has significant computational overhead. Although tons of parameters are shared, they are reused tons of times yielding tons of computations. As a result even 1 epoch on MNIST has taken significant time within our limited computational resources.
 
 # 5. References
 
