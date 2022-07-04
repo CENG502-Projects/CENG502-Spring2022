@@ -69,24 +69,55 @@ $l_{rein} = -\dfrac{1}{NT} \sum_{i=1}^{N}\sum_{t=1}^{T} \log(\pi(u_{i,t}|s_{i,t}
 
 ## 3.1. Experimental setup
 
-@TODO: Describe the setup of the original paper and whether you changed any settings.
+As mentioned in the [Our interpretation](#22-our-interpretation) section we changed the reinforcement loss definition. Morever, for the few-shot learning task we changed after which layer the attention is applied, for Conv-6: After the 4th layer, and for ResNet-10: After 2nd layer.
 
+Experiments on the classification tasks requires 4000 epcoh training. Therefore, along with pretrained ResNet-18 for CIFAR10, we conducted trainings with weaker ResNet-18s. As the first step, we take pretrained ResNet-18 from PyTorch. We finetuned the model for 25 epcohs which reached %78 accuracy. As a result, instead of aiming +%92 accuracy, we aimed +%78 accuracy. 
 ## 3.2. Running the code
 
-@TODO: Explain your code & directory structure and how other people can run it.
-
+To run an experiment with Conv4 backbone, 5 number of supports and with attention policy module. 
+```python
+python train_fw.py --with_attention --num_support 5 --backbone Conv4
+```
+File structure of the project:
+```
+project
+│   data.py       
+│   fw_backbone.py
+|   LICENSE
+│   model.py
+│   Readme.md
+│   train-fw.py
+│   train.py
+|   
+└───materials
+    │   ...
+    
+```
 ## 3.3. Results
 
-![Exps](materials/exps.png)
+![Exps](materials/exps.png)  
+
+Additionally, as mentioned at [Experimental Setup](#31-experimental-setup), the aim was %78.3 accuracy. RAP method reached %78.8 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+Our accuracies are not consistent with the accuracies presented in the paper. (Table 1 in the paper)
+We think that it is due to the reported episode number in the paper, which is 1200. In the paper, Protonet without attention results are taken from the Protonet and A Closer Look At Few-Shot Classification paper (for resnet). In the second paper, it is said that experiments with 5 supports for each class is trained with 40000 episodes and experiments with 1 support for each class is trained with 60000 episodes. Therefore our training is a lot shorter. When we trained the Protonet without the attention module with Conv4 and 1-shot setting for 40000 episodes, we obtained the same results in the paper.
+The less training can be also the reason for the resnet-10 models with attention to perform worse. Since there are more parameters to train the big backbone with the attention module, the training is not long enough.
+It is also not clear enough how they trained the attention module for few-shot learning task. In the paper, they say that, the reinforcement loss is obtained using the validation set and the train loss is obtain using the training set. But it is not clear that, they used the backbone with attention on the training data or only the backbone with training data. It is also not clear that if they did a backbone pretraining with training data, and attention module training with validation data. 
+In our implementation, we trained the backbone using the training set in the vanilla setting (without attention). And trained the backbone and the attention module using the validation data. We did not use any pretraning for few-shot learning task. Moreover, as explanined in the [Our interpretation section](#22-our-interpretation), we changed the reinforcement loss definition.
+Lastly, to better examine our implementation, an average of 100 experiments is needed for each setting.  
 
 # 5. References
 
-@TODO: Provide your references here.
+Chen, W.Y., Liu, Y.C., Kira, Z., Wang, Y.C., & Huang, J.B.. (2019). A Closer Look at Few-shot Classification.
+
+Hong, J., Fang, P., Li, W., Zhang, T., Simon, C., Harandi, M., & Petersson, L.. (2021). Reinforced Attention for Few-Shot Learning and Beyond.
+
+
+Snell, J., Swersky, K., & Zemel, R.. (2017). Prototypical Networks for Few-shot Learning.
+
 
 # Contact
 
 Burak Bolat: burakbolatcs@gmail.com  
-Özgür Aslan: 
+Özgür Aslan: ozgraslan17@gmail.com
