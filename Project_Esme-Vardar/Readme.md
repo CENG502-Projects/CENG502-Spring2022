@@ -74,9 +74,16 @@ random variables, uj and uk. Mathematically, it can be formulated as
 $$
 \begin{equation}
 \phi\left(u_{j}^{l}=m, u_{k}^{l}=n\right)=\left\{\begin{array}{cl}
-t_{2, k}^{l} & \text { if } m=n \\
+t_{j k}^{l} & \text { if } m=n \\
 \left(1-t_{j, k}^{l}\right) /(N-1) & \text { if } m \neq n
-\end{array}\right.
+\end{array}\right. 
+\end{equation}
+$$
+
+
+$$
+\begin{equation}
+t_{j k}^{l} = ReLU(cos(f_{j}^{l},f_{k}^{l}))
 \end{equation}
 $$
 
@@ -88,6 +95,18 @@ $$
 \mathbf{m}_{l, i \rightarrow j}^{r}=\left[\phi\left(u_{i}^{l}, u_{j}^{l}\right)\left(\left(\mathbf{b}_{l, i}\right)^{r-1} \oslash \mathbf{m}_{l, j \rightarrow i}^{r-1}\right)\right]
 \end{equation}
 $$
+
+$$
+b_{l,j}^{r} =
+\begin{cases}
+\psi\left(u_{j}^{l}=m\right)\prod_{i\in N_{j}} m_{l,i \rightarrow j}^{r}, & \text{if $j < NxK$ } \\
+\prod_{i\in N_{j}} m_{l,i \rightarrow j}^{r},  & \text{if $j > NxK$}
+\end{cases}
+$$
+
+
+
+
 
 $$
 \begin{equation}
@@ -252,7 +271,7 @@ Figure 1: Accuracy results presented on paper
 Figure 2: Ablation accuracy results presented on paper
 </p>
 
-From our implementation of the model for MCGN architecture we couldn't train the network. From our experiments we have noticed that following the paper and our interpretations the network didn't seem to train after applying CRF. More specifically after trying CRF only architecture the backbone embedding first and a single CRF layer after the network seemed to have a vanishing gradient problem. Applying the full MCGN architecture didn't help also because of the previous reason so we haven't managed to observe any results as the results were mostly random. GNN only implementation was tried on ResNet12 backbone, but it returned pretty sub-par results on both Cifar-Fs and miniImageNet on end to end training where it's evaluation accuracies were %33 for Cifar-Fs and %26 for miniImageNet. GNN-only architecture also had some problems and those problems might be arising from a different reason than MCGN architecture which might be the data as when the data sources were different it achieved greater result in the original implementation of the model but our implementation fell short.
+From our implementation of the model for MCGN architecture we couldn't train the network. From our experiments we have noticed that following the paper and our interpretations the network didn't seem to train after applying CRF. More specifically after trying CRF only architecture the backbone embedding first and a single CRF layer after the network seemed to have a vanishing gradient problem. Applying the full MCGN architecture didn't help also because of the previous reason so we haven't managed to observe any results as the results were mostly random. GNN only implementation was tried on ResNet12 backbone, but it returned pretty sub-par results compared to the results on Table 1 and 2 on both Cifar-Fs and miniImageNet on end to end training where it's evaluation accuracies were %33 for Cifar-Fs and %26 for miniImageNet. GNN-only architecture also had some problems and those problems might be arising from a different reason than MCGN architecture which might be the data as when the data sources were different it achieved greater result in the original implementation of the model but our implementation fell short.
 
 
 
