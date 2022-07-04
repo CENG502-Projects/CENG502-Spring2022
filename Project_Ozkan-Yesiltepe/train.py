@@ -13,7 +13,7 @@ from classification_head import NeuralInterpreter_vision
 from utils import *
 
 
-# Main Hyperparameters
+############################# Main Hyperparameters ###############################
 img_size =  32                          # Dimension of spatial axes of input images
 patch_size = 4                          # Patch size
 in_channels = 1                         # Dimension of input channels
@@ -33,13 +33,12 @@ type_inference_depth = 2                # Type Inference MLP depth
 type_inference_width = 192              # Type Inference MLP width 
 treshold = 0.6                          # Trunctation Parameter
 signature_dim = 24                      # Dimension of type_space
-
 attn_prob = 0.0                         # Drop-out probability of ModAttn layer
 proj_drop = 0.0                         # Drop-out probability of Projection 
-mlp_depth = 4             
-number_of_class_mnist = 10                         
+mlp_depth = 4                           # Number of layers in ModMLP
+number_of_class_mnist = 10              # Multi-class Classification class number 
 
-# Optimization Hyperparameters          
+############################## Optimizer Parameters ###############################          
 beta1 = 0.9                             # Adam Optimizer beta1 parameter
 beta2 = 0.999                           # Adam Optimizer beta2 parameter
 lr = 1e-7                               # Learning Rate
