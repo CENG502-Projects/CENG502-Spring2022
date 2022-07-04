@@ -28,7 +28,7 @@ feature fusion mechanism."
 
 ## 2.1. The original method
 
-Original method contain some terms : Hierarchical Embeding Loss, Hierarchical Embedding Generator (HEG),HEG-S,HEG-R, and CLIFFNET
+Original method contains some terms : Hierarchical Embeding Loss, Hierarchical Embedding Generator (HEG),HEG-S,HEG-R, and CLIFFNET
 
 Hierarchical Embeding Loss : in general, standart Loss functions uses difference between ground truth depth map and estimated depth map in monocular depth estimation. Instead using directly depth map, depth embedding features are used to compute Loss function in the paper. 
 ![loss](https://user-images.githubusercontent.com/48828422/177058130-33ca570b-77a5-4fab-bf20-958e5aed6e27.png)
