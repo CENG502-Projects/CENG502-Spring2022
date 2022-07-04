@@ -1,0 +1,4 @@
+https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
+docker pull pytorch/pytorch:latest
+docker run --gpus all -v /home/ekin/Desktop/guo2021:/guo2021 -w /guo2021 -it pytorch/pytorch:latest
+
