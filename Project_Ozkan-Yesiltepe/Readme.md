@@ -298,7 +298,7 @@ Our implementation yields 10% accuracy on 10 class classification. To investigat
 
 # 4. Conclusion
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+[1]	N. Rahaman et al., “Dynamic inference with Neural Interpreters,” arXiv [cs.LG], 2021.
 
 # 5. References
 
