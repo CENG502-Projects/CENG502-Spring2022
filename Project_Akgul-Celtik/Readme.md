@@ -55,7 +55,7 @@ The people in history frames and current frame are used on the training of GNN m
 
 As mentioned, joints of the history frames and current frame are used as the nodes of the GNN. Three kinds of cues are used for each joint:
     
-* Visiual feature ($v_k$): The visiual features from the backbone CNN of the single-frame pose estimator    
+* Visual feature ($v_k$): The visual features from the backbone CNN of the single-frame pose estimator    
 * Joint encoding ($c_k$): The encoding of its joint type with a learnable lookup
 table    
 * Position feature ($p_k$): 2D position and confidence score from pose estimator
