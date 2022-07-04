@@ -49,7 +49,9 @@ So, the final form of the loss function is as follows:
 
 ## 2.2. Our interpretation 
 
-@TODO: Explain the parts that were not clearly explained in the original paper and how you interpreted them.
+* The step where we are supposed to apply dimensionality reduction and use the posterior and the Gaussian prior distributions were unclear to me. It may be so common in such networks that the authors find it necessary. However, it is not easy to understand for a newcomer.
+
+* The way they managed to use multiple initial frames for sequence generation tasks was unclear to me. Also, elaborating the method used for merging the sequences for sequence completion task would be better, as how the difference between two models are reduced between consequent runs is somewhat ambiguous.
 
 # 3. Experiments and results
 
