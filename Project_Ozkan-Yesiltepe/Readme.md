@@ -207,15 +207,15 @@ of the input element with the respective function
 # 2. The method and my interpretation
 
 ## 2.1. The original method
-The original method relies on `sparsity`: Not all the functions take entire tokens but they are specialized in one function iteration (remember that input tokens are routed independently). This sparsity allows Neural Interpreter functions not only learn the underlying distribution but also interpret how the distribution is generated and when data coming from related distribution is fed to model, model is able to predict from which distribution it is coming from and its class correctly. See Multiclass Classification Experiment for further details.
+🔑  The original method relies on `sparsity`: Not all the functions take entire tokens but they are specialized in one function iteration (remember that input tokens are routed independently). This sparsity allows Neural Interpreter functions not only learn the underlying distribution but also interpret how the distribution is generated and when data coming from related distribution is fed to model, model is able to predict from which distribution it is coming from and its class correctly. See Multiclass Classification Experiment for further details.
 
 ## 2.2. Our interpretation 
-We strictly stick to the original method: We shared the `code` vector across same type of functions. To avoid the mode collapse (routing input tokens only one function) we defined `signature` vectors from the highest entropy distribution: Normal distribtion and it is fixed. Authors proposed two distinct methods to create signature vectors: 
+🔑  We strictly stick to the original method: We shared the `code` vector across same type of functions. To avoid the mode collapse (routing input tokens only one function) we defined `signature` vectors from the highest entropy distribution: Normal distribtion and it is fixed. Authors proposed two distinct methods to create signature vectors: 
 
 1. Learnable
 2. Fix, initialized from high entropy
 
-To avoid overhead we used fixed implementation. Further, as described in the paper, we shared the **W<sub>c</sub>** across scripts (each script has its own **W<sub>c</sub>** and different scripts have different **W<sub>c</sub>**) and **W** & **b** across all interpreter layers.  `code` vector and `signature` vector is used to determine routing in out implementation as well. In our implementation, we further map the range of cosine distance to [0, 1] range in order to avoid `nan` values. (infinity values at exponentials 0 values at mask and their multiplication becomes nan).  
+To avoid overhead we used fixed implementation. Further, as described in the paper, we shared the **W<sub>c</sub>** across scripts (each script has its own **W<sub>c</sub>** and different scripts have different **W<sub>c</sub>**) and **W** & **b** across all interpreter layers.  `code` vector and `signature` vector is used to determine routing. In our implementation, we further map the range of cosine distance to [0, 1] range in order to avoid `nan` values. (infinity values at exponentials 0 values at mask and their multiplication becomes nan).  
 
 # 3. Experiments and results
 
@@ -223,8 +223,60 @@ To avoid overhead we used fixed implementation. Further, as described in the pap
 <p align="center">
   <img src="https://cdn-images-1.medium.com/max/800/1*F1wPk37NPc94fHuae9XTSA.png"/>
 </p>
-
 <p align='center'><b>Figure 5:</b>  Samples from the Digits Dataset. </p>
+
+🖊 We experimented with **Multi-class Classification Task** in which authors merged 3 different datasets to create **digits** dataset:
+~~~
+                                                1. MNIST
+                                                2. SVHN
+                                                3. MNIST-M
+~~~
+We conducted 2 types of experiments and differenet from the original paper, we used only the following datasets:
+
+~~~
+Experiment 1:
+                                                1. MNIST
+                                                2. SVHN
+~~~
+
+In this set-up, MNIST data have the size of [ 1 x 28 x 28 ] and SVHN dataset is of size [ 3 x 32 x 32 ]. To dataloader be compatible and stackable, we resized the MNIST data to [ 32 x 32 ] and repeated its only channel across RGB channels to yield [ 3 x 32 x 32] dimension at the end.
+
+Run the following command to see the training distribution for our implementation:
+
+
+```Python
+from utils import visualize_data
+
+# Parameters for dataset
+datasetname = 'digits'
+root = 'data/'
+batch_size = 128
+transform = transforms.Compose([
+                  transforms.Resize((32, 32)),
+                  transforms.ToTensor()])
+loader = get_data_loader(datasetname, root, batch_size, transform)
+
+# Visualize the training distribution
+visualize_data(loader)
+```
+
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/800/1*4by-qkAQX7mK2ihGZVki6w.png"/>
+</p>
+<p align='center'><b>Figure 6:</b>  Our Experiment samples from the Digits Dataset. </p>
+
+
+
+~~~
+Experiment 2:
+                                                1. MNIST
+~~~
+Again running the same scripts for MNIST dataset yields:
+
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/800/1*fEwjutSzo9wgbnQSHPASpw.png"/>
+</p>
+<p align='center'><b>Figure 6:</b>  Our Experiment samples from the Digits Dataset. </p>
 
 ## 3.2. Running the code
 
