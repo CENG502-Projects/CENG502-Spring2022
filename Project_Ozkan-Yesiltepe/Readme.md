@@ -353,7 +353,6 @@ This framework promotes architecture adaptation and takes transfer-learning to a
 Parameter sharing allows the model to be kept at low model capacity and the hierarchical way of parameter reuse allows more model complexity as a result. However, too many parameters are shared and although the model capacity is low, the number of computations is significant which we have observed this bottleneck in our experimentations even on a trivial dataset like MNIST.
 
 Additionally, training stability is problematic for this model and model is very sensitive to certain hyperparameters. Also, same learning rate is applied to several shared parameters at different scopes, but they accumulate gradients at different rates which brings a some instability for training. We have faced some difficulties with gradients in our experiments.
-![image](https://user-images.githubusercontent.com/47458871/177136407-3ab1839a-8299-4824-a990-e24533f03902.png)
 
 
 # 5. References
