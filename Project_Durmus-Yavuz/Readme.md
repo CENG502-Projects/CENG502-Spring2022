@@ -70,7 +70,7 @@ Since our computational resources were limited, we had to limit the batch size t
 To generate long-tailed datasets, we have referred to the cited paper "Learning imbalanced datasets with label
 distribution-aware margin loss". We have adapted the code from official github repo of this paper to generate long-tailed CIFAR10 and CIFAR100 datasets. According to the paper, we set the imbalance ratio to 10, 50 and 100.
 
-Our overall structure was implemented upon the original Supervised Contrastive Loss implementation.  
+Our overall structure was implemented upon the original Supervised Contrastive Loss implementation [GitHub page](https://github.com/HobbitLong/SupContrast).  
 
 ## 3.2. Running the code
 
@@ -135,4 +135,4 @@ Classification](https://arxiv.org/abs/2103.14267)
 # Contact
 
 Feyza Yavuz, feyza.yavuz@metu.edu.tr
-Tolunay Durmuş, 
+Tolunay Durmuş, tolunay.durmus@metu.edu.tr
