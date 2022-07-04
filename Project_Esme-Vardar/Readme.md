@@ -185,7 +185,7 @@ $$
 ## 2.2. Our interpretation 
 Baseline of our code was taken from the following repos:
 
-https://github.com/megvii-research/DPGN\
+https://github.com/megvii-research/DPGN<br/>
 https://github.com/ylsung/gnn_few_shot_cifar100
 
 Aside from the backbone overall paper proposes to implement a different structure on top of it by using GNN and CRF. As the implementation and layer details were pretty under-explained in the paper we had to make a lot of assumptions. 
@@ -239,13 +239,18 @@ python3 main.py --dataset_root dataset --config config/5way_1shot_resnet12_cifar
 @TODO: Explain your code & directory structure and how other people can run it.
 
 ## 3.3. Results
-
-![benchmark](images/benchmark.png)
-<center> Figure 1: Accuracy results presented on paper </center>
-
-![ablation](images/ablation.png)
-<center> Figure 2: Ablation accuracy results presented on paper </center>
-
+<p align="center">
+  <img src="images/benchmark.png" />
+  </p>
+  <p align="center">
+Figure 1: Accuracy results presented on paper 
+</p>
+<p align="center">
+ <img src="images/ablation.png" />
+  </p>
+  <p align="center">
+Figure 2: Ablation accuracy results presented on paper
+</p>
 
 From our implementation of the model for MCGN architecture we couldn't train the network. From our experiments we have noticed that following the paper and our interpretations the network didn't seem to train after applying CRF. More specifically after trying CRF only architecture the backbone embedding first and a single CRF layer after the network seemed to have a vanishing gradient problem. Applying the full MCGN architecture didn't help also because of the previous reason so we haven't managed to observe any results as the results were mostly random. GNN only implementation was tried on ResNet12 backbone, but it returned pretty sub-par results on both Cifar-Fs and miniImageNet on end to end training where it's evaluation accuracies were %33 for Cifar-Fs and %26 for miniImageNet. GNN-only architecture also had some problems and those problems might be arising from a different reason than MCGN architecture which might be the data as when the data sources were different it achieved greater result in the original implementation of the model but our implementation fell short.
 
