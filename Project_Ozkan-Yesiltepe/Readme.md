@@ -337,6 +337,16 @@ Our implementation yields 10% accuracy on 10 class classification. To investigat
 
 [1]	N. Rahaman et al., “Dynamic inference with Neural Interpreters,” arXiv [cs.LG], 2021.
 
+[2] Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai,
+Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, et al.
+An image is worth 16x16 words: Transformers for image recognition at scale. arXiv preprint
+arXiv:2010.11929, 2020.
+
+
+Cosine Learning Rate Scheduler adapted from: https://github.com/jeonsworld/ViT-pytorch/blob/main/utils/scheduler.py
+
+
+
 # Contact
 
 Alpay Özkan, alpay.ozkan@metu.edu.tr
