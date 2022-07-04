@@ -96,7 +96,16 @@ Then code examples can be used separately.
     
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+Accuracies are not provided yet. 
+
+HEG-R depth map estimation network : 
+
+![HEG-R](https://user-images.githubusercontent.com/48828422/177136279-0392ef73-d476-453e-b586-e8dfb9800284.PNG)
+
+CLIFFNET : 
+
+![Cliffnet](https://user-images.githubusercontent.com/48828422/177136443-7d67ff57-00f6-491d-a8cd-74b85e37d6a2.PNG)
+
 
 # 4. Conclusion
 
@@ -104,7 +113,9 @@ Then code examples can be used separately.
 
 # 5. References
 
-@TODO: Provide your references here.
+[1] Lijun Wang, Jianming Zhang, Yifan Wang, Huchuan Lu, and Xiang Ruan, CLIFFNet for Monocular Depth Estimation with Hierarchical Embedding Loss
+
+[2] Lin, T.Y., Doll´ar, P., Girshick, R., He, K., Hariharan, B., Belongie, S.: Feature pyramid networks for object detection. In: CVPR. pp. 2117–2125 (2017)
 
 # Contact
 
