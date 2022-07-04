@@ -9,7 +9,7 @@ from torch.optim.lr_scheduler import LambdaLR
 import wandb
 from tqdm import tqdm
 import os 
-
+# Cosine Learning Rate Scheduler adapted from: https://github.com/jeonsworld/ViT-pytorch/blob/main/utils/scheduler.py
 class WarmupCosineSchedule(LambdaLR):
     """ Linear warmup and then cosine decay.
         Linearly increases learning rate from 0 to 1 over `warmup_steps` training steps.
