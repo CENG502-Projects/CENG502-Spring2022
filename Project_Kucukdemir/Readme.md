@@ -21,9 +21,9 @@ In recent years, researchers started to utilize deep neural networks but these m
   <i>Figure 1. The overall architecture of the proposed network. Taken from the original paper[1].</i>
 </p>
 
-At first, we have to find a good representation for our shapes. In this work, a shape deformation representation called As-Consistent-As-Possible (ACAP)[7] is used. With this representation, we get a feature vector of size 9 for each vertex of the mesh. Before feeding these representation in the network, these feature vectors are normalized between [-0.95, 0.95] as it makes these vectors more suitable for tanh activation functions used in the convolution modules.
+At first, we have to find a good representation for our shapes. In this work, a shape deformation representation called As-Consistent-As-Possible (ACAP)[6] is used. With this representation, we get a feature vector of size 9 for each vertex of the mesh. Before feeding these representation in the network, these feature vectors are normalized between [-0.95, 0.95] as it makes these vectors more suitable for tanh activation functions used in the convolution modules.
 
-The computed feature vectors are first sent to convolution modules, which refer to mesh convolutional operations as defined in [8] and [9]. Then, the output of the convolution modules are sent to LSTM cells and their output is sent back to transpose convolution modules, which basically mirror the convolution modules. In the final step, their output is combined with the original mesh representation to get the representation of next mesh in the sequence.
+The computed feature vectors are first sent to convolution modules, which refer to mesh convolutional operations as defined in [7] and [8]. Then, the output of the convolution modules are sent to LSTM cells and their output is sent back to transpose convolution modules, which basically mirror the convolution modules. In the final step, their output is combined with the original mesh representation to get the representation of next mesh in the sequence.
 
 As shown in Figure 1 (b), the bidirectional LSTM network proposed in the paper consists of two chains: forward and backward. They are equivalent in terms of architecture. The only difference between them is their direction. The network expects the first model in the animation sequence to be sent as input to forward chain. On the other hand, the input for the backward chain is the last model in that sequence. By generating models in reverse directions, the network aims to get the same output mesh for each time step. Using two separate chains for the method helps us to 
 * reduce the number of trainable parameters,
@@ -77,11 +77,9 @@ There are still a lot of room for improvement as there are some failure cases as
 
 [6] L. Gao, Y. -K. Lai, J. Yang, L. -X. Zhang, S. Xia and L. Kobbelt, "Sparse Data Driven Mesh Deformation," in IEEE Transactions on Visualization and Computer Graphics, vol. 27, no. 3, pp. 2085-2100, 1 March 2021, doi: 10.1109/TVCG.2019.2941200.
 
-[7] L. Gao, Y. -K. Lai, J. Yang, L. -X. Zhang, S. Xia and L. Kobbelt, "Sparse Data Driven Mesh Deformation," in IEEE Transactions on Visualization and Computer Graphics, vol. 27, no. 3, pp. 2085-2100, 1 March 2021, doi: 10.1109/TVCG.2019.2941200.
+[7] David Duvenaud, Dougal Maclaurin, Jorge Aguilera-Iparraguirre, Rafael Gómez-Bombarelli, Timothy Hirzel, Alán Aspuru-Guzik, and Ryan P. Adams. 2015. Convolutional networks on graphs for learning molecular fingerprints. In Proceedings of the 28th International Conference on Neural Information Processing Systems - Volume 2 (NIPS'15). MIT Press, Cambridge, MA, USA, 2224–2232.
 
-[8] David Duvenaud, Dougal Maclaurin, Jorge Aguilera-Iparraguirre, Rafael Gómez-Bombarelli, Timothy Hirzel, Alán Aspuru-Guzik, and Ryan P. Adams. 2015. Convolutional networks on graphs for learning molecular fingerprints. In Proceedings of the 28th International Conference on Neural Information Processing Systems - Volume 2 (NIPS'15). MIT Press, Cambridge, MA, USA, 2224–2232.
-
-[9] Qingyang Tan, Lin Gao, Yu-Kun Lai, Jie Yang, and Shihong Xia. 2018. Mesh-based autoencoders for localized deformation component analysis. In Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence and Thirtieth Innovative Applications of Artificial Intelligence Conference and Eighth AAAI Symposium on Educational Advances in Artificial Intelligence (AAAI'18/IAAI'18/EAAI'18). AAAI Press, Article 299, 2452–2459.
+[8] Qingyang Tan, Lin Gao, Yu-Kun Lai, Jie Yang, and Shihong Xia. 2018. Mesh-based autoencoders for localized deformation component analysis. In Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence and Thirtieth Innovative Applications of Artificial Intelligence Conference and Eighth AAAI Symposium on Educational Advances in Artificial Intelligence (AAAI'18/IAAI'18/EAAI'18). AAAI Press, Article 299, 2452–2459.
 
 # Contact
 
