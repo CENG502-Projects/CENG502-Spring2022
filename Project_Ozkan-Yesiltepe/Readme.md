@@ -290,6 +290,7 @@ Project Directory:
 ├── utils.py
 ├── train.py
 ├── Report.ipynb
+├── requirements.txt
 ├── Readme.md
 ```
 
