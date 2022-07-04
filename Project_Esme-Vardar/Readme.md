@@ -236,7 +236,7 @@ For evaluation simply change --mode flag to test which can be seen by:
 ```
 python3 main.py --dataset_root dataset --config config/5way_1shot_resnet12_cifar-fs.py --num_gpu 1 --mode eval --arch mcrfgnn
 ```
-@TODO: Explain your code & directory structure and how other people can run it.
+
 
 ## 3.3. Results
 <p align="center">
