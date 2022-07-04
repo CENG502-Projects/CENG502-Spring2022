@@ -4,7 +4,7 @@ This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-The paper : [Long-Tailed Multi-Label Visual Recognition by Collaborative Training on Uniform and Re-balanced Samplings ]([https://openaccess.thecvf.com/content/CVPR2021/html/Guo_Long-Tailed_Multi-Label_Visual_Recognition_by_Collaborative_Training_on_Uniform_and_CVPR_2021_paper.html](https://openaccess.thecvf.com/content/CVPR2021/html/Guo_Long-Tailed_Multi-Label_Visual_Recognition_by_Collaborative_Training_on_Uniform_and_CVPR_2021_paper.html))
+The paper : [Long-Tailed Multi-Label Visual Recognition by Collaborative Training on Uniform and Re-balanced Samplings ](https://openaccess.thecvf.com/content/CVPR2021/html/Guo_Long-Tailed_Multi-Label_Visual_Recognition_by_Collaborative_Training_on_Uniform_and_CVPR_2021_paper.html)
 
 The paper is published in CVPR2021 and achieves state of the art results. On top of achieving state of the art results they actually develop a novel method. Our goal is to reproduce authors' results in the same way they did. They simply and judiciously add one of their novelties at a time and show its indiviual contribution. So our goal is to reproduce the table in img4 by adding one method at a time. Even if we can't get numerically close results to the paper's we would like to similar effects of each proposed method's addition. 
 
