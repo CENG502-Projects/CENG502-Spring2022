@@ -316,16 +316,6 @@ Our implementation yields 10% accuracy on 10 class classification. To investigat
 
 # 4. Conclusion
 
-## Experiments & Analysis
-
-* In the paper, authors have designed several experiments to speculate the reusable computational units, information modularization, out of distribution functions, and systematic generalization. In this regard, they have designed a toy Boolean experiment, multi-task image classification, and abstract reasoning experiments.
-
-* Due to our familiarity with the image classification task we have decided to focus on this part of the experiments. In the original experiment, they have run 3 different classifications i.e. multi-task with 3 different classifications head at the end of neural interpreter model to show the generalizability of neural-interpreter. However, in order to first successfully run and test our model, we have decided to start with a simpler experiment with only 1 classification on MNIST and then increase the difficulty as we succeed in different experiment configurations. As a result for MNIST we have integrated 1 cls token and 1 classification head and  we have kept the model parameters around 0.2-0.3 M as compared to 0.6 M for the multi-task experiment.
-
- 
-### Comparative Discussion & Challenges
-
-
 
 ### Experiments & Analysis
 
