@@ -150,6 +150,7 @@ Directory structure:
     └── requirements.txt
 
 - Folders with * on their right are the folders that should be downloaded, folders with ~ on their right are the folders that should be downloaded
+- 'posetrack_data' folder should be donwloaded from [2] and added to the main directory
 - 'poseval' folder should be donwloaded from [3] and added to the main directory
 - 'pose_hrnet_w32_384x288.pth' file should be donwloaded from [4] (models-> pytorch -> pose_coco -> pose_hrnet_w32_384x288.pth) and added to the main directory
 - 'models' folder should be donwloaded from [5] and added to the main directory
