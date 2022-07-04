@@ -49,17 +49,17 @@ So, the final form of the loss function is as follows:
 
 ## 2.2. Our interpretation 
 
-* The step where we are supposed to apply dimensionality reduction and use the posterior and the Gaussian prior distributions were unclear to me. It may be so common in such networks that the authors find it necessary. However, it is not easy to understand for a newcomer.
+* The step where we are supposed to apply dimensionality reduction and use the posterior and the Gaussian prior distributions were unclear to me. It may be so common in such networks that the authors find it unnecessary. However, it is not easy to understand for a newcomer.
 
-* The way they managed to use multiple initial frames for sequence generation tasks was unclear to me. Also, elaborating the method used for merging the sequences for sequence completion task would be better, as how the difference between two models are reduced between consequent runs is somewhat ambiguous.
+* The way they managed to use multiple initial frames for sequence generation tasks was unclear. Also, elaborating the method used for merging the sequences for sequence completion task would be better, as how the difference between two models are reduced between consequent runs is somewhat ambiguous.
 
 # 3. Experiments and results
 
-Not available.
+Not available, as the implementation is incomplete.
 
 # 4. Conclusion
 
-The paper proposes the first deep neural network architecture that is able to generate mesh deformation sequences by capturing and using temporal relationship among the meshes. It is shown that in works well in tasks such as sequence generation and sequence completion. There are still a lot of room for improvement as there are some failure cases as shown in the Figure 13 of the paper[1]. Also, the network is tightly dependent on the number of vertices of input meshes, which limits its applicability in real world scenarios.
+The paper proposes the first deep neural network architecture that is able to generate mesh deformation sequences by capturing and using temporal relationship among the meshes. It is shown that it works well in tasks such as sequence generation and sequence completion. There are still a lot of room for improvement as there are some failure cases as shown in the Figure 13 of the paper[1]. Also, the network is tightly dependent on the number of vertices of input meshes, which limits its applicability in real world scenarios.
 
 # 5. References
 
