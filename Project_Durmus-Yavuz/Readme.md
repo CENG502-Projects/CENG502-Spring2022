@@ -6,7 +6,7 @@ This readme file is an outcome of the [CENG502 (Spring 2022)](https://ceng.metu.
 
 # 1. Introduction
 
-Learning discriminative image representations is highly important, especially in long-tailed image classification. Long-tailed classification is a widespread research problem, where the key is to overcome the data imbalance issue. Several methods have been proposed to tackle this issue, such as Data Augmentation, Data Re-sampling, Loss Re-weighting, etc. Recently, Contrastive Learning has shown great promise in unsupervised and supervised learning. Peng Wang et al. proposed "Contrastive Learning-based Hybrid Networks for Long Tailed Image Classification" to explore effective supervised contrastive learning strategies and propose a novel hybrid network structure to learn classifiers. It was published in CVPR2021. Our main aim is to produce HybridSC and HybridPSC results for CIFAR10 and CIFAR100 datasets from Table1 in the paper.
+Learning discriminative image representations is highly important, especially in long-tailed image classification. Long-tailed classification is a widespread research problem, where the key is to overcome the data imbalance issue. Several methods have been proposed to tackle this issue, such as Data Augmentation, Data Re-sampling, Loss Re-weighting, etc. Recently, Contrastive Learning has shown great promise in unsupervised and supervised learning. Peng Wang et al. proposed "Contrastive Learning-based Hybrid Networks for Long Tailed Image Classification" to explore effective supervised contrastive learning strategies and propose a novel hybrid network structure to learn classifiers. It was published in CVPR2021. Our main aim is to produce HybridSC and HybridPSC results for CIFAR10 dataset from Table1 in the paper.
 
 ## 1.1. Paper summary
 
@@ -50,6 +50,8 @@ In SC loss-based hybrid network implementation, hybrid testing implementation an
 
 In the paper, implementation details of the training stage were given in enough detail; however, the crucial part, testing the hybrid networks, was not mentioned as detailed as the training part. To achieve this work's joint learning feature, we have defined our network accordingly. After each epoch, we tested the model's performance using the classifier branch.
 
+Authors stated that they use ResNet-32 as their shared backbone. In feature learning branch, they use single hidden layer MLP to obtain better features for contrastive learning. The dimensions of the MLP is not clearly stated, so we decided to set the output feature dimension to 128.
+
 This project's biggest challenge was implementing the prototypical supervised contrastive learning branch. The prototypical supervised contrastive loss was only given as a generic formula, and any additional information about how the prototypes of each class are calculated was not mentioned. To tackle this problem, we have decided to generate prototypes in each mini-batch by averaging the features with the same label. The primary purpose of the proposed prototypical supervised contrastive loss method is to address the memory bottleneck issue caused by the original supervised contrastive loss method. However, our implementation does not solve this memory issue; we could not implement prototype calculation properly.
 
 
@@ -66,18 +68,53 @@ In SC Loss, temperature($\tau$) is set to 0.1 and in PSC Loss, $\tau$ is set to 
 Since our computational resources were limited, we had to limit the batch size to 64. We set the learning rate to 0.1 and we use ResNet-34 as our backbone. Remaning setup is set according to the original paper.
 
 To generate long-tailed datasets, we have referred to the cited paper "Learning imbalanced datasets with label
-distribution-aware margin loss". We have adapted the code from official github repo of this paper to generate long-tailed cifar10 and cifar100 datasets. According to the paper, we set the imbalance ratio to 10, 50 and 100.
+distribution-aware margin loss". We have adapted the code from official github repo of this paper to generate long-tailed CIFAR10 and CIFAR100 datasets. According to the paper, we set the imbalance ratio to 10, 50 and 100.
 
 Our overall structure was implemented upon the original Supervised Contrastive Loss implementation.  
 
 ## 3.2. Running the code
+
+Project Directory:
+```
+├── dataset_loader.py
+├── losses.py
+├── main.py
+├── networks
+│   └── resnet_big.py
+└── util.py
+
+
+```
+To train and test the SCLoss with CIFAR10 dataset run:
+
+```
+python3 main.py --batch_size 512 --learning_rate 0.5 --temp 0.1 --model resnet34 --dataset cifar10
+```
+
+
+
 ## 3.3. Results
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+Results on CIFAR10 can be seen below:
+
+| Dataset | Method         | Imbalance Ratio | Best Top-1 Accuracy | Original Results |
+|---------|----------------|-----------------|---------------------|------------------|
+| CIFAR10 | Hybrid SCLoss  | 10              | 78.77               | 91.12            |
+| CIFAR10 | Hybrid SCLoss  | 100             | 73.08               | 81.40            |
+| CIFAR10 | Hybrid SCLoss  | 50              |                     | 85.36            |
+| CIFAR10 | Hybrid PSCLoss | 10              |                     | 90.06            |
+| CIFAR10 | Hybrid PSCLoss | 50              |                     | 83.86            |
+| CIFAR10 | Hybrid PSCLoss | 100             |                     | 78.82            |
+
+Table1 : Impemented HybridSCLoss and PSCLoss on CIFAR10 dataset with ResNet-34 as backbone architecture.
+
+From Table 1 , we can state that Hybrid SCLoss obtains promising results. The difference between the original results and our results can be may be due to the number of batch sizes. Because of the computational resource issue, remaining results will be published after completion.
 
 # 4. Conclusion
+The paper proposes a novel hybrid network structure being composed of a supervised contrastive loss to learn image representations and a cross-entropy loss to learn classifiers, where the learning is progressively transited from feature learning to the classifier learning to embody the idea that better features make better classifiers.
+ In this project we have implemented a hybrid network for long-tailed classification and we obtain promising results, specifically in hybrid supervised contrastive loss. However, our prototypical supervised contrastive loss implementation is not effective as the original implementation. Memory issues can not explored in detail and we will try to produce a better/correct implementation for PSC Loss. 
 
-@TODO: Discuss the paper in relation to the results in the paper and your results.
+
 
 # 5. References
 
