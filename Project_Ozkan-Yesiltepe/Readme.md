@@ -283,8 +283,18 @@ Again running the same scripts for MNIST dataset yields:
 @TODO: Explain your code & directory structure and how other people can run it.
 
 ## 3.3. Results
+Original paper obtains comparable result with the state of the art architectures, see table below from original paper:
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/800/1*5BuF92-iRZfSJFzfg41Weg.png"/>
+</p>
+<p align='center'><b>Figure 7:</b> Multiclass Classification Experiment Results of Original Paper </p>
 
-@TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper.
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/800/1*wPuFrE5ludGiolBOpOun3A.png"/>
+</p>
+<p align='center'><b>Figure 8:</b> Multiclass Classification Experiment Results of Our Implementation </p>
+
+Our implementation yields 10% accuracy on 10 class classification. To investigate the resons in detail, see Challenges section at Conclusion.
 
 # 4. Conclusion
 
