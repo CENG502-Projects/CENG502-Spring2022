@@ -294,6 +294,11 @@ Project Directory:
 ├── Readme.md
 ```
 
+Running the code:
+```Python
+python3 train.py
+```
+
 
 ## 3.3. Results
 Original paper obtains comparable result with the state of the art architectures, see table below from original paper:
@@ -312,8 +317,6 @@ Our implementation yields 10% accuracy on 10 class classification. To investigat
 # 4. Conclusion
 
 ## Experiments & Analysis
-
-### Experiments & Analysis
 
 * In the paper, authors have designed several experiments to speculate the reusable computational units, information modularization, out of distribution functions, and systematic generalization. In this regard, they have designed a toy Boolean experiment, multi-task image classification, and abstract reasoning experiments.
 
