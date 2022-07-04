@@ -1,4 +1,4 @@
-from backbone import ResNet12, ConvNet
+from backbone import ResNet12
 from utils import set_logging_config, adjust_learning_rate, save_checkpoint, allocate_tensors, preprocessing, \
     initialize_nodes_edges, backbone_two_stage_initialization, one_hot_encode
 from dataloader import MiniImagenet, TieredImagenet, Cifar, CUB200, DataLoader
@@ -410,22 +410,12 @@ def main():
     if config['backbone'] == 'resnet12':
         enc_module = ResNet12(emb_size=config['emb_size'], cifar_flag=cifar_flag)
         print('Backbone: ResNet12')
-    elif config['backbone'] == 'convnet':
-        enc_module = ConvNet(emb_size=config['emb_size'], cifar_flag=cifar_flag)
-        print('Backbone: ConvNet')
     else:
         logger.info('Invalid backbone: {}, please specify a backbone model from '
                     'convnet or resnet12.'.format(config['backbone']))
         exit()
-    """
-    gnn_module = DPGN(config['num_generation'],
-                      train_opt['dropout'],
-                      train_opt['num_ways'] * train_opt['num_shots'],
-                      train_opt['num_ways'] * train_opt['num_shots'] + train_opt['num_ways'] * train_opt['num_queries'],
-                      train_opt['loss_indicator'],
-                      config['point_distance_metric'],
-                      config['distribution_distance_metric'])
-    """
+
+
     print(args_opt.arch)
     if args_opt.arch == "mcrfgnn":
         gnn_module = MCRFGNN(train_opt['num_ways'], args_opt.device)

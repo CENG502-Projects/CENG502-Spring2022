@@ -55,7 +55,7 @@ The people in history frames and current frame are used on the training of GNN m
 
 As mentioned, joints of the history frames and current frame are used as the nodes of the GNN. Three kinds of cues are used for each joint:
     
-* Visiual feature ($v_k$): The visiual features from the backbone CNN of the single-frame pose estimator    
+* Visual feature ($v_k$): The visual features from the backbone CNN of the single-frame pose estimator    
 * Joint encoding ($c_k$): The encoding of its joint type with a learnable lookup
 table    
 * Position feature ($p_k$): 2D position and confidence score from pose estimator
@@ -168,7 +168,12 @@ Training the GNN part is done with the ```posetrack_train.py``` file. Usage is l
 
 <!--- @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper. --->
 
-Although our implementation was finished, we couldn’t test it due to the lack of information about the output format. We tried to reverse engineer to understand what format we should produce; however, it was not evident in both the dataset and the paper. We also struggled with the dataset size. Even though we made some predictions that are in the wrong format, we were not able to achieve meaningful training and testing processes in a reasonable time meaning that everyone can't reproduce the paper without having high-end machines and longer times. Therefore, the results below are from the paper.
+Although our implementation was finished, we couldn’t test it due to the lack of information about the output format. We tried to reverse engineer to understand what format we should produce; however, it was not evident in both the dataset and the paper. We also struggled with the dataset size. Even though we made some predictions that are in the wrong format, we were not able to achieve meaningful training and testing processes in a reasonable time meaning that everyone can't reproduce the paper without having high-end machines and longer times. What we got for the implementation of only the GNN test score shown below.
+
+![image](https://user-images.githubusercontent.com/64609605/177098824-b2eaad58-77ce-4b59-bf8a-c4fab5e95890.png)
+Mean Average Precision (AP) metric of our implementation on pure GNN result
+
+The rest of the tables are scores from the paper.
 
 ![image](https://user-images.githubusercontent.com/64609605/177093044-cfc84f35-96f1-4e5d-b9d4-7481dbfecb8e.png)
 

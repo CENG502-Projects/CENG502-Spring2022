@@ -17,8 +17,7 @@ class MCRFGNN(nn.Module):
         self.graph_conv_1 = GraphConvolution(128,64)
         self.graph_conv_2 = GraphConvolution(64,32)
         self.graph_conv_3 = GraphConvolution(32,16)
-        self.graph_conv_4 = GraphConvolution(128,128)
-        self.graph_conv_5 = GraphConvolution(128,128)
+
 
     def train(self):
         super(MCRFGNN,self).train()
@@ -26,15 +25,13 @@ class MCRFGNN(nn.Module):
         self.graph_conv_1.train()
         self.graph_conv_2.train()
         self.graph_conv_3.train()
-        self.graph_conv_4.train()
-        self.graph_conv_5.train()
+
 
     def eval(self):
         self.graph_conv_1.train(False)
         self.graph_conv_2.train(False)
         self.graph_conv_3.train(False)
-        self.graph_conv_4.train(False)
-        self.graph_conv_5.train(False)
+
     
     def init_crf(self, inp_data ,batch_size, x_dim, y_dim, unary_comp, binary_comp, num_supports, affinity_mat, crf_module, all_label):
         crf_module.init(inp_data, batch_size, x_dim, y_dim, unary_comp, binary_comp,num_supports, self.device, all_label)
@@ -68,17 +65,7 @@ class MCRFGNN(nn.Module):
         binary_comp = binary_comp_calc(inp_data, all_label, \
         batch_size, self.device,self.num_ways)
         self.belief_list.append(self.crf_module_1.belief)
-        """
-        self.init_crf(inp_data ,batch_size, x_dim, y_dim, unary_comp, binary_comp, num_supports, self.affinity_mat, self.crf_module_4, all_label)
-        inp_data = self.graph_conv_4(inp_data, self.affinity_mat)
-        binary_comp = binary_comp_calc(inp_data, all_label, \
-        batch_size, self.device,self.num_ways)
 
-        self.init_crf(inp_data ,batch_size, x_dim, y_dim, unary_comp, binary_comp, num_supports, self.affinity_mat, self.crf_module_5, all_label)
-        inp_data = self.graph_conv_5(inp_data, self.affinity_mat)
-        binary_comp = binary_comp_calc(inp_data, all_label, \
-        batch_size, self.device,self.num_ways)
-        """
 
         belief_list = self.get_crf_belief_list()
 
