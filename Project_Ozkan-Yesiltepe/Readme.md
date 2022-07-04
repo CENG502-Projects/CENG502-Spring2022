@@ -308,7 +308,7 @@ Original paper obtains comparable result with the state of the art architectures
 <p align='center'><b>Figure 7:</b> Multiclass Classification Experiment Results of Original Paper </p>
 
 <p align="center">
-  <img src="https://cdn-images-1.medium.com/max/800/1*wPuFrE5ludGiolBOpOun3A.png"/>
+  <img src="https://cdn-images-1.medium.com/max/720/0*WK4cDWDCKc6pq9it.png"/>
 </p>
 <p align='center'><b>Figure 8:</b> Multiclass Classification Experiment Results of Our Implementation </p>
 
