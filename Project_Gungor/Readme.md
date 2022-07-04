@@ -17,7 +17,7 @@ The main idea behind the proposed method DiVE is to distill the virtual examples
  1. Temperature:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/temperature.png">
+<img src = "code/figures/temperature.png">
 </p>
 
 Temperature is a scaler for the model outputs (logits). The effect of this scaling is that the more the temperature the flatter the distribution from softmax. However, as the temperature goes to infinity, the distribution becomes uniform which does not have any useful information in terms of classification.
@@ -25,7 +25,7 @@ Temperature is a scaler for the model outputs (logits). The effect of this scali
  2. Power Normalization:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/power_norm.png" style="width:40%; height:40%">
+<img src = "code/figures/power_norm.png" style="width:40%; height:40%">
 </p>
 
 Power normalization is a process for taking a non-negative number and converting it to its given power. When the input is a vector, we also normalize each element by dividing by the sum. The usage of power normalization in the DiVE is that it further adjusts the distribution. Taking power normalization with p=0.5 equals doubling the temperature. It's stated in the paper that we can use power normalization without taking temperature to an unreasonable range.
@@ -57,7 +57,7 @@ Now that everything is in place, the training pipeline for the DiVE is as follow
 
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/dive_loss.png">
+<img src = "code/figures/dive_loss.png">
 </p>
 
 Here,
@@ -145,8 +145,8 @@ python main.py --cfg ./config/CIFAR100_LT/dive_bbn_recipe.yaml --test
 First I calculate the virtual example distribution(left) for the train split of CIFAR-100-LT (INPUT), and 3 models using Cross-Entropy, BSCE, and DiVE loss. Also, virtual example distribution from the paper(right) is shown:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/virt_ex_dist.png" style="width:49%; height:49%">
-<img src = "BalancedMetaSoftmax-Classification/figures/paper_virt_ex_dist.png" style="width:38%; height:38%">
+<img src = "code/figures/virt_ex_dist.png" style="width:49%; height:49%">
+<img src = "code/figures/paper_virt_ex_dist.png" style="width:38%; height:38%">
 </p>
 <p align = "center">
 Figure-1 - Virtual Example Distribution from implementation(left) and paper(right)
@@ -157,8 +157,8 @@ Figure-1 - Virtual Example Distribution from implementation(left) and paper(righ
 Then I tried to reproduce the virtual example distribution(left) of CIFAR-100-LT of the BSCE model with different temperature values. Also, virtual example distribution from the paper(right) is shown:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/virt_ex_dist_bsce.png" style="width:49%; height:49%">
-<img src = "BalancedMetaSoftmax-Classification/figures/paper_virt_ex_dist_bsce.png" style="width:39%; height:39%">
+<img src = "code/figures/virt_ex_dist_bsce.png" style="width:49%; height:49%">
+<img src = "code/figures/paper_virt_ex_dist_bsce.png" style="width:39%; height:39%">
 </p>
 <p align = "center">
 Figure-2 - Virtual Example Distribution of BSCE with different &tau; values from implementation(left) and paper(right).
@@ -171,8 +171,8 @@ Even if the results match for $\tau$=3 and 6, it's quite different for $\tau$=1 
 The following tables compare the accuracy results numerically. Since it's not completely clear if the training of BSCE was done with the original training scheme or DiVE's recipe (aforementioned BBN<sup>5</sup> recipe), I trained all 3 models I tried with both:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/bsce_orig_teacher.png" style="width:49%; height:80%">
-<img src = "BalancedMetaSoftmax-Classification/figures/bsce_bbn_teacher.png" style="width:45%; height:50%">
+<img src = "code/figures/bsce_orig_teacher.png" style="width:49%; height:80%">
+<img src = "code/figures/bsce_bbn_teacher.png" style="width:45%; height:50%">
 </p>
 <p align = "center">
 Figure-3 - Accuracy results of 3 models with original BSCE training recipe(left) and BBN training recipe(right)
@@ -181,7 +181,7 @@ Figure-3 - Accuracy results of 3 models with original BSCE training recipe(left)
 <br>
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/paper_cifar100lt_results.png" style="width:39%; height:30%">
+<img src = "code/figures/paper_cifar100lt_results.png" style="width:39%; height:30%">
 </p>
 <p align = "center">
 Figure-4 - Accuracy results from the paper
@@ -196,7 +196,7 @@ Comparing accuracy results, even if the numbers are not exactly equal, the relat
 In the following experiments, I played with the temperature applied to the student. It can be understood from the paper after selecting $\tau$ based on virtual example distribution, half of the value is selected as a general temperature parameter. Then by applying power normalization with $p=0.5$, the teacher's temperature is doubled indirectly. Therefore, I kept the teacher temperature as 3 and applied power normalization while changing the student temperature:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/dive_different_student_temperatures.png" style="width:75%; height:75%">
+<img src = "code/figures/dive_different_student_temperatures.png" style="width:75%; height:75%">
 </p>
 <p align = "center">
 Figure-5 - Accuracy results of DiVE with different student &tau; values
@@ -209,7 +209,7 @@ We can derive from the table that increasing student temperature trades many and
 Going back to the problem discussed in the section under Figure 2, it can be stated that increasing the flatness level of virtual example distribution for a teacher whose distribution is already flatter than expected for the few-shot category hurts performance. Also, increasing student temperature does not compensate for this. Hence, simply, not using power normalization to double the temperature effect may help. The following table shows another set of experiments where the teacher and student use the same temperature and power normalization is not used:
 
 <p align = "center">
-<img src = "BalancedMetaSoftmax-Classification/figures/dive_different_temperatures_no_powe_norm.png" style="width:75%; height:75%">
+<img src = "code/figures/dive_different_temperatures_no_powe_norm.png" style="width:75%; height:75%">
 </p>
 <p align = "center">
 Figure-6 - Accuracy results of DiVE with different &tau; values while power normalization is disabled
