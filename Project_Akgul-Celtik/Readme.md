@@ -129,7 +129,6 @@ Paper trained the model by using learning rate 0.0001 for 10 epochs, and then re
 <!--- @TODO: Explain your code & directory structure and how other people can run it. --->
 Directory structure:
 
-
     ├── posetrack_data *
     │   ├── annotations
     │   │   ├── test
@@ -147,9 +146,13 @@ Directory structure:
     ├── results ~
     ├── posetrack_train.py
     ├── posetrack_test.py
+    ├── pose_hrnet_w32_384x288.pth *
     └── requirements.txt
 
-Folders with * on their right are the folders that should be downloaded, folders with ~ on their right are the folders that should be downloaded
+- Folders with * on their right are the folders that should be downloaded, folders with ~ on their right are the folders that should be downloaded
+- 'poseval' folder should be donwloaded from [3] and added to the main directory
+- 'pose_hrnet_w32_384x288.pth' file should be donwloaded from [4] (models-> pytorch -> pose_coco -> pose_hrnet_w32_384x288.pth) and added to the main directory
+- 'models' folder should be donwloaded from [5] and added to the main directory
 
 First of all, the modules that are listed in the requirements.txt should be downloaded. Pretrained ```hrnet_w32_386_288.pth``` model should be downloaded and placed to the main folder.
 https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
@@ -164,6 +167,15 @@ Training the GNN part is done with the ```posetrack_train.py``` file. Usage is l
 
 <!--- @TODO: Present your results and compare them to the original paper. Please number your figures & tables as if this is a paper. --->
 
+Although our implementation was finished, we couldn’t test it due to the lack of information about the output format. We tried to reverse engineer to understand what format we should produce; however, it was not evident in both the dataset and the paper. We also struggled with the dataset size. Even though we made some predictions that are in the wrong format, we were not able to achieve meaningful training and testing processes in a reasonable time meaning that everyone can't reproduce the paper without having high-end machines and longer times. Therefore, the results below are from the paper.
+
+![image](https://user-images.githubusercontent.com/64609605/177093044-cfc84f35-96f1-4e5d-b9d4-7481dbfecb8e.png)
+
+![image](https://user-images.githubusercontent.com/64609605/177093078-ee543e94-c584-4f35-8cf8-8d08f667a1cb.png)
+
+![image](https://user-images.githubusercontent.com/64609605/177093139-49ba7756-b4ac-476e-97fd-0a9713b33a4c.png)
+
+
 # 4. Conclusion
 
 <!--- @TODO: Discuss the paper in relation to the results in the paper and your results. --->
@@ -172,15 +184,21 @@ The paper proposes a new approach for both human pose estimation and tracking. T
 # 5. References
 
 <!--- @TODO: Provide your references here. --->
-- Orginial paper: Yang, Y., Ren, Z., Li, H., Zhou, C., Wang, X., & Hua, G. (2021). Learning dynamics via graph neural networks for human pose estimation and tracking. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 8074-8084).
+1. Orginial paper: Yang, Y., Ren, Z., Li, H., Zhou, C., Wang, X., & Hua, G. (2021). Learning dynamics via graph neural networks for human pose estimation and tracking. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 8074-8084).
 
-- Dataset: Andriluka, M., Iqbal, U., Insafutdinov, E., Pishchulin, L., Milan, A., Gall, J., & Schiele, B. (2018). Posetrack: A benchmark for human pose estimation and tracking. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 5167-5176). (link: https://posetrack.net/)
+2. Dataset: Andriluka, M., Iqbal, U., Insafutdinov, E., Pishchulin, L., Milan, A., Gall, J., & Schiele, B. (2018). Posetrack: A benchmark for human pose estimation and tracking. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 5167-5176). (link: https://posetrack.net/)
 
-- Evaluation toolkit: https://github.com/leonid-pishchulin/poseval
+3. Evaluation toolkit: https://github.com/leonid-pishchulin/poseval
 
-- HRNet model that was downloaded: https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
+4. HRNet model that was downloaded: https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/blob/master/README.md
 
-- HRNet code that was used: https://github.com/stefanopini/simple-HRNet
+   4.1. Sun, K., Xiao, B., Liu, D., & Wang, J. (2019). Deep high-resolution representation learning for human pose estimation. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 5693-5703).
+
+   4.2 Xiao, B., Wu, H., & Wei, Y. (2018). Simple baselines for human pose estimation and tracking. In Proceedings of the European conference on computer vision (ECCV) (pp. 466-481).
+   
+   4.3 Wang, J., Sun, K., Cheng, T., Jiang, B., Deng, C., Zhao, Y., ... & Xiao, B. (2020). Deep high-resolution representation learning for visual recognition. IEEE transactions on pattern analysis and machine intelligence, 43(10), 3349-3364.
+
+5. HRNet code that was used: https://github.com/stefanopini/simple-HRNet
 
 # Contact
 
