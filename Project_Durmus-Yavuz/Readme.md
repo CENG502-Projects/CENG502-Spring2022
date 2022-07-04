@@ -85,6 +85,15 @@ Project Directory:
 
 
 ```
+Requirements:
+
+Install PyTorch if required: 
+
+```bash
+pip3 install torch torchvision
+```
+
+
 To train and test the SCLoss with CIFAR10 dataset run:
 
 ```
