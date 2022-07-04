@@ -1,0 +1,9 @@
+numpy
+torchvision
+pillow
+natsort
+tqdm
+easydict
+torch==1.9.0
+albumentations
+tensorboard

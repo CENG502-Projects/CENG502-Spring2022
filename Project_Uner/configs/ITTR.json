@@ -1,0 +1,98 @@
+{
+    "name": "ITTR_horse2zebra",
+    "n_gpu": 1,
+    "gpu_id": 1,
+
+    "generator": {
+        "type": "ITTRGenerator",
+        "args": {
+            "input_nc": 3,
+            "output_nc": 3,
+            "ngf": 64,
+            "n_blocks": 9,
+            "hpb_res": 64
+        }
+    },
+
+    "discriminator": {
+        "type": "NLayerDiscriminator",
+        "args": {
+            "input_nc": 3,
+            "ndf": 64,
+            "n_layers": 3
+        }
+    },
+
+    "projection": {
+        "type": "PatchSampleF",
+        "args": {
+            "use_mlp": true,
+            "nc": 256,
+            "fc": [3, 128, 256, 256, 256]
+        }
+    },
+
+    "datamanager": {
+        "type": "UnpairedDataset",
+        "root": "./datasets",
+        "train_set":["horse2zebra/trainA", "horse2zebra/trainB"],
+        "val_set": ["horse2zebra/testA", "horse2zebra/testB"],
+        "load_size": 286,
+        "crop_size": 256,
+        "norm_mean": [0.5, 0.5, 0.5],
+        "norm_std": [0.5, 0.5, 0.5],
+        "pin_memory": false,
+        "batch_size_train": 1,
+        "batch_size_test": 1,
+        "workers": 4
+    },
+
+    "optimizer": {
+        "type": "adam",
+        "args":{
+            "lr":0.0002,
+            "adam_beta1": 0.5,
+            "adam_beta2": 0.999,
+            "staged_lr": false,
+            "new_layers": [],
+            "base_lr_mult": 0.1
+        }
+    },
+
+    "lr_scheduler": {
+        "type": "single_step",
+        "args": {
+            "stepsize": 10,
+            "gamma": 0.5
+        }
+    },
+
+    "loss": {
+        "gan_lambda": 1.0,
+        "nce_lambda": 1.0,
+        "nce_layers": [0, 4, 8, 12, 16],
+        "num_patches": 256
+    },
+
+    "trainer": {
+        "type": "CUTTrainer",
+        "epochs": 500,
+        "save_dir": "saved/",
+        "save_period": 1,
+
+        "monitor": "none",
+        "log_per_batch": 300,
+        "warmup_batches": 0,
+
+        "val": true,
+        "val_per_epochs": 1,
+
+        "visualize_train_batch": true,
+        "visualize_val_batch": true,
+        "vis_count": 128
+    },
+
+    "deployment": {
+        "best_model": ""
+    }
+}
