@@ -59,7 +59,9 @@ Not available, as the implementation is incomplete.
 
 # 4. Conclusion
 
-The paper proposes the first deep neural network architecture that is able to generate mesh deformation sequences by capturing and using temporal relationship among the meshes. It is shown that it works well in tasks such as sequence generation and sequence completion. There are still a lot of room for improvement as there are some failure cases as shown in the Figure 13 of the paper[1]. Also, the network is tightly dependent on the number of vertices of input meshes, which limits its applicability in real world scenarios.
+The paper proposes the first deep neural network architecture that is able to generate mesh deformation sequences by capturing and using temporal relationship among the meshes. It is shown that it works well in tasks such as sequence generation and sequence completion. 
+
+There are still a lot of room for improvement as there are some failure cases as shown in the Figure 13 of the paper[1]. Also, the network is tightly dependent on the number of vertices of input meshes, which limits its applicability in real world scenarios. Another problem that remains unsolved is the training and test data need to have significant similarities. Otherwise, the network fails to generate a reasonable/realistic deformation sequence going from one pose to another. However, this problem is quite challening and all learning-based methods are influenced by this to some degree.
 
 # 5. References
 
