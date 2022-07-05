@@ -74,10 +74,16 @@ As mentioned in the [Our interpretation](#22-our-interpretation) section we chan
 Experiments on the classification tasks requires 4000 epcoh training. Therefore, along with pretrained ResNet-18 for CIFAR10, we conducted trainings with weaker ResNet-18s. As the first step, we take pretrained ResNet-18 from PyTorch. We finetuned the model for 25 epcohs which reached %78 accuracy. As a result, instead of aiming +%92 accuracy, we aimed +%78 accuracy. 
 ## 3.2. Running the code
 
-To run an experiment with Conv4 backbone, 5 number of supports and with attention policy module. 
+To run an experiment with Conv4 backbone, 5 number of supports and with attention policy module.
 ```python
 python train_fw.py --with_attention --num_support 5 --backbone Conv4
 ```
+To run supervised learning just call train code. However, if you want to change, you can edit the config in the train.py. It also includes evaluation and finetuning of a backbone code. You can comment out the code and run them as well the training code.
+
+```
+python train.py
+```
+
 File structure of the project:
 ```
 project
