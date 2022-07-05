@@ -97,7 +97,9 @@ project
 
 ![Exps](materials/exps.png)  
 
-Additionally, as mentioned at [Experimental Setup](#31-experimental-setup), the aim was %78.3 accuracy. RAP method reached %78.8 
+Additionally, as mentioned at [Experimental Setup](#31-experimental-setup), the aim was %78.3 accuracy. RAP method reached %78.8 accuracy at the end of 250 epoch. It reached %79.2 at the end of 1000 epoch. Please remind that we did not investigate hyper parameter search.  
+
+
 # 4. Conclusion
 
 Our accuracies are not consistent with the accuracies presented in the paper. (Table 1 in the paper)

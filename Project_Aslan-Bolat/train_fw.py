@@ -242,10 +242,23 @@ def main(with_attention, num_class, num_support, num_query, num_episodes, learni
         print(test_accuracy_attention(num_episodes//2, backbone, rl_agent, test_data_sampler, num_class, num_support, num_query, 5))
 
 if __name__ == "__main__":
-    main(with_attention=True, 
-         num_class=5, 
-         num_support=1, 
-         num_query=16, 
-         num_episodes=1200, 
-         learning_rate=1e-3, 
-         backbone=resnet10(attention_layer=2))
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--with_attention", help="Use RAP Model", action="store_true")
+    parser.add_argument("--num_support", default=5, type=int, help="Number of support examples used")
+    parser.add_argument("--backbone", default="Conv4", help="Backbone architecture", choices=["Conv4", "Conv6", "ResNet10"])
+    args = parser.parse_args()
+
+    if args.backbone == "Conv4":
+        backbone = Conv4(inplanes=3)
+    elif args.backbone == "Conv6":
+        backbone = Conv6(inplanes=3) 
+    else:
+        backbone = resnet10(2)
+    main(with_attention=args.with_attention, 
+                    num_class=5, 
+                    num_support=args.num_support, 
+                    num_query=16, 
+                    num_episodes=1200, 
+                    learning_rate=1e-3, 
+                    backbone=backbone)

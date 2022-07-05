@@ -206,10 +206,7 @@ if __name__=="__main__":
         "finetune_epoch" : 100,
         "use_pretrained" : True,
         "agent_dir": "models/loss_rap_agent_rein.pt",
-        # "backbone_dir" : "models/resnet18.pt",
         "backbone_dir" : "models/loss_rap_resnet18_rein.pt",
-        # "backbone_dir" : "models/new_rap_resnet18_freezed.pt",
-        # "backbone_dir" : "models/resnet18-f37072fd.pth",
         "device" : "cuda",
         "learning_rate": 1e-6,  # 1e-6 in the paper
         "epoch": 4000,
@@ -221,11 +218,12 @@ if __name__=="__main__":
     }
 
     trainer = Trainer(config=config)
-    # trainer.train()
+    trainer.train()
+    
     # trainer.finetune_backbone(trainer.backbone, False, True)
 
-    performance = trainer.eval(trainer.test_loader, trainer.backbone, trainer.agent)
-    print(performance)
+    # performance = trainer.eval(trainer.test_loader, trainer.backbone, trainer.agent)
+    # print(performance)
     
     # first_loop = True
     # while performance < 92.6:
